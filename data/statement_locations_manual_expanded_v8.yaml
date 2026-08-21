@@ -1,0 +1,1705 @@
+schema_version: 1
+source_table: data/table_cells_manual_expanded_v8.yaml
+resolver_reports:
+- outputs/reports/statement_location_candidates_v4.yaml
+- outputs/reports/statement_location_candidates_v4_targeted.yaml
+- outputs/reports/statement_location_candidates_v4_targeted_2.yaml
+- outputs/reports/statement_location_candidates_v4_targeted_3.yaml
+- outputs/reports/statement_location_candidates_v4_targeted_3b.yaml
+override_source: data/statement_location_overrides_manual_expanded_v8.yaml
+verification_authority: PDF-visible numbering in the downloaded arXiv PDF
+counts:
+  claim_sides: 75
+  verified: 75
+  papers: 50
+locations:
+- claim_id: kovalev2021#curated:kovalev2021_lb_sc_sm_tv_fo
+  row_number: 1
+  cell_id: agent_van_sum_sc_sm_fo_tv_goss_sync_ncmp_n_fo_objective_gap_general
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2106.04469'
+  original_location: Theorem 3
+  display_location: Theorem 3
+  internal_locators:
+  - thm:lower_comp
+  source_page_candidates:
+  - '6'
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2106_04469.pdf
+  pdf_sha256: e71b8fb551de63981f554605a65fce0fa5cb2f8fcd999b3b9a3e21c2eb10cc76
+  source_archive: references/07_kovalev2021_smooth_sc_time_varying_lb/arxiv-2106.04469-eprint
+  source_archive_sha256: 31039689b8e2eef754dde632bd2ec39f6d839dfa46041f08ef2e5ec7dc2f5b20
+  previous_original_location: Thm. lower_comp
+- claim_id: kovalev2021#curated:kovalev2021_ub_sc_sm_tv_fo
+  row_number: 1
+  cell_id: agent_van_sum_sc_sm_fo_tv_goss_sync_ncmp_n_fo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2106.04469'
+  original_location: Theorem 6
+  display_location: Theorem 6
+  internal_locators:
+  - thm:adom+
+  source_page_candidates:
+  - '10'
+  pdf_pages:
+  - 10
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2106_04469.pdf
+  pdf_sha256: e71b8fb551de63981f554605a65fce0fa5cb2f8fcd999b3b9a3e21c2eb10cc76
+  source_archive: references/07_kovalev2021_smooth_sc_time_varying_lb/arxiv-2106.04469-eprint
+  source_archive_sha256: 31039689b8e2eef754dde632bd2ec39f6d839dfa46041f08ef2e5ec7dc2f5b20
+  previous_original_location: Thm. adom+
+- claim_id: kovalev2024#curated:kovalev2024_lb_sc_ns_tv_subg
+  row_number: 4
+  cell_id: agent_van_sum_sc_ns_subg_tv_goss_sync_ncmp_n_subg_objective_gap_general
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2405.18031'
+  original_location: Theorem 1
+  display_location: Theorem 1
+  internal_locators:
+  - thm:lb_sc
+  source_page_candidates:
+  - '5'
+  pdf_pages:
+  - 5
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2405_18031.pdf
+  pdf_sha256: e086b2c9f4651caf97252a546fdbe580dd9d19f20f6baa9034a98f3c733c17c3
+  source_archive: references/05_kovalev2024_nonsmooth_time_varying_networks/arxiv-2405.18031-eprint
+  source_archive_sha256: 930a05ab5383788343174b5502a2657d5476d68ad64e483923c25da1706576bc
+  previous_original_location: Thm. lb_sc
+- claim_id: kovalev2024#curated:kovalev2024_ub_sc_ns_tv_subg
+  row_number: 4
+  cell_id: agent_van_sum_sc_ns_subg_tv_goss_sync_ncmp_n_subg_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2405.18031'
+  original_location: Theorem 3
+  display_location: Theorem 3
+  internal_locators:
+  - thm:alg_sc
+  source_page_candidates:
+  - '7'
+  pdf_pages:
+  - 7
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2405_18031.pdf
+  pdf_sha256: e086b2c9f4651caf97252a546fdbe580dd9d19f20f6baa9034a98f3c733c17c3
+  source_archive: references/05_kovalev2024_nonsmooth_time_varying_networks/arxiv-2405.18031-eprint
+  source_archive_sha256: 930a05ab5383788343174b5502a2657d5476d68ad64e483923c25da1706576bc
+  previous_original_location: Thm. alg_sc
+- claim_id: scaman2018#curated:scaman2018_lb_c_ns_stat_subg
+  row_number: 2
+  cell_id: agent_van_sum_c_ns_subg_stat_goss_sync_ncmp_n_subg_objective_gap_general
+  side: lower_bound
+  paper_id: ''
+  arxiv: '1806.00291'
+  original_location: Theorem 3
+  display_location: Theorem 3
+  internal_locators:
+  - th:lb_W
+  source_page_candidates:
+  - '7'
+  pdf_pages:
+  - 7
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1806_00291.pdf
+  pdf_sha256: 545a210a438e43db88d13bb64adfafcdeab4836d5d616dc954b5287daf811d8e
+  source_archive: references/06_scaman2018_nonsmooth_distributed_networks/arxiv-1806.00291-eprint
+  source_archive_sha256: fad5779ef74b6b15e75a4cb404d9ed90adbf03338a2453d9f11a2dca2c3ecda9
+  previous_original_location: Thm. lb_W
+- claim_id: scaman2018#curated:scaman2018_ub_c_ns_stat_subg
+  row_number: 2
+  cell_id: agent_van_sum_c_ns_subg_stat_goss_sync_ncmp_n_subg_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1806.00291'
+  original_location: Theorem 5
+  display_location: Theorem 5
+  internal_locators:
+  - th:cv_MSPD
+  source_page_candidates:
+  - '10'
+  pdf_pages:
+  - 10
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1806_00291.pdf
+  pdf_sha256: 545a210a438e43db88d13bb64adfafcdeab4836d5d616dc954b5287daf811d8e
+  source_archive: references/06_scaman2018_nonsmooth_distributed_networks/arxiv-1806.00291-eprint
+  source_archive_sha256: fad5779ef74b6b15e75a4cb404d9ed90adbf03338a2453d9f11a2dca2c3ecda9
+  previous_original_location: Thm. cv_MSPD
+- claim_id: kovalev2024#curated:kovalev2024_lb_c_ns_tv_subg
+  row_number: 6
+  cell_id: agent_van_sum_c_ns_subg_tv_goss_sync_ncmp_n_subg_objective_gap_general
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2405.18031'
+  original_location: Theorem 2
+  display_location: Theorem 2
+  internal_locators:
+  - thm:lb
+  source_page_candidates:
+  - '5'
+  pdf_pages:
+  - 5
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2405_18031.pdf
+  pdf_sha256: e086b2c9f4651caf97252a546fdbe580dd9d19f20f6baa9034a98f3c733c17c3
+  source_archive: references/05_kovalev2024_nonsmooth_time_varying_networks/arxiv-2405.18031-eprint
+  source_archive_sha256: 930a05ab5383788343174b5502a2657d5476d68ad64e483923c25da1706576bc
+  previous_original_location: Thm. lb
+- claim_id: kovalev2024#curated:kovalev2024_ub_c_ns_tv_subg
+  row_number: 6
+  cell_id: agent_van_sum_c_ns_subg_tv_goss_sync_ncmp_n_subg_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2405.18031'
+  original_location: Theorem 4
+  display_location: Theorem 4
+  internal_locators:
+  - thm:alg
+  source_page_candidates:
+  - '7'
+  pdf_pages:
+  - 7
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2405_18031.pdf
+  pdf_sha256: e086b2c9f4651caf97252a546fdbe580dd9d19f20f6baa9034a98f3c733c17c3
+  source_archive: references/05_kovalev2024_nonsmooth_time_varying_networks/arxiv-2405.18031-eprint
+  source_archive_sha256: 930a05ab5383788343174b5502a2657d5476d68ad64e483923c25da1706576bc
+  previous_original_location: Thm. alg
+- claim_id: manual_arxiv_2210_13931#lb_pl_stat
+  row_number: 10
+  cell_id: manual_van_sum_pl_sm_sfo_stat_goss_objective_gap
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2210.13931'
+  original_location: Theorem 7; Table 4
+  display_location: Theorem 7; Table 4
+  internal_locators:
+  - thm:LFO-pl
+  - table:pl-2
+  source_page_candidates:
+  - '50'
+  - '59'
+  pdf_pages:
+  - 50
+  - 59
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: Theorem 7 gives the aggregate IFO lower bound and Table 4 reports the corresponding
+    LIFO lower bound; division by the node count yields average/worst-node workload.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2210_13931.pdf
+  pdf_sha256: cb5f429c22c5bde38368d75bcffa9593837944cc312a99b21158605e2aa58b86
+  source_archive: references/arxiv_2210_13931_on_the_complexity_of_decentralized_smooth_non/arxiv-2210.13931-eprint
+  source_archive_sha256: 0f88e3e58634a4bf4a7d4e8786ed5ad3375efa5397377936c80abe7e01d92b19
+  previous_original_location: PL computation-round lower-bound theorem
+- claim_id: manual_arxiv_2210_13931#ub_pl_stat
+  row_number: 10
+  cell_id: manual_van_sum_pl_sm_sfo_stat_goss_objective_gap
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2210.13931'
+  original_location: Corollary 2; Table 4
+  display_location: Corollary 2; Table 4
+  internal_locators:
+  - cor:PL-1
+  - table:pl-2
+  source_page_candidates:
+  - '50'
+  - '54'
+  pdf_pages:
+  - 50
+  - 54
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: Corollary 2 and Table 4 state expected aggregate LIFO complexity; uniform node-component
+    sampling gives the expected per-node share.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2210_13931.pdf
+  pdf_sha256: cb5f429c22c5bde38368d75bcffa9593837944cc312a99b21158605e2aa58b86
+  source_archive: references/arxiv_2210_13931_on_the_complexity_of_decentralized_smooth_non/arxiv-2210.13931-eprint
+  source_archive_sha256: 0f88e3e58634a4bf4a7d4e8786ed5ad3375efa5397377936c80abe7e01d92b19
+  previous_original_location: Cor. PL-1; Table pl-1
+- claim_id: manual_v2_arxiv_2006_08085#lb_full_time
+  row_number: 12
+  cell_id: agent_van_sto_nc_sm_sfo_stat_goss_sync_ncmp_n_sfo_gradient_norm_general
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2006.08085'
+  original_location: Corollary 1
+  display_location: Corollary 1
+  internal_locators:
+  - corollary lower bound
+  source_page_candidates:
+  - '7'
+  pdf_pages:
+  - 7
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2006_08085.pdf
+  pdf_sha256: 720a7e94166b0472cb105059d7edde5f49706d6a5fed16d23748ea5cfce6a363
+  source_archive: references/02_lu2021_optimal_complexity_decentralized_training/arxiv-2006.08085-eprint
+  source_archive_sha256: 21ca49a3cc63093c989238a56c0b8465599070f57c67a5ada669530c69181db2
+  previous_original_location: Cor. lower bound
+- claim_id: manual_v2_arxiv_2006_08085#ub_detag_full_time
+  row_number: 12
+  cell_id: agent_van_sto_nc_sm_sfo_stat_goss_sync_ncmp_n_sfo_gradient_norm_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2006.08085'
+  original_location: Theorem 3
+  display_location: Theorem 3
+  internal_locators:
+  - thmrateDeTAG
+  source_page_candidates:
+  - '10'
+  pdf_pages:
+  - 10
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2006_08085.pdf
+  pdf_sha256: 720a7e94166b0472cb105059d7edde5f49706d6a5fed16d23748ea5cfce6a363
+  source_archive: references/02_lu2021_optimal_complexity_decentralized_training/arxiv-2006.08085-eprint
+  source_archive_sha256: 21ca49a3cc63093c989238a56c0b8465599070f57c67a5ada669530c69181db2
+  previous_original_location: Thm. rateDeTAG
+- claim_id: yuan2022#curated:yuan2022_lb_sto_nc_sm_stat_general_sfo
+  row_number: 7
+  cell_id: agent_van_sto_nc_sm_sfo_stat_goss_sync_ncmp_n_sfo_gradient_norm_squared_general
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2210.07863'
+  original_location: Table 6
+  display_location: Table 6
+  internal_locators:
+  - table-non-convex-app
+  source_page_candidates:
+  - '15'
+  pdf_pages:
+  - 15
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2210_07863.pdf
+  pdf_sha256: 2acb8496fa7b3b8b6566d6b8acb0f7ee122a99960dfac29695792e70baad8276
+  source_archive: references/10_yuan2022_stochastic_nonconvex_general_static/arxiv-2210.07863-eprint
+  source_archive_sha256: 9ed0d23ff406c087a5499e8c87210d4d555f2f74f5531c6b9482439bd63ead0a
+  previous_original_location: Thm. lower-bound-nc and Table non-convex-app
+- claim_id: yuan2022#curated:yuan2022_ub_sto_nc_sm_stat_general_sfo
+  row_number: 7
+  cell_id: agent_van_sto_nc_sm_sfo_stat_goss_sync_ncmp_n_sfo_gradient_norm_squared_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2210.07863'
+  original_location: Theorem 4
+  display_location: Theorem 4
+  internal_locators:
+  - thm-MG-DSGD-rate-nc
+  source_page_candidates:
+  - '8'
+  pdf_pages:
+  - 8
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2210_07863.pdf
+  pdf_sha256: 2acb8496fa7b3b8b6566d6b8acb0f7ee122a99960dfac29695792e70baad8276
+  source_archive: references/10_yuan2022_stochastic_nonconvex_general_static/arxiv-2210.07863-eprint
+  source_archive_sha256: 9ed0d23ff406c087a5499e8c87210d4d555f2f74f5531c6b9482439bd63ead0a
+  previous_original_location: Thm. MG-DSGD-rate-nc
+- claim_id: arxiv_2312_04928_understanding_the_influence_of_digraphs_on_de#1
+  row_number: 8
+  cell_id: manual_reaudit_van_sto_nc_sm_sfo_stat_directed_gap
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2312.04928'
+  original_location: Theorem 1; Equation (11)
+  display_location: Theorem 1; Equation (11)
+  internal_locators:
+  - thm:lower-bound
+  - eqn:lower-bound
+  source_page_candidates:
+  - '12'
+  pdf_pages:
+  - 12
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2312_04928.pdf
+  pdf_sha256: 38574291b41edd107cab9cae6a03ea44606a478d88b1b894da278c83a97fd455
+  source_archive: references/arxiv_2312_04928_understanding_the_influence_of_digraphs_on_de/arxiv-2312.04928-eprint
+  source_archive_sha256: 40ba9f73d4cbb9342c6463b9b51aa73567d545ae2b896dffc37a8b0b849c57d8
+  previous_original_location: Thm. lower-bound; Eq. lower-bound
+- claim_id: manual_v2_arxiv_2312_04928#ub_mg_stochastic
+  row_number: 8
+  cell_id: manual_reaudit_van_sto_nc_sm_sfo_stat_directed_gap
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2312.04928'
+  original_location: Equation (14)
+  display_location: Equation (14)
+  internal_locators:
+  - eqn:mg-upper
+  source_page_candidates:
+  - '14'
+  pdf_pages:
+  - 14
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2312_04928.pdf
+  pdf_sha256: 38574291b41edd107cab9cae6a03ea44606a478d88b1b894da278c83a97fd455
+  source_archive: references/arxiv_2312_04928_understanding_the_influence_of_digraphs_on_de/arxiv-2312.04928-eprint
+  source_archive_sha256: 40ba9f73d4cbb9342c6463b9b51aa73567d545ae2b896dffc37a8b0b849c57d8
+  previous_original_location: Thm. MG-Push-DIGing; Eq. mg-upper
+- claim_id: huang2022#curated:huang2022_lb_sto_nc_sm_tv_sfo
+  row_number: 9
+  cell_id: agent_van_sto_nc_sm_sfo_tv_goss_sync_ncmp_n_sfo_gradient_norm_squared_general
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2211.00533'
+  original_location: Theorem 4
+  display_location: Theorem 4
+  internal_locators:
+  - thm:lower-bound-nc
+  source_page_candidates:
+  - '6'
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2211_00533.pdf
+  pdf_sha256: 9b91a766a13dd446984ce97e506947a3deb5664d7abb4cc246ba0f8698b767a0
+  source_archive: references/04_huang2022_nonconvex_time_varying_networks/arxiv-2211.00533-eprint
+  source_archive_sha256: 881f642927c226afba0a9237ad13367c99a1f31ec694cab693eef48ebc4c94aa
+  previous_original_location: Thm. lower-bound-nc
+- claim_id: huang2022#curated:huang2022_ub_sto_nc_sm_tv_sfo
+  row_number: 9
+  cell_id: agent_van_sto_nc_sm_sfo_tv_goss_sync_ncmp_n_sfo_gradient_norm_squared_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2211.00533'
+  original_location: Theorem 6
+  display_location: Theorem 6
+  internal_locators:
+  - thm:MG-DSGT-rate-nc
+  source_page_candidates:
+  - '7'
+  pdf_pages:
+  - 7
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2211_00533.pdf
+  pdf_sha256: 9b91a766a13dd446984ce97e506947a3deb5664d7abb4cc246ba0f8698b767a0
+  source_archive: references/04_huang2022_nonconvex_time_varying_networks/arxiv-2211.00533-eprint
+  source_archive_sha256: 881f642927c226afba0a9237ad13367c99a1f31ec694cab693eef48ebc4c94aa
+  previous_original_location: Thm. MG-DSGT-rate-nc
+- claim_id: scaman2017#curated:scaman2017_lb_sc_sm_stat_fo
+  row_number: 3
+  cell_id: agent_van_sum_sc_sm_fo_stat_goss_sync_ncmp_n_fo_objective_gap_general
+  side: lower_bound
+  paper_id: ''
+  arxiv: '1702.08704'
+  original_location: Theorem 2
+  display_location: Theorem 2
+  internal_locators:
+  - th:local_lb
+  source_page_candidates:
+  - '6'
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1702_08704.pdf
+  pdf_sha256: 3839bb7cfeeea9dfa3a62d75baf34ea0df2b50d6f7c6932a617bb272ab687cf2
+  source_archive: references/01_scaman2017_optimal_algorithms_networks/arxiv-1702.08704-eprint
+  source_archive_sha256: d23e805a67c13598b1354e0a0ca1ede6dd994dadb51e2321bfe1ac934e84cd0d
+  previous_original_location: Thm. local_lb
+- claim_id: scaman2017#curated:scaman2017_ub_sc_sm_stat_fo
+  row_number: 3
+  cell_id: agent_van_sum_sc_sm_fo_stat_goss_sync_ncmp_n_fo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1702.08704'
+  original_location: Theorem 4
+  display_location: Theorem 4
+  internal_locators:
+  - th:MSDA_cv
+  source_page_candidates:
+  - '8'
+  pdf_pages:
+  - 8
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1702_08704.pdf
+  pdf_sha256: 3839bb7cfeeea9dfa3a62d75baf34ea0df2b50d6f7c6932a617bb272ab687cf2
+  source_archive: references/01_scaman2017_optimal_algorithms_networks/arxiv-1702.08704-eprint
+  source_archive_sha256: d23e805a67c13598b1354e0a0ca1ede6dd994dadb51e2321bfe1ac934e84cd0d
+  previous_original_location: Thm. MSDA_cv
+- claim_id: xu2020#curated:xu2020_lb_c_sm_stat_bregman_fo
+  row_number: 5
+  cell_id: agent_van_sum_c_sm_fo_stat_goss_sync_ncmp_n_fo_bregman_merit_bregman
+  side: lower_bound
+  paper_id: ''
+  arxiv: '1910.10666'
+  original_location: Theorem 2; Corollary 3
+  display_location: Theorem 2; Corollary 3
+  internal_locators:
+  - thm:lowerbound_eigengap
+  - eq:Bregman_lowbound
+  source_page_candidates: []
+  pdf_pages:
+  - 4
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: Corollary 3 immediately follows Theorem 2 and states the displayed complexity consequence.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1910_10666.pdf
+  pdf_sha256: eb485318e3371475707b562478ee1eae4033eb5b8ba19a616b35350ddeaaad45
+  source_archive: references/08_xu2020_accelerated_primal_dual_smooth_convex_static/arxiv-1910.10666-eprint
+  source_archive_sha256: ffd515899d75c4cf86171cfb150fce7f8e50245d0db46fb54344aa0dbdc6e67b
+  previous_original_location: Corollary after Thm. lowerbound_eigengap
+- claim_id: xu2020#curated:xu2020_ub_c_sm_stat_bregman_fo
+  row_number: 5
+  cell_id: agent_van_sum_c_sm_fo_stat_goss_sync_ncmp_n_fo_bregman_merit_bregman
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1910.10666'
+  original_location: Theorem 7
+  display_location: Theorem 7
+  internal_locators:
+  - thm:opt-pd-upperbound-cheby
+  source_page_candidates:
+  - '6'
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1910_10666.pdf
+  pdf_sha256: eb485318e3371475707b562478ee1eae4033eb5b8ba19a616b35350ddeaaad45
+  source_archive: references/08_xu2020_accelerated_primal_dual_smooth_convex_static/arxiv-1910.10666-eprint
+  source_archive_sha256: ffd515899d75c4cf86171cfb150fce7f8e50245d0db46fb54344aa0dbdc6e67b
+  previous_original_location: Thm. opt-pd-upperbound-cheby
+- claim_id: manual_arxiv_2210_13931#lb_nc_stat
+  row_number: 11
+  cell_id: agent_van_sum_nc_sm_sfo_stat_goss_sync_ncmp_n_sfo_gradient_norm_finite_sum
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2210.13931'
+  original_location: Theorem 3; Table 2; Remark 9
+  display_location: Theorem 3; Table 2; Remark 9
+  internal_locators:
+  - thm:LFO
+  - table:nc-2
+  source_page_candidates:
+  - '11'
+  - '44'
+  - '46'
+  pdf_pages:
+  - 11
+  - 44
+  - 46
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: Theorem 3 and Table 2 give the aggregate IFO/LIFO lower bound, and Remark 9 states
+    the decentralized N=mn embedding; division by the node count yields average/worst-node workload.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2210_13931.pdf
+  pdf_sha256: cb5f429c22c5bde38368d75bcffa9593837944cc312a99b21158605e2aa58b86
+  source_archive: references/arxiv_2210_13931_on_the_complexity_of_decentralized_smooth_non/arxiv-2210.13931-eprint
+  source_archive_sha256: 0f88e3e58634a4bf4a7d4e8786ed5ad3375efa5397377936c80abe7e01d92b19
+  previous_original_location: Thm. lower-computation
+- claim_id: arxiv_2408_09775_faster_adaptive_decentralized_learning_algori#2
+  row_number: 11
+  cell_id: agent_van_sum_nc_sm_sfo_stat_goss_sync_ncmp_n_sfo_gradient_norm_finite_sum
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2408.09775'
+  original_location: Theorem 5.5; Remark 5.6
+  display_location: Theorem 5.5; Remark 5.6
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The finite-sum AdaMDOF rate is stated in Theorem 5.5 and specialized to the displayed
+    sample complexity in Remark 5.6.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2408_09775.pdf
+  pdf_sha256: 96b576e24417ce32424e1c1bca9d0f42100abfc3eca2a11c15bd7e9db0cd4ed4
+  source_archive: references/arxiv_2408_09775_faster_adaptive_decentralized_learning_algori/arxiv-2408.09775-eprint
+  source_archive_sha256: 1a0afd2183bd8b8fef02634a7f8af6910dab8fc69f277847c289cebc3c594a7e
+  previous_original_location: Thm. 2; finite-sum remark
+- claim_id: yuan2022#curated:yuan2022_lb_sto_pl_sm_stat_sfo
+  row_number: 13
+  cell_id: agent_van_sto_pl_sm_sfo_stat_goss_sync_ncmp_n_sfo_objective_gap_general
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2210.07863'
+  original_location: Table 7
+  display_location: Table 7
+  internal_locators:
+  - table-non-convex-PL-app
+  source_page_candidates:
+  - '15'
+  pdf_pages:
+  - 15
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2210_07863.pdf
+  pdf_sha256: 2acb8496fa7b3b8b6566d6b8acb0f7ee122a99960dfac29695792e70baad8276
+  source_archive: references/10_yuan2022_stochastic_nonconvex_general_static/arxiv-2210.07863-eprint
+  source_archive_sha256: 9ed0d23ff406c087a5499e8c87210d4d555f2f74f5531c6b9482439bd63ead0a
+  previous_original_location: Thm. lower-bound-pl and Table non-convex-PL-app
+- claim_id: yuan2022#curated:yuan2022_ub_sto_pl_sm_stat_sfo
+  row_number: 13
+  cell_id: agent_van_sto_pl_sm_sfo_stat_goss_sync_ncmp_n_sfo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2210.07863'
+  original_location: Theorem 5
+  display_location: Theorem 5
+  internal_locators:
+  - thm-MG-DSGD-rate-pl
+  source_page_candidates:
+  - '8'
+  pdf_pages:
+  - 8
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2210_07863.pdf
+  pdf_sha256: 2acb8496fa7b3b8b6566d6b8acb0f7ee122a99960dfac29695792e70baad8276
+  source_archive: references/10_yuan2022_stochastic_nonconvex_general_static/arxiv-2210.07863-eprint
+  source_archive_sha256: 9ed0d23ff406c087a5499e8c87210d4d555f2f74f5531c6b9482439bd63ead0a
+  previous_original_location: Thm. MG-DSGD-rate-pl
+- claim_id: arxiv_2004_02635_dualize_split_randomize_toward_fast_nonsmooth#1
+  row_number: 15
+  cell_id: agent_van_sum_sc_sm_fo_stat_goss_sync_ncmp_n_fo_objective_gap_finite_sum
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2004.02635'
+  original_location: Appendix C, paragraph following Theorem C.1
+  display_location: Appendix C, paragraph following Theorem C.1
+  internal_locators:
+  - th:destroy-cv
+  source_page_candidates:
+  - '21'
+  pdf_pages:
+  - 2
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2004_02635.pdf
+  pdf_sha256: 3429f2128ed751f897c8e4e3ec01ebc20268aadcfc7a51222c01663a5ffed98f
+  source_archive: references/arxiv_2004_02635_dualize_split_randomize_toward_fast_nonsmooth/arxiv-2004.02635-eprint
+  source_archive_sha256: 63add961256c482644f2c3437e3c0228ed0675f239c0ecc732d974937683f996
+  previous_original_location: Appendix C paragraph after Thm. th:destroy-cv
+- claim_id: arxiv_2308_08164_privacy_preserving_push_pull_method_for_decen#1
+  row_number: 16
+  cell_id: agent_van_sum_sc_sm_fo_stat_goss_sync_ncmp_n_fo_distance_to_optimum_directed
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2308.08164'
+  original_location: Theorem 1
+  display_location: Theorem 1
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The convergence statement is visibly numbered Theorem 1 in Section IV.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2308_08164.pdf
+  pdf_sha256: 568b2909b8a703126f335c3cd0f67150a138d6745fae500d4f9b5e0e6a9963f8
+  source_archive: references/arxiv_2308_08164_privacy_preserving_push_pull_method_for_decen/arxiv-2308.08164-eprint
+  source_archive_sha256: 85aaa64b03aa03a042592bf249a3a11b2e895f85efb5b825e7a4e579c64d2d1f
+  previous_original_location: Thm. 1 in Section IV (Convergence Performance)
+- claim_id: arxiv_1803_09169_frost_fast_row_stochastic_optimization_with_u#1
+  row_number: 17
+  cell_id: agent_van_sum_sc_sm_fo_stat_goss_sync_ncmp_n_fo_distance_to_optimum_directed_row_stochastic
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1803.09169'
+  original_location: Theorem 2; Theorem 1
+  display_location: Theorem 2; Theorem 1
+  internal_locators:
+  - thm1
+  - thm0
+  source_page_candidates:
+  - '18'
+  - '20'
+  pdf_pages:
+  - 18
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1803_09169.pdf
+  pdf_sha256: e90aa46143322aaf78db99de83280560c62450f2a88c15409a4e928ba2b8f252
+  source_archive: references/arxiv_1803_09169_frost_fast_row_stochastic_optimization_with_u/arxiv-1803.09169-eprint
+  source_archive_sha256: 8cc907b19c77faf7e2f5a8e7850314941bb9d82c6a9d1b60274c1ca42b4db35b
+  previous_original_location: Thm. 2 (Thm. thm1), with step-size condition from Thm. 1 (Thm. thm0)
+- claim_id: arxiv_1810_07393_optimization_over_time_varying_directed_graph#1
+  row_number: 18
+  cell_id: agent_van_sum_sc_sm_fo_tv_goss_sync_ncmp_n_fo_distance_to_optimum_column_stochastic_directed_a4449373
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1810.07393'
+  original_location: Theorem 1
+  display_location: Theorem 1
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 5
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The PDF states the linear convergence result as Theorem 1; the prior after-Equation-(20)
+    locator was not a visible statement number.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1810_07393.pdf
+  pdf_sha256: 9e28fb2c6c12f610a663ad45744ceeaf35292b04c5ed29fe25776abab157a957
+  source_archive: references/arxiv_1810_07393_optimization_over_time_varying_directed_graph/arxiv-1810.07393-eprint
+  source_archive_sha256: 4fb911c05bfbd6d40d4dfed49ef300bdbbcd731b542ecfc5e87f1dc9739e1441
+  previous_original_location: Section IV, Thm. after Eq. (20)
+- claim_id: arxiv_1611_00990_geometrical_convergence_rate_for_distributed#1
+  row_number: 19
+  cell_id: agent_van_sum_sc_sm_fo_tv_goss_sync_ncmp_n_fo_distance_to_optimum_column_stochastic_directed
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1611.00990'
+  original_location: Theorem 4.1; Corollary 4.2
+  display_location: Theorem 4.1; Corollary 4.2
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 12
+  - 15
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: Both numbered statements are visible in the arXiv PDF.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1611_00990.pdf
+  pdf_sha256: 2eb68d102c48192d767ee402184d137465e716b7e2e39e6fdcfe292c1b03794f
+  source_archive: references/arxiv_1611_00990_geometrical_convergence_rate_for_distributed/arxiv-1611.00990-eprint
+  source_archive_sha256: 2eb68d102c48192d767ee402184d137465e716b7e2e39e6fdcfe292c1b03794f
+  previous_original_location: Thm. 4.1 and Corollary 4.2
+- claim_id: arxiv_1911_08527_projected_gradient_method_for_decentralized_o#1
+  row_number: 20
+  cell_id: agent_van_sum_sc_sm_fo_tv_goss_sync_ncmp_n_fo_distance_to_optimum_split_unspecified
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1911.08527'
+  original_location: Theorem 4.3
+  display_location: Theorem 4.3
+  internal_locators:
+  - th:decentralized_gd
+  source_page_candidates:
+  - '4'
+  pdf_pages:
+  - 4
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1911_08527.pdf
+  pdf_sha256: 09eb6b886296c3276172d8258aa506753f1bbbbbf6c7a490fa32156bfdacd948
+  source_archive: references/arxiv_1911_08527_projected_gradient_method_for_decentralized_o/arxiv-1911.08527-eprint
+  source_archive_sha256: 9eecfd2ba1fbc45d7c685d9c8d3efe2d2ffaef330f8969dacf2df2761c3f8623
+  previous_original_location: Thm. 3.1, label th:decentralized_gd
+- claim_id: arxiv_2309_02626_adaptive_consensus_a_network_pruning_approach#1
+  row_number: 21
+  cell_id: agent_van_sum_sc_sm_fo_tv_goss_sync_ncmp_n_fo_distance_to_optimum_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2309.02626'
+  original_location: Theorem 3.1; Corollary 3.1
+  display_location: Theorem 3.1; Corollary 3.1
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 20
+  - 25
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The prior locator dropped the section prefixes from both visible statement numbers.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2309_02626.pdf
+  pdf_sha256: 2165eafe1928333c10870aca9e2759c9c2695b93d6db51c5e3f54f32d3c1d081
+  source_archive: references/arxiv_2309_02626_adaptive_consensus_a_network_pruning_approach/arxiv-2309.02626-eprint
+  source_archive_sha256: 294436e4ed0e63d61d0b7b233b1532448fc2b7b12317142b8c5f512b9be60fcd
+  previous_original_location: Thm. 2; Cor. 3
+- claim_id: arxiv_2009_04373_variance_reduced_extra_and_diging_and_their_o#6
+  row_number: 24
+  cell_id: manual_reaudit_van_sum_sc_sm_sfo_stat_goss_vr_extra
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2009.04373'
+  original_location: Corollary 5
+  display_location: Corollary 5
+  internal_locators:
+  - acc-corollary1
+  source_page_candidates: []
+  pdf_pages:
+  - 14
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The internal label acc-corollary1 resolves to the fifth visible corollary in the
+    PDF.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2009_04373.pdf
+  pdf_sha256: 418443ded64cd513fb20fe1b3201f990e816ad12a849f11c527eb22833ed4381
+  source_archive: references/arxiv_2009_04373_variance_reduced_extra_and_diging_and_their_o/arxiv-2009.04373-eprint
+  source_archive_sha256: ab0010830e947b6d1da8a5c8a9bebd78f82aa457c43a0497f3a13b17e8426d16
+  previous_original_location: Corollary acc-corollary1
+- claim_id: arxiv_1910_04057_variance_reduced_decentralized_stochastic_opt#1
+  row_number: 25
+  cell_id: agent_van_sum_sc_sm_sfo_stat_goss_sync_ncmp_n_sfo_distance_to_optimum_finite_sum
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1910.04057'
+  original_location: Theorems 1 and 2
+  display_location: Theorems 1 and 2
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 3
+  - 12
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: Theorem 1 states the complexity and Theorem 2 supplies the outer-loop contraction
+    used in its proof.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1910_04057.pdf
+  pdf_sha256: 3a2499300c6a4f3b209a7335ef27d2dfdf09c8f87364a4abd26877b9cf28e898
+  source_archive: references/arxiv_1910_04057_variance_reduced_decentralized_stochastic_opt/arxiv-1910.04057-eprint
+  source_archive_sha256: 7ce922cc62c35e19cfe95c6482d7c8b2b35c24d4eb4877d014647b5970518137
+  previous_original_location: Thm. 1 and proof of Thm. 1; also Thm. 2 for outer-loop contraction
+- claim_id: arxiv_2402_02490_decentralized_finite_sum_optimization_over_ti#1
+  row_number: 26
+  cell_id: agent_van_sum_sc_sm_sfo_tv_goss_sync_ncmp_n_sfo_distance_to_optimum_finite_sum
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2402.02490'
+  original_location: Corollary 4.2; Table 2
+  display_location: Corollary 4.2; Table 2
+  internal_locators:
+  - corollary:adom+_conv
+  - table:complexity_str_convex
+  source_page_candidates:
+  - '4'
+  - '6'
+  pdf_pages:
+  - 4
+  - 6
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2402_02490.pdf
+  pdf_sha256: 78e3ba938d129d3208d369cc946dc72159b615b9dc578f7fe7da2f613d1fd6fb
+  source_archive: references/arxiv_2402_02490_decentralized_finite_sum_optimization_over_ti/arxiv-2402.02490-eprint
+  source_archive_sha256: 57ecb0470e358d87dc87ca3da45a0974ab869e0201c30e3ea799f1c64071da86
+  previous_original_location: Cor. adom+_conv; Table complexity_str_convex
+- claim_id: arxiv_2312_11861_a_proximal_gradient_method_with_probabilistic#1
+  row_number: 27
+  cell_id: agent_van_sum_sc_ns_fo_stat_goss_sync_ncmp_n_fo_distance_to_optimum_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2312.11861'
+  original_location: Theorem 1; Equation (11); following complexity paragraph; Table I
+  display_location: Theorem 1; Equation (11); following complexity paragraph; Table I
+  internal_locators:
+  - THM-2
+  - LinearRate1
+  - TableCOMPA
+  source_page_candidates:
+  - '2'
+  pdf_pages:
+  - 2
+  - 5
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The source label THM-2 resolves to the PDF-visible Theorem 1; Equation (11) and the
+    following paragraph give the displayed computation complexity, while Table I summarizes the method
+    comparison.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2312_11861.pdf
+  pdf_sha256: 5c1ff0e1f7268ef15c25829580c016067bfce7d7532a68bc8e89da7ca1e92982
+  source_archive: references/arxiv_2312_11861_a_proximal_gradient_method_with_probabilistic/arxiv-2312.11861-eprint
+  source_archive_sha256: 6b4147806118f9a48a2c899ac6f26a73c3ef41ac042ed03956fed6c2a7e04736
+  previous_original_location: Theorem 1; Equation (11); following complexity paragraph; Table I
+- claim_id: arxiv_1905_07996_a_stochastic_proximal_gradient_framework_for#1
+  row_number: 28
+  cell_id: agent_van_sum_sc_ns_fo_stat_goss_sync_ncmp_n_fo_distance_to_optimum_general_manual_variant_2
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1905.07996'
+  original_location: Theorem 1
+  display_location: Theorem 1
+  internal_locators:
+  - thm-1
+  source_page_candidates:
+  - '8'
+  pdf_pages:
+  - 8
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1905_07996.pdf
+  pdf_sha256: e741fa182c02943ec5b46c6920c7953124c83d5c2c655a1acfa601608835e557
+  source_archive: references/arxiv_1905_07996_a_stochastic_proximal_gradient_framework_for/arxiv-1905.07996-eprint
+  source_archive_sha256: 8f50af088b6ea4a46dd6129d58edc5dde595ba6743780d3cb0ae34028734484c
+  previous_original_location: Thm. 1 / thm-1 Linear convergence
+- claim_id: arxiv_2106_14075_decentralized_composite_optimization_in_stoch#1
+  row_number: 29
+  cell_id: agent_van_sum_sc_ns_fo_tv_goss_sync_ncmp_n_fo_distance_to_optimum_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2106.14075'
+  original_location: Equation (21)
+  display_location: Equation (21)
+  internal_locators:
+  - eq:linear-conv
+  source_page_candidates:
+  - '6'
+  pdf_pages:
+  - 5
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2106_14075.pdf
+  pdf_sha256: 80162d25ae54482ae9d4551d1cd5d3f3f719bd980761c6b7c8d40a4e8a7664bb
+  source_archive: references/arxiv_2106_14075_decentralized_composite_optimization_in_stoch/arxiv-2106.14075-eprint
+  source_archive_sha256: a8e887cd35819fe3f7ae463f4510c574842e8f9697d628a113974a34cb9b1dc7
+  previous_original_location: Corollary 1, eq. (linear-conv)
+- claim_id: arxiv_1904_09015_decentralized_and_parallel_primal_and_dual_ac#3
+  row_number: 30
+  cell_id: agent_van_sum_sc_ns_subg_stat_goss_sync_ncmp_n_subg_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1904.09015'
+  original_location: Table 3
+  display_location: Table 3
+  internal_locators:
+  - tab:DetPrimeOr
+  source_page_candidates:
+  - '19'
+  pdf_pages:
+  - 19
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1904_09015.pdf
+  pdf_sha256: d1f9b6503141b008854ceb6c03c64f95ec2e692fe8c1c37e99b8d6f2b03e4e33
+  source_archive: references/arxiv_1904_09015_decentralized_and_parallel_primal_and_dual_ac/arxiv-1904.09015-eprint
+  source_archive_sha256: 3d2e12a65140d97632c8df9354cf4aa8a23475c504167c34d99a699c1e8a0e0d
+  previous_original_location: Table tab:DetPrimeOr, SC nonsmooth
+- claim_id: arxiv_2210_03232_double_averaging_and_gradient_projection_conv#1
+  row_number: 31
+  cell_id: agent_van_sum_c_sm_fo_stat_goss_sync_ncmp_n_fo_objective_gap_directed
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2210.03232'
+  original_location: Theorem 2
+  display_location: Theorem 2
+  internal_locators:
+  - 'thm: rate'
+  source_page_candidates:
+  - '10'
+  pdf_pages:
+  - 10
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2210_03232.pdf
+  pdf_sha256: 7c7114f037b044df2529b50824c3ee3c325da5275bef4cae68735a00cf33a027
+  source_archive: references/arxiv_2210_03232_double_averaging_and_gradient_projection_conv/arxiv-2210.03232-eprint
+  source_archive_sha256: f38dce8301b4de6c62f470ba7223e2f1feb888a58dca9e42fe62104008aa1e37
+  previous_original_location: Thm.  rate
+- claim_id: li2021#curated:li2021_ub_c_sm_tv_fo
+  row_number: 32
+  cell_id: agent_van_sum_c_sm_fo_tv_goss_sync_ncmp_n_fo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2104.02596'
+  original_location: Theorem 1; Corollary 3
+  display_location: Theorem 1; Corollary 3
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 9
+  - 12
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: PDF-visible Theorem 1 gives the time-varying convex rate; Corollary 3 gives its multiple-consensus
+    oracle/communication consequence.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2104_02596.pdf
+  pdf_sha256: cf884db28938f5238700ecf95b14e17636d4963a4397982fc66c85f8c6475efe
+  source_archive: references/03_li2021_accelerated_gradient_tracking_time_varying/arxiv-2104.02596-eprint
+  source_archive_sha256: b427e57a8b534a7824187c4a66b5c2588cadb4ed8988afded07a0a8391e59553
+  previous_original_location: Theorem 3; Corollary 3
+- claim_id: arxiv_2312_15845_optimal_decentralized_composite_optimization#2
+  row_number: 34
+  cell_id: agent_van_sum_c_ns_fo_stat_goss_sync_ncmp_n_fo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2312.15845'
+  original_location: Theorem 3; Corollary 4
+  display_location: Theorem 3; Corollary 4
+  internal_locators:
+  - thm:main1
+  source_page_candidates:
+  - '7'
+  pdf_pages:
+  - 7
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The arXiv PDF uses Theorem 3 and the following Corollary 4, not Theorem 3.3.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2312_15845.pdf
+  pdf_sha256: 2dcefa4f241a0ee2ef6e259571cfa6fe0e0836f47cd89bde917d1b07e4e6335c
+  source_archive: references/arxiv_2312_15845_optimal_decentralized_composite_optimization/arxiv-2312.15845-eprint
+  source_archive_sha256: df26d6d811b449b0c105aba53c523a81fb832a6692b7e943603f308e6e3601c3
+  previous_original_location: Theorem 3; Corollary 4
+- claim_id: duchi2012#curated:duchi2012_ub_sto_c_ns_stat_sfo
+  row_number: 35
+  cell_id: manual_reaudit_van_sum_c_ns_sfo_stat_goss_objective_gap
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1005.2012'
+  original_location: Theorem 4
+  display_location: Theorem 4
+  internal_locators:
+  - theorem:stochastic-gradient
+  source_page_candidates:
+  - '12'
+  pdf_pages:
+  - 12
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1005_2012.pdf
+  pdf_sha256: c273d1664a7d830b425255032959dbf8952234f3324e12ed68b26a9fbe0e0ebd
+  source_archive: references/14_duchi2012_distributed_dual_averaging/arxiv-1005.2012-eprint
+  source_archive_sha256: bc5f4f4eea56279d8dd5d4954ee873b8f5a96880c39c6f9731cfadaaa71d669c
+  previous_original_location: Thm. stochastic-gradient
+- claim_id: arxiv_2506_12901_high_probability_convergence_theory_for_distr#1
+  row_number: 36
+  cell_id: agent_van_sum_c_ns_sfo_tv_goss_sync_ncmp_n_sfo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2506.12901'
+  original_location: Theorem 4
+  display_location: Theorem 4
+  internal_locators:
+  - main_thm_known_time
+  source_page_candidates:
+  - '6'
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2506_12901.pdf
+  pdf_sha256: 62c2e37d8c71c21bfa75a3990d29a4648ceb73e8c7fa0a0831caa493983a18d2
+  source_archive: references/arxiv_2506_12901_high_probability_convergence_theory_for_distr/arxiv-2506.12901-eprint
+  source_archive_sha256: 3b9c3cf33dbade837941ac81439bca60e157bd17ade3bf0d0a0134517a84fb04
+  previous_original_location: Thm. 4 (main_thm_known_time)
+- claim_id: manual_arxiv_2112_10389#ub_c_ns_tv
+  row_number: 37
+  cell_id: manual_van_sum_c_ns_sfo_tv_goss_objective_gap
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2112.10389'
+  original_location: Theorems 2 and 3; Algorithm 1
+  display_location: Theorems 2 and 3; Algorithm 1
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 7
+  - 9
+  - 12
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: Theorem 2 analyzes Inexact Prox-SVRG; Theorem 3 transfers the rate to DPSVRG, which
+    is Algorithm 1.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2112_10389.pdf
+  pdf_sha256: 356c735e92ea5b0a3e99b1a52c168907b9c1dbc87de8d855d9f67cee36a4cea6
+  source_archive: ''
+  source_archive_sha256: ''
+  previous_original_location: Thm. prox-svrg; Remark after Thm. inexact; Algorithm DPSVRG
+- claim_id: duchi2012#curated:duchi2012_ub_c_ns_stat_subg_grid
+  row_number: 40
+  cell_id: agent_van_sum_c_ns_subg_stat_goss_sync_ncmp_n_subg_objective_gap_grid
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1005.2012'
+  original_location: Corollary 1
+  display_location: Corollary 1
+  internal_locators:
+  - corollary:graph-catalog
+  source_page_candidates:
+  - '10'
+  pdf_pages:
+  - 10
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1005_2012.pdf
+  pdf_sha256: c273d1664a7d830b425255032959dbf8952234f3324e12ed68b26a9fbe0e0ebd
+  source_archive: references/14_duchi2012_distributed_dual_averaging/arxiv-1005.2012-eprint
+  source_archive_sha256: bc5f4f4eea56279d8dd5d4954ee873b8f5a96880c39c6f9731cfadaaa71d669c
+  previous_original_location: Corollary graph-catalog
+- claim_id: duchi2012#curated:duchi2012_ub_c_ns_stat_subg_cycle
+  row_number: 38
+  cell_id: agent_van_sum_c_ns_subg_stat_goss_sync_ncmp_n_subg_objective_gap_cycle_path
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1005.2012'
+  original_location: Corollary 1
+  display_location: Corollary 1
+  internal_locators:
+  - corollary:graph-catalog
+  source_page_candidates:
+  - '10'
+  pdf_pages:
+  - 10
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1005_2012.pdf
+  pdf_sha256: c273d1664a7d830b425255032959dbf8952234f3324e12ed68b26a9fbe0e0ebd
+  source_archive: references/14_duchi2012_distributed_dual_averaging/arxiv-1005.2012-eprint
+  source_archive_sha256: bc5f4f4eea56279d8dd5d4954ee873b8f5a96880c39c6f9731cfadaaa71d669c
+  previous_original_location: Corollary graph-catalog
+- claim_id: duchi2012#curated:duchi2012_ub_c_ns_stat_subg_expander
+  row_number: 39
+  cell_id: agent_van_sum_c_ns_subg_stat_goss_sync_ncmp_n_subg_objective_gap_expander
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1005.2012'
+  original_location: Corollary 1
+  display_location: Corollary 1
+  internal_locators:
+  - corollary:graph-catalog
+  source_page_candidates:
+  - '10'
+  pdf_pages:
+  - 10
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1005_2012.pdf
+  pdf_sha256: c273d1664a7d830b425255032959dbf8952234f3324e12ed68b26a9fbe0e0ebd
+  source_archive: references/14_duchi2012_distributed_dual_averaging/arxiv-1005.2012-eprint
+  source_archive_sha256: bc5f4f4eea56279d8dd5d4954ee873b8f5a96880c39c6f9731cfadaaa71d669c
+  previous_original_location: Corollary graph-catalog
+- claim_id: manual_v2_arxiv_1411_4186#ub_grid_err
+  row_number: 41
+  cell_id: agent_van_sum_c_ns_subg_stat_goss_sync_ncmp_n_subg_objective_gap_grid_high_probability
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1411.4186'
+  original_location: Proposition 3.12
+  display_location: Proposition 3.12
+  internal_locators:
+  - grid
+  source_page_candidates: []
+  pdf_pages:
+  - 18
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The source label names Section III-B; the grid/geometric rate is stated in Proposition
+    3.12.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1411_4186.pdf
+  pdf_sha256: c3bcedaf71fe4a0febe3e44b0c4ce45cc6332341a130a63ad7ebcad4dd4aac98
+  source_archive: references/arxiv_1411_4186_linear_time_average_consensus_on_fixed_graphs/arxiv-1411.4186-eprint
+  source_archive_sha256: f0b0039c746aaade34a842c72f90fbc06415c7cff65cff8717c1c8907d5b4805
+  previous_original_location: Proposition 3.12
+- claim_id: arxiv_1806_07081_distributed_optimization_over_directed_graphs#1
+  row_number: 42
+  cell_id: agent_van_sum_c_ns_subg_stat_goss_sync_ncmp_n_subg_objective_gap_directed_row_stochastic
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1806.07081'
+  original_location: Theorem 5; Corollary 2(b)
+  display_location: Theorem 5; Corollary 2(b)
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 9
+  - 11
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The prior location incorrectly named Corollary 1(b); the rate specialization is Corollary
+    2(b).
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1806_07081.pdf
+  pdf_sha256: b1faca6567be59c4e86e3c936c1d61f504fd3bb0d078246396d46c3a7c4d9820
+  source_archive: references/arxiv_1806_07081_distributed_optimization_over_directed_graphs/arxiv-1806.07081-eprint
+  source_archive_sha256: fcf69ce6ebff1b029bf6d442e7bf2bab839dd4fbdc6f2ed36c9d7ecad82c802a
+  previous_original_location: Thm. 5 (Convergence bound) and Corollary 1(b)
+- claim_id: arxiv_1606_08904_on_the_convergence_rate_of_average_consensus#1
+  row_number: 43
+  cell_id: agent_van_sum_c_ns_subg_tv_goss_sync_ncmp_n_subg_objective_gap_directed
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1606.08904'
+  original_location: Theorem 2
+  display_location: Theorem 2
+  internal_locators:
+  - main
+  source_page_candidates:
+  - '10'
+  pdf_pages:
+  - 10
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1606_08904.pdf
+  pdf_sha256: 24b7ea471930c5511d24fa7c5e02bd9fe96671ff30ab1363ba0f824e55bc120e
+  source_archive: references/arxiv_1606_08904_on_the_convergence_rate_of_average_consensus/arxiv-1606.08904-eprint
+  source_archive_sha256: 3e248044711363792afa5fac7c342510ac386ddba0dd3fb0b5c136973366bdb1
+  previous_original_location: Thm. main, Section 'Robust Distributed Dual Averaging Method'
+- claim_id: manual_v2_arxiv_2601_03566#ub_best_iterate
+  row_number: 44
+  cell_id: agent_van_sum_nc_sm_fo_stat_goss_sync_ncmp_n_fo_gradient_norm_column_stochastic_directed_row_0cf38dca
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2601.03566'
+  original_location: Theorem 1
+  display_location: Theorem 1
+  internal_locators:
+  - Th:epsilon_convergence
+  source_page_candidates:
+  - '8'
+  pdf_pages:
+  - 8
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2601_03566.pdf
+  pdf_sha256: aa996ffe24f8c90d0036f6b136c04d6738c13c9dcab4815fc59fe90ee935b006
+  source_archive: references/arxiv_2601_03566_provably_convergent_decentralized_optimizatio/arxiv-2601.03566-eprint
+  source_archive_sha256: 5d552e51a0f1134edc485aca64372c18300501f5fb3c7af7b2998bf9f922a67c
+  previous_original_location: Thm. epsilon_convergence
+- claim_id: arxiv_2512_24483_decentralized_optimization_over_time_varying#1
+  row_number: 45
+  cell_id: agent_van_sum_nc_sm_fo_tv_goss_sync_ncmp_n_fo_gradient_norm_squared_directed_row_stochastic
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2512.24483'
+  original_location: Theorem 2; Appendix A.9
+  display_location: Theorem 2; Appendix A.9
+  internal_locators:
+  - thm:main
+  - app:proof-main-thm
+  source_page_candidates:
+  - '16'
+  - '29'
+  pdf_pages:
+  - 15
+  - 33
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The main result is visibly Theorem 2 and its proof is in Appendix A.9.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2512_24483.pdf
+  pdf_sha256: 2e507bf502380b84da6f29714ac6ce553f48941b5b5732429c588bfda04c2329
+  source_archive: references/arxiv_2512_24483_decentralized_optimization_over_time_varying/arxiv-2512.24483-eprint
+  source_archive_sha256: 0155bb1a0cfd65155a4de9cdcf479e7acbd2fa774b8ddd51e50dc929e666c7cb
+  previous_original_location: Thm. main; proof in Appendix app:proof-main-thm
+- claim_id: arxiv_2211_06914_rate_analysis_of_dual_averaging_for_nonconvex#1
+  row_number: 46
+  cell_id: agent_van_sum_nc_sm_fo_tv_goss_sync_ncmp_n_fo_gradient_norm_squared_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2211.06914'
+  original_location: Theorem 2; Equation (23); Algorithm 1
+  display_location: Theorem 2; Equation (23); Algorithm 1
+  internal_locators:
+  - thm:sublinear
+  - thm-eq:residual
+  - DP-DDA
+  source_page_candidates:
+  - '4'
+  - '5'
+  pdf_pages:
+  - 4
+  - 5
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2211_06914.pdf
+  pdf_sha256: 4376540958bb730d8b519e66ad7bb6bf13dfaad68ca42c9b37ecb23fe75f9cbc
+  source_archive: references/arxiv_2211_06914_rate_analysis_of_dual_averaging_for_nonconvex/arxiv-2211.06914-eprint
+  source_archive_sha256: 78eca111ea2867f795bdce10225294d71a95cbefad62a98c3f742693ae0b0a59
+  previous_original_location: Thm. sublinear, Eq. thm-eq:residual; Algorithm DDA
+- claim_id: manual_arxiv_2402_02490#ub_nc_tv
+  row_number: 48
+  cell_id: manual_van_sum_nc_sm_sfo_tv_goss_stationarity
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2402.02490'
+  original_location: Theorem 4.3; Corollary 4.5
+  display_location: Theorem 4.3; Corollary 4.5
+  internal_locators:
+  - thm:nonconvex-setup
+  - cor:nonconvex_setup
+  source_page_candidates:
+  - '7'
+  - '8'
+  pdf_pages:
+  - 7
+  - 8
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2402_02490.pdf
+  pdf_sha256: 78e3ba938d129d3208d369cc946dc72159b615b9dc578f7fe7da2f613d1fd6fb
+  source_archive: references/arxiv_2402_02490_decentralized_finite_sum_optimization_over_ti/arxiv-2402.02490-eprint
+  source_archive_sha256: 57ecb0470e358d87dc87ca3da45a0974ab869e0201c30e3ea799f1c64071da86
+  previous_original_location: Thm. nonconvex-setup; Cor. nonconvex_setup
+- claim_id: manual_arxiv_2110_01594#ub_nc_composite_stat
+  row_number: 49
+  cell_id: manual_van_sum_nc_ns_sfo_stat_goss_fixed_point
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2110.01594'
+  original_location: Theorem 3; Table 1
+  display_location: Theorem 3; Table 1
+  internal_locators:
+  - thm_SR_E
+  - comp_oc
+  source_page_candidates:
+  - '11'
+  - '5'
+  pdf_pages:
+  - 5
+  - 11
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2110_01594.pdf
+  pdf_sha256: 82a6100c4db6bc9ca02f750dee0f74b67cbad98bdb36d358b2264271e1fe2e6c
+  source_archive: references/arxiv_2110_01594_a_proximal_gradient_algorithm_for_decentraliz/arxiv-2110.01594-eprint
+  source_archive_sha256: 46af1dcec7f23fdfd039e57cd7bbad08012683c389d31d74bac84b025bfd156e
+  previous_original_location: Thm. thm_SR_E and Table comp_oc
+- claim_id: arxiv_1912_12110_linear_convergence_for_distributed_optimizati#2
+  row_number: 50
+  cell_id: agent_van_sum_pl_sm_fo_stat_goss_sync_ncmp_n_fo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1912.12110'
+  original_location: Theorem 2; Equation (15)
+  display_location: Theorem 2; Equation (15)
+  internal_locators:
+  - nonconvex:thm-ft
+  - nonconvex:thm-ft-equ1
+  source_page_candidates:
+  - '13'
+  - '14'
+  pdf_pages:
+  - 13
+  - 14
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1912_12110.pdf
+  pdf_sha256: 4a2a61fd3c0ace14142febbd23953ac892fca73e1763f9d65ef20d9d4c972b91
+  source_archive: references/arxiv_1912_12110_linear_convergence_for_distributed_optimizati/arxiv-1912.12110-eprint
+  source_archive_sha256: 671a74c38cee046a875cd329a2686c3042ed7d16b96cdf8d557bcbd0a7b98cc2
+  previous_original_location: Thm. 2 (label nonconvex:thm-ft), equation nonconvex:thm-ft-equ1
+- claim_id: manual_arxiv_2210_03810#ub_pl_tv
+  row_number: 51
+  cell_id: manual_van_sum_pl_sm_fo_tv_goss_objective_gap
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2210.03810'
+  original_location: Theorem 3.1
+  display_location: Theorem 3.1
+  internal_locators:
+  - theorem:main_theorem
+  source_page_candidates:
+  - '8'
+  pdf_pages:
+  - 11
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2210_03810.pdf
+  pdf_sha256: 3ab6a3a290f88d16beb31d2b26f4a9222d7512f8a360518e1d50b57a1d868c14
+  source_archive: references/arxiv_2210_03810_gradient_type_methods_for_decentralized_optim/arxiv-2210.03810-eprint
+  source_archive_sha256: 8e9de7ed137ac860a445dc531dc1bc629e35dcd52394fea8e717f89b1609e6c2
+  previous_original_location: Thm. main_theorem, lines 417-430
+- claim_id: kluger2026#4
+  row_number: 22
+  cell_id: agent_van_sto_sc_sm_sfo_stat_goss_sync_ncmp_n_sfo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2606.04757'
+  original_location: Theorem 5; Algorithm 4
+  display_location: Theorem 5; Algorithm 4
+  internal_locators:
+  - thm:strongly-convex-restart
+  - alg:restarted-distributed-gossip
+  source_page_candidates:
+  - '34'
+  pdf_pages:
+  - 34
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: Corrected stale Algorithm 2 locator; PDF/source show Algorithm 4.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2606_04757.pdf
+  pdf_sha256: 1ea3ae67acc194b325421373cffda4210b4796e01e0918a2ae02ff7c1ea6237b
+  source_archive: references/11_kluger2026_stochastic_convex_networks/arxiv-2606.04757-eprint
+  source_archive_sha256: 7cf735e819fce04ec690f463ca34d51c35a7af35e4bc7c2494dfc210b2ed89e3
+  previous_original_location: Theorem 5; Algorithm 4
+- claim_id: arxiv_2109_07981_asymptotic_properties_of_mathcal_s_mathcal_ab#1
+  row_number: 52
+  cell_id: agent_van_sto_sc_sm_sfo_stat_goss_sync_ncmp_n_sfo_distance_to_optimum_column_stochastic_direc_a66e4eb3
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2109.07981'
+  original_location: Theorem 1 and following rate paragraph
+  display_location: Theorem 1 and following rate paragraph
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 7
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The theorem and immediately following paragraph jointly state the displayed epsilon
+    complexity.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2109_07981.pdf
+  pdf_sha256: dc6935f16f402fc50cacf07cc38d8a9a08c3bdd9fa4520eb8039fa98e694c208
+  source_archive: references/arxiv_2109_07981_asymptotic_properties_of_mathcal_s_mathcal_ab/arxiv-2109.07981-eprint
+  source_archive_sha256: 70499056d42ef094d77b29aefb3c03b8412e03f95fd4cc3ba04d07cdddeada48
+  previous_original_location: Thm. 1 (Thm. rate) plus following paragraph
+- claim_id: arxiv_2005_07785_s_addopt_decentralized_stochastic_first_order#1
+  row_number: 23
+  cell_id: agent_van_sto_sc_sm_sfo_stat_goss_sync_ncmp_n_sfo_distance_to_optimum_directed
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2005.07785'
+  original_location: Theorem 2; Section IV-B
+  display_location: Theorem 2; Section IV-B
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 6
+  - 10
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: The result and its proof section are both visibly numbered in the PDF.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2005_07785.pdf
+  pdf_sha256: cd6f6ebb0deffba2c1107b1e4a7ac5a68749040dada1d5e07e99e40b25a2c673
+  source_archive: references/arxiv_2005_07785_s_addopt_decentralized_stochastic_first_order/arxiv-2005.07785-eprint
+  source_archive_sha256: 865b6832fa374c1c50fdc35911775c5e4da2255727a2a184d3586bc72b9571f1
+  previous_original_location: Thm. 2, Section III Main Results; proof in Section IV-B
+- claim_id: arxiv_2003_10422_a_unified_theory_of_decentralized_sgd_with_ch#3
+  row_number: 53
+  cell_id: agent_van_sto_sc_sm_sfo_tv_goss_sync_ncmp_n_sfo_distance_to_optimum_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2003.10422'
+  original_location: Theorem 2
+  display_location: Theorem 2
+  internal_locators:
+  - thm:summary
+  source_page_candidates:
+  - '6'
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2003_10422.pdf
+  pdf_sha256: 3af39f52e161605495a1356ce0e85fb0d34a5cf265432156eab04ede00859835
+  source_archive: references/arxiv_2003_10422_a_unified_theory_of_decentralized_sgd_with_ch/arxiv-2003.10422-eprint
+  source_archive_sha256: 892d0749ba8600de9471f979ff02fffac299d2db8812245a42ee3151a0d4dfcd
+  previous_original_location: Thm. 1 / thm:summary, Complexity Estimates (Upper Bounds), Strongly-Convex
+    case
+- claim_id: arxiv_1904_09015_decentralized_and_parallel_primal_and_dual_ac#7
+  row_number: 54
+  cell_id: agent_van_sto_sc_ns_sfo_stat_goss_sync_ncmp_n_sfo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1904.09015'
+  original_location: Table 4
+  display_location: Table 4
+  internal_locators:
+  - T:stoch_prima_oracle
+  source_page_candidates:
+  - '20'
+  pdf_pages:
+  - 20
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1904_09015.pdf
+  pdf_sha256: d1f9b6503141b008854ceb6c03c64f95ec2e692fe8c1c37e99b8d6f2b03e4e33
+  source_archive: references/arxiv_1904_09015_decentralized_and_parallel_primal_and_dual_ac/arxiv-1904.09015-eprint
+  source_archive_sha256: 3d2e12a65140d97632c8df9354cf4aa8a23475c504167c34d99a699c1e8a0e0d
+  previous_original_location: Table T:stoch_prima_oracle, SC nonsmooth
+- claim_id: manual_arxiv_2508_09029#ub_sc_tv
+  row_number: 55
+  cell_id: manual_van_sto_sc_ns_sfo_tv_goss_objective_gap
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2508.09029'
+  original_location: Theorem 2
+  display_location: Theorem 2
+  internal_locators:
+  - th:st_mntn
+  source_page_candidates:
+  - '5'
+  pdf_pages:
+  - 5
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2508_09029.pdf
+  pdf_sha256: 42534dc7640529b72f7b0405f1dce73a5a5ebc769836fbbe21c90f62834eea12
+  source_archive: references/arxiv_2508_09029_stochastic_decentralized_optimization_of_non/arxiv-2508.09029-eprint
+  source_archive_sha256: c5257d17b9d11007973ba8db6f978c9b52c9bf1afc16e9c2c3b2b1e8ef4b2947
+  previous_original_location: Thm. th:st_mntn
+- claim_id: kluger2026#5
+  row_number: 33
+  cell_id: agent_van_sto_c_sm_sfo_stat_goss_sync_ncmp_auxiliary_restart_epoch_initialization_disagreemen_a4e48d2e
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2606.04757'
+  original_location: Theorem 6
+  display_location: Theorem 6
+  internal_locators:
+  - thm:warm-start-distributed-gossip
+  source_page_candidates:
+  - '35'
+  pdf_pages:
+  - 35
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2606_04757.pdf
+  pdf_sha256: 1ea3ae67acc194b325421373cffda4210b4796e01e0918a2ae02ff7c1ea6237b
+  source_archive: references/11_kluger2026_stochastic_convex_networks/arxiv-2606.04757-eprint
+  source_archive_sha256: 7cf735e819fce04ec690f463ca34d51c35a7af35e4bc7c2494dfc210b2ed89e3
+  previous_original_location: Theorem 6
+- claim_id: arxiv_2003_10422_a_unified_theory_of_decentralized_sgd_with_ch#2
+  row_number: 56
+  cell_id: agent_van_sto_c_sm_sfo_tv_goss_sync_ncmp_n_sfo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2003.10422'
+  original_location: Theorem 2
+  display_location: Theorem 2
+  internal_locators:
+  - thm:summary
+  source_page_candidates:
+  - '6'
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2003_10422.pdf
+  pdf_sha256: 3af39f52e161605495a1356ce0e85fb0d34a5cf265432156eab04ede00859835
+  source_archive: references/arxiv_2003_10422_a_unified_theory_of_decentralized_sgd_with_ch/arxiv-2003.10422-eprint
+  source_archive_sha256: 892d0749ba8600de9471f979ff02fffac299d2db8812245a42ee3151a0d4dfcd
+  previous_original_location: Thm. 1 / thm:summary, Complexity Estimates (Upper Bounds), Convex case
+- claim_id: arxiv_1904_09015_decentralized_and_parallel_primal_and_dual_ac#8
+  row_number: 57
+  cell_id: agent_van_sto_c_ns_sfo_stat_goss_sync_ncmp_n_sfo_objective_gap_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1904.09015'
+  original_location: Table 4
+  display_location: Table 4
+  internal_locators:
+  - T:stoch_prima_oracle
+  source_page_candidates:
+  - '20'
+  pdf_pages:
+  - 20
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1904_09015.pdf
+  pdf_sha256: d1f9b6503141b008854ceb6c03c64f95ec2e692fe8c1c37e99b8d6f2b03e4e33
+  source_archive: references/arxiv_1904_09015_decentralized_and_parallel_primal_and_dual_ac/arxiv-1904.09015-eprint
+  source_archive_sha256: 3d2e12a65140d97632c8df9354cf4aa8a23475c504167c34d99a699c1e8a0e0d
+  previous_original_location: Table T:stoch_prima_oracle, C nonsmooth
+- claim_id: manual_arxiv_2508_09029#ub_c_tv
+  row_number: 58
+  cell_id: manual_van_sto_c_ns_sfo_tv_goss_objective_gap
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2508.09029'
+  original_location: Theorem 3
+  display_location: Theorem 3
+  internal_locators:
+  - th:mntn
+  source_page_candidates:
+  - '5'
+  pdf_pages:
+  - 5
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2508_09029.pdf
+  pdf_sha256: 42534dc7640529b72f7b0405f1dce73a5a5ebc769836fbbe21c90f62834eea12
+  source_archive: references/arxiv_2508_09029_stochastic_decentralized_optimization_of_non/arxiv-2508.09029-eprint
+  source_archive_sha256: c5257d17b9d11007973ba8db6f978c9b52c9bf1afc16e9c2c3b2b1e8ef4b2947
+  previous_original_location: Thm. th:mntn
+- claim_id: arxiv_2510_01377_demuon_a_decentralized_muon_for_matrix_optimi#2
+  row_number: 47
+  cell_id: agent_van_sto_nc_sm_sfo_stat_goss_sync_ncmp_higher_order_smoothness_n_sfo_distance_to_optimum_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2510.01377'
+  original_location: Theorem 6; Equation (23)
+  display_location: Theorem 6; Equation (23)
+  internal_locators:
+  - thm:conv+
+  - upbd:cs-ave+
+  source_page_candidates:
+  - '7'
+  pdf_pages:
+  - 7
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2510_01377.pdf
+  pdf_sha256: fd62f476b93ff9bd4498daeeaaf548b5cc415e073ee134f81ca128beb8a7e17b
+  source_archive: references/arxiv_2510_01377_demuon_a_decentralized_muon_for_matrix_optimi/arxiv-2510.01377-eprint
+  source_archive_sha256: f04e3051b6a5aa5a254f1fbc8b5a7b57ce4b2b308f16194e64240f8f037a4af3
+  previous_original_location: Thm. conv+; Eq. upbd:cs-ave+
+- claim_id: arxiv_1911_12665_d_spider_sfo_a_decentralized_optimization_alg#1
+  row_number: 59
+  cell_id: agent_van_sto_nc_sm_sfo_stat_goss_sync_ncmp_n_sfo_gradient_norm_squared_variance_reduced
+  side: upper_bound
+  paper_id: ''
+  arxiv: '1911.12665'
+  original_location: Theorem 1; Corollary 1
+  display_location: Theorem 1; Corollary 1
+  internal_locators:
+  - 3_SPIDER
+  - 'corollary: convergence rate'
+  source_page_candidates:
+  - '6'
+  - '7'
+  pdf_pages:
+  - 6
+  - 7
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_1911_12665.pdf
+  pdf_sha256: 966ddc82d67817b323d5ce0076cac57d316132962cf46acee5f697712c4c08ac
+  source_archive: references/arxiv_1911_12665_d_spider_sfo_a_decentralized_optimization_alg/arxiv-1911.12665-eprint
+  source_archive_sha256: 245fe83ad68d0db979146169c2cd5f494b20aaa8fa8efb16a056e06611bc9d72
+  previous_original_location: 'Thm. 1 / Thm. 3_SPIDER; Corollary 1 / Corollary corollary: convergence
+    rate'
+- claim_id: arxiv_2506_04600_achieving_linear_speedup_and_near_optimal_com#2
+  row_number: 60
+  cell_id: agent_van_sto_nc_sm_sfo_stat_goss_sync_ncmp_n_sfo_gradient_norm_squared_directed_row_stochastic
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2506.04600'
+  original_location: Theorem 3
+  display_location: Theorem 3
+  internal_locators:
+  - thm(main):3
+  source_page_candidates:
+  - '8'
+  pdf_pages:
+  - 8
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2506_04600.pdf
+  pdf_sha256: e9a43c59a317c40174b79545b45045322d7a47f9418638e916f932701006ff11
+  source_archive: references/arxiv_2506_04600_achieving_linear_speedup_and_near_optimal_com/arxiv-2506.04600-eprint
+  source_archive_sha256: f530fbd0b1145487b52ddc98705d7a25276261cf163416587d77d9da52942dd7
+  previous_original_location: Thm. thm(main):3; MG-\pulldiag-GT display eq-mg-1--eq-mg-3
+- claim_id: arxiv_2412_07252_adaptive_weighting_push_sum_for_decentralized#1
+  row_number: 61
+  cell_id: agent_van_sto_nc_sm_sfo_tv_goss_sync_ncmp_n_sfo_gradient_norm_squared_column_stochastic_directed
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2412.07252'
+  original_location: Theorem 2; Corollary 1
+  display_location: Theorem 2; Corollary 1
+  internal_locators: []
+  source_page_candidates: []
+  pdf_pages:
+  - 6
+  verification_status: verified
+  verification_method: manual_arxiv_pdf_review
+  verification_note: Corollary 1 is the sufficiently-large-T simplification of Theorem 2.
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2412_07252.pdf
+  pdf_sha256: ab60f4b529629ce670b615c68958d5bc6b77c5f687cbb78f9e547566b208adc0
+  source_archive: references/arxiv_2412_07252_adaptive_weighting_push_sum_for_decentralized/arxiv-2412.07252-eprint
+  source_archive_sha256: 54d75580dc9f0523e0de8527d873035ca986531b0e3877abeb432ec7102dd910
+  previous_original_location: Thm. 2; Cor. 1
+- claim_id: arxiv_2406_01484_online_optimization_perspective_on_first_orde#2
+  row_number: 62
+  cell_id: agent_van_sto_nc_ns_sfo_stat_goss_sync_ncmp_n_sfo_gradient_norm_general
+  side: upper_bound
+  paper_id: ''
+  arxiv: '2406.01484'
+  original_location: Theorem 2; Theorem 1
+  display_location: Theorem 2; Theorem 1
+  internal_locators:
+  - thm:ns_fo
+  - thm:bigtheorem
+  source_page_candidates:
+  - '7'
+  pdf_pages:
+  - 7
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2406_01484.pdf
+  pdf_sha256: 0d1cb8031ee3307357535e1194ac37655b6880d89f6a70750b622f1fbb43aba0
+  source_archive: references/arxiv_2406_01484_online_optimization_perspective_on_first_orde/arxiv-2406.01484-eprint
+  source_archive_sha256: a488b63340d95dd7047b6987548a40113a24ebe3111d9d46f5d9af1f6ccfc542
+  previous_original_location: Thm. ns_fo; Thm. bigtheorem
+- claim_id: kluger2026#2
+  row_number: 14
+  cell_id: agent_van_sum_c_sm_fo_stat_goss_sync_ncmp_deterministic_regime_linear_span_path_network_n_fo_c79c5a1b
+  side: lower_bound
+  paper_id: ''
+  arxiv: '2606.04757'
+  original_location: Theorem 2 and paragraph following the theorem
+  display_location: Theorem 2 and paragraph following the theorem
+  internal_locators:
+  - thm:linear-span-lower-bound
+  source_page_candidates:
+  - '8'
+  pdf_pages:
+  - 8
+  verification_status: verified
+  verification_method: source_aux_and_arxiv_pdf_text
+  verification_note: ''
+  pdf_path: tmp/pdfs/statement_locations_v4/arxiv_2606_04757.pdf
+  pdf_sha256: 1ea3ae67acc194b325421373cffda4210b4796e01e0918a2ae02ff7c1ea6237b
+  source_archive: references/11_kluger2026_stochastic_convex_networks/arxiv-2606.04757-eprint
+  source_archive_sha256: 7cf735e819fce04ec690f463ca34d51c35a7af35e4bc7c2494dfc210b2ed89e3
+  previous_original_location: Theorem 2 and paragraph following the theorem

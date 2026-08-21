@@ -1,0 +1,875 @@
+symbols:
+- key: F
+  latex: F
+  aliases:
+  - f
+  - \bar f
+  category: objective
+  definition_en: global objective, \(F(x)=N^{-1}\sum_{i=1}^N F_i(x)\)
+  definition_zh: "\u5168\u5C40\u76EE\u6807\u51FD\u6570\uFF0C\\(F(x)=\\frac1n\\sum_{i=1}^n F_i(x)\\)"
+- key: F_i
+  latex: F_i
+  aliases:
+  - f_i
+  category: objective
+  definition_en: local objective at node \(i\)
+  definition_zh: "\u8282\u70B9 \\(i\\) \u7684\u5C40\u90E8\u76EE\u6807\u51FD\u6570"
+- key: F_star
+  latex: F^\star
+  aliases:
+  - F_*
+  - f^\star
+  - f_*
+  category: objective
+  definition_en: optimal value, \(F^\star=\inf_x F(x)\)
+  definition_zh: "\u6700\u4F18\u76EE\u6807\u503C\uFF0C\\(F^\\star=\\inf_x F(x)\\)"
+- key: Delta
+  latex: \Delta
+  aliases:
+  - initial_gap
+  category: problem_parameter
+  definition_en: initial optimality gap, \(\Delta=F(x^0)-F^\star\)
+  definition_zh: "\u521D\u59CB\u76EE\u6807\u5DEE\uFF0C\u901A\u5E38\u4E3A \\(F(x^0)-F^\\star\\)"
+- key: Delta_0
+  latex: \Delta_0
+  aliases: []
+  category: problem_parameter
+  definition_en: initial objective-gap bound, \(\Delta_0\ge F(x^0)-F^\star\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u521D\u59CB Lyapunov \u91CF\u6216\u521D\u59CB\u76EE\u6807\
+    \u5DEE"
+  source_arxiv:
+  - '2210.03232'
+  - '1912.12110'
+  - '2606.04757'
+- key: n
+  latex: N
+  aliases:
+  - n
+  - m
+  - M_agents
+  category: problem_parameter
+  definition_en: number of nodes
+  definition_zh: "\u8282\u70B9\u6570\u6216\u667A\u80FD\u4F53\u6570"
+- key: i
+  latex: i
+  aliases: []
+  category: index
+  definition_en: node index
+  definition_zh: "\u8282\u70B9\u4E0B\u6807"
+- key: j
+  latex: j
+  aliases: []
+  category: index
+  definition_en: local component index
+  definition_zh: "\u5B9A\u7406\u539F\u5F0F\u4E2D\u4F7F\u7528\u7684\u8282\u70B9\u4E0B\u6807"
+- key: t
+  latex: t
+  aliases:
+  - k
+  category: index
+  definition_en: iteration index
+  definition_zh: "\u8FED\u4EE3\u6216\u901A\u4FE1\u8F6E\u6B21\u4E0B\u6807"
+- key: T
+  latex: T
+  aliases:
+  - K
+  category: problem_parameter
+  definition_en: iteration horizon
+  definition_zh: "\u76EE\u6807\u6216\u5B9A\u7406\u539F\u5F0F\u4E2D\u7684\u8FED\u4EE3\u8F6E\u6570"
+- key: T_out
+  latex: T_{\rm out}
+  aliases:
+  - T_{\mathrm{out}}
+  category: problem_parameter
+  definition_en: outer-iteration horizon when each outer step contains a local batch or multiple gossip
+    rounds
+  definition_zh: "\u6BCF\u4E2A\u5916\u5C42\u6B65\u5305\u542B\u672C\u5730 batch \u6216\u591A\u8F6E gossip\
+    \ \u65F6\u7684\u5916\u5C42\u8FED\u4EE3\u8F6E\u6570"
+- key: K_loc
+  latex: K_{\rm loc}
+  aliases:
+  - K_{\mathrm{loc}}
+  category: problem_parameter
+  definition_en: number of local component functions, where \(f_{ij}\) is component \(j\) at node \(i\)
+    and \(F_i(x)=K_{\rm loc}^{-1}\sum_{j=1}^{K_{\rm loc}}f_{ij}(x)\)
+  definition_zh: "\u6BCF\u4E2A\u8282\u70B9\u7684\u672C\u5730 finite-sum \u6837\u672C\u6570"
+- key: S
+  latex: S
+  aliases: []
+  category: problem_parameter
+  definition_en: epoch index
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684 epoch \u4E0B\u6807"
+  source_arxiv:
+  - '2112.10389'
+- key: L
+  latex: L
+  aliases:
+  - smoothness
+  category: problem_parameter
+  definition_en: smoothness constant satisfying \(\|\nabla F_i(x)-\nabla F_i(y)\|\le L\|x-y\|\) for every
+    node \(i\)
+  definition_zh: "\u5149\u6ED1\u5E38\u6570"
+- key: bar_L
+  latex: \bar L
+  aliases:
+  - \hat L
+  - \widehat L
+  category: problem_parameter
+  definition_en: mean-squared component smoothness constant satisfying \((N K_{\rm loc})^{-1}\sum_{i=1}^N\sum_{j=1}^{K_{\rm
+    loc}}\|\nabla f_{ij}(x)-\nabla f_{ij}(y)\|^2\le \bar L^2\|x-y\|^2\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u5747\u65B9\u5149\u6ED1\u5E38\u6570"
+  source_arxiv:
+  - '2210.13931'
+  - '2408.09775'
+- key: mu
+  latex: \mu
+  aliases:
+  - strong_convexity
+  category: problem_parameter
+  definition_en: strong-convexity constant satisfying \(h(y)\ge h(x)+\langle g,y-x\rangle+\frac{\mu}{2}\|y-x\|^2\)
+    for \(g\in\partial h(x)\)
+  definition_zh: "\u5F3A\u51F8\u5E38\u6570"
+- key: kappa
+  latex: \kappa
+  aliases: []
+  category: problem_parameter
+  definition_en: condition number, \(\kappa=L/\mu\)
+  definition_zh: "\u6761\u4EF6\u6570\uFF0C\\(\\kappa=L/\\mu\\)"
+- key: kappa_A
+  latex: \kappa_A
+  aliases: []
+  category: network_parameter
+  definition_en: equilibrium skewness of row-stochastic matrix \(A\), \(\kappa_A=\max_i(\pi_A)_i/\min_i(\pi_A)_i\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u6709\u5411\u7F51\u7EDC\u6761\u4EF6\u6570"
+  source_arxiv:
+  - '2506.04600'
+- key: kappa_pi
+  latex: \kappa_\pi
+  aliases: []
+  category: network_parameter
+  definition_en: equilibrium skewness of column-stochastic matrix \(W_\pi\), \(\kappa_\pi=\max_i\pi_i/\min_i\pi_i\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684 push-sum \u6216\u6709\u5411\u7F51\u7EDC\u6761\u4EF6\u6570"
+  source_arxiv:
+  - '2312.04928'
+- key: kappa_s
+  latex: \kappa_s
+  aliases: []
+  category: problem_parameter
+  definition_en: mean-squared finite-sum condition number, \(\kappa_s=\bar L/\mu\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u968F\u673A\u6216 finite-sum \u6761\u4EF6\u6570"
+  source_arxiv:
+  - '2210.13931'
+  - '2402.02490'
+- key: kappa_s_VR
+  latex: \kappa_{s,\rm VR}
+  aliases: []
+  category: problem_parameter
+  definition_en: VR-EXTRA/DIGing stochastic condition number, \(\kappa_{s,\rm VR}=\mu^{-1}\max_i K_{\rm
+    loc}^{-1}\sum_{j=1}^{K_{\rm loc}}L_{ij}\), where \(L_{ij}\) is the smoothness constant of component
+    \(j\) at node \(i\)
+  definition_zh: VR-EXTRA/DIGing paper-specific stochastic condition number
+  source_arxiv:
+  - '2009.04373'
+- key: q_dpsvrg
+  latex: q_{\rm DPS}
+  aliases:
+  - q_{\mathrm{DPS}}
+  category: problem_parameter
+  definition_en: DPSVRG constant satisfying \(q_{\rm DPS}<1\)
+  definition_zh: "DPSVRG \u7684\u51E0\u4F55 epoch \u589E\u957F\u4E0E\u6536\u7F29\u7387\u51B3\u5B9A\u7684\
+    \u6307\u6570"
+  source_arxiv:
+  - '2112.10389'
+- key: eps
+  latex: \eps
+  aliases:
+  - \epsilon
+  - epsilon
+  - varepsilon
+  category: target_accuracy
+  definition_en: target accuracy, \(\eps>0\)
+  definition_zh: "\u76EE\u6807\u7CBE\u5EA6"
+- key: expectation
+  latex: \E
+  aliases:
+  - \mathbb{E}
+  category: stochastic_operator
+  definition_en: expectation operator
+  definition_zh: "\u671F\u671B\u7B97\u5B50"
+- key: sigma2
+  latex: \sigma^2
+  aliases:
+  - variance
+  category: stochastic_parameter
+  definition_en: stochastic-gradient variance bound, \(\E\|g_i(x;\xi_i)-\nabla F_i(x)\|^2\le\sigma^2\);
+    \(g_i(x;\xi_i)\) denotes the stochastic first-order oracle output at node \(i\), evaluated at \(x\)
+    using local random sample \(\xi_i\)
+  definition_zh: "\u968F\u673A\u68AF\u5EA6\u65B9\u5DEE\u4E0A\u754C"
+- key: sigma
+  latex: \sigma
+  aliases: []
+  category: stochastic_parameter
+  definition_en: standard-deviation bound, \(\sigma=\sqrt{\sigma^2}\)
+  definition_zh: "\u968F\u673A\u68AF\u5EA6\u65B9\u5DEE\u4E0A\u754C\u7684\u5E73\u65B9\u6839"
+- key: M
+  latex: M
+  aliases:
+  - lipschitz
+  category: problem_parameter
+  definition_en: uniform local subgradient bound satisfying \(\|g_i(x)\|\le M\) for every \(g_i(x)\in\partial
+    F_i(x)\)
+  definition_zh: "\u975E\u5149\u6ED1 Lipschitz \u5E38\u6570\u6216\u6B21\u68AF\u5EA6\u8303\u6570\u4E0A\u754C\
+    \uFF1B\u4E0D\u7528\u4E8E\u8868\u793A\u8282\u70B9\u6570"
+- key: R
+  latex: R
+  aliases:
+  - radius
+  category: problem_parameter
+  definition_en: initial-distance bound satisfying \(\|x^0-x^\star\|\le R\)
+  definition_zh: "\u521D\u59CB\u8DDD\u79BB\u6216\u5B9A\u4E49\u57DF\u534A\u5F84"
+- key: rho
+  latex: \rho
+  aliases: []
+  category: network_parameter
+  definition_en: spectral gap, \(\rho=1-\|W-N^{-1}\mathbf 1_N\mathbf 1_N^\top\|_2\)
+  definition_zh: "\u56FA\u5B9A gossip \u77E9\u9635\u7684\u8C31 gap"
+- key: rho_K
+  latex: \rho_{\rm K}
+  aliases:
+  - \rho_{\mathrm K}
+  category: network_parameter
+  definition_en: reference-specific spectral gap, \(\rho_{\rm K}=1-\lambda_2(P)\), for the fixed symmetric
+    doubly stochastic gossip matrix \(P\), where \(\lambda_2(P)\) is the second-largest eigenvalue of
+    \(P\)
+  definition_zh: reference-specific spectral gap
+  source_arxiv:
+  - '2606.04757'
+- key: beta_H
+  latex: \beta_{\rm H}
+  aliases:
+  - \beta_{\mathrm H}
+  category: network_parameter
+  definition_en: one-step mixing factor satisfying \(\|W^t-N^{-1}\mathbf 1_N\mathbf 1_N^\top\|_2\le\beta_{\rm
+    H}<1\)
+  definition_zh: one-step mixing factor
+  source_arxiv:
+  - '2211.00533'
+- key: beta_A
+  latex: \beta_A
+  aliases: []
+  category: network_parameter
+  definition_en: row-stochastic mixing factor of \(A\), \(\beta_A=\|A-\mathbf 1_N\pi_A^\top\|_{\pi_A}\in[0,1)\),
+    where \(\Pi_A=\operatorname{diag}(\pi_A)\) and \(\|B\|_{\pi_A}:=\|\Pi_A^{1/2}B\Pi_A^{-1/2}\|_2\) is
+    the induced weighted matrix norm
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u6709\u5411\u7F51\u7EDC mixing parameter"
+  source_arxiv:
+  - '2506.04600'
+- key: beta_pi
+  latex: \beta_\pi
+  aliases: []
+  category: network_parameter
+  definition_en: column-stochastic mixing factor of \(W_\pi\), \(\beta_\pi=\|W_\pi-\pi\mathbf 1_N^\top\|_\pi\in[0,1)\),
+    where \(\Pi=\operatorname{diag}(\pi)\) and \(\|B\|_\pi:=\|\Pi^{-1/2}B\Pi^{1/2}\|_2\) is the induced
+    weighted matrix norm
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684 push-sum \u6216\u6709\u5411\u7F51\u7EDC mixing parameter"
+  source_arxiv:
+  - '2312.04928'
+- key: delta_net
+  latex: \delta_{\rm net}
+  aliases:
+  - network_gap
+  category: network_parameter
+  definition_en: normalized network contraction rate, \(\delta_{\rm net}:=p_{\rm mix}/\tau_{\rm mix}\),
+    where \(1-p_{\rm mix}\) is the \(\tau_{\rm mix}\)-step expected squared-consensus-error factor
+  definition_zh: "\u901A\u7528\u7F51\u7EDC gap\uFF1B\u5F53\u8BBA\u6587\u4E0D\u9002\u5408\u5199\u6210\u9759\
+    \u6001 \\(\\rho\\) \u65F6\u4F7F\u7528"
+  source_arxiv:
+  - '2003.10422'
+- key: delta_g
+  latex: \delta_{\rm G}
+  aliases:
+  - Goldstein_delta
+  category: target_parameter
+  definition_en: Goldstein-stationarity radius
+  definition_zh: "Goldstein stationarity \u534A\u5F84\uFF0C\u4E0D\u662F\u7F51\u7EDC gap"
+- key: W
+  latex: W
+  aliases: []
+  category: network_parameter
+  definition_en: doubly stochastic mixing matrix \(W\in\mathbb R^{N\times N}\) satisfying \(W\mathbf 1_N=\mathbf
+    1_N\) and \(\mathbf 1_N^\top W=\mathbf 1_N^\top\)
+  definition_zh: "gossip \u6216 mixing \u77E9\u9635"
+- key: omega_W
+  latex: \omega(\widehat W)
+  aliases: []
+  category: network_parameter
+  definition_en: smallest positive eigenvalue of the positive semidefinite gossip/Laplacian operator \(\widehat
+    W\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u56FE\u8FDE\u901A\u6027\u6216\u8C31\u91CF"
+  source_arxiv:
+  - '2004.02635'
+- key: eta
+  latex: \eta
+  aliases: []
+  category: algorithm_parameter
+  definition_en: positive stepsize
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u6B65\u957F\u6216\u60E9\u7F5A\u53C2\u6570"
+  source_arxiv:
+  - '2309.02626'
+  - '2601.03566'
+- key: theta_pl
+  latex: \theta
+  aliases: []
+  category: algorithm_parameter
+  definition_en: linear contraction parameter \(\theta\in(0,1)\) in the factor \((1-\theta)^t\)
+  definition_zh: "\u539F\u59CB\u5BF9\u5076 PL \u7EBF\u6027\u6536\u655B\u5B9A\u7406\u4E2D\u7684\u6536\u7F29\
+    \u53C2\u6570"
+  source_arxiv:
+  - '1912.12110'
+- key: c_pl
+  latex: c
+  aliases: []
+  category: problem_parameter
+  definition_en: initial error constant in the primal-dual PL bound
+  definition_zh: "\u539F\u59CB\u5BF9\u5076 PL \u7EBF\u6027\u6536\u655B\u5B9A\u7406\u4E2D\u7684\u521D\u59CB\
+    \ Lyapunov \u5E38\u6570"
+  source_arxiv:
+  - '1912.12110'
+- key: alpha_DSP
+  latex: \alpha_{\rm DSP}
+  aliases:
+  - \alpha_{\mathrm{DSP}}
+  category: problem_parameter
+  definition_en: positive constant
+  definition_zh: "D-SPIDER-SFO \u63A8\u8BBA\u4E2D\u7684\u4E09\u6B21\u7CBE\u5EA6\u6B8B\u5DEE\u7CFB\u6570"
+  source_arxiv:
+  - '1911.12665'
+- key: ell_DSP
+  latex: \ell_{\rm DSP}
+  aliases:
+  - \ell_{\mathrm{DSP}}
+  category: problem_parameter
+  definition_en: D-SPIDER-SFO complexity coefficient
+  definition_zh: "D-SPIDER-SFO \u4E2D\u4E58\u5728\u4E09\u6B21\u7CBE\u5EA6\u9879\u524D\u7684\u5B9A\u7406\
+    \u7279\u5B9A\u7CFB\u6570"
+  source_arxiv:
+  - '1911.12665'
+- key: eta_alg
+  latex: \eta_{\rm alg}
+  aliases: []
+  category: algorithm_parameter
+  definition_en: positive DAGP auxiliary parameter
+  definition_zh: "DAGP \u6536\u655B\u5B9A\u7406\u4E2D\u7684\u6B63\u8F85\u52A9\u53C2\u6570"
+  source_arxiv:
+  - '2210.03232'
+- key: C_S
+  latex: C_{\mathbf S}
+  aliases: []
+  category: network_parameter
+  definition_en: DAGP network-and-algorithm factor satisfying \(C_{\mathbf S}>-\lambda_{\min}(\mathbf
+    S)\), where \(\mathbf S\) is the theorem matrix determined by the gossip matrices and algorithm parameters
+  definition_zh: "DAGP \u5B9A\u7406\u4E2D\u7531 gossip \u77E9\u9635\u548C\u7B97\u6CD5\u53C2\u6570\u51B3\
+    \u5B9A\u7684\u7F51\u7EDC\u56E0\u5B50"
+  source_arxiv:
+  - '2210.03232'
+- key: C_DDA
+  latex: C_{\rm DDA}
+  aliases: []
+  category: problem_parameter
+  definition_en: DDA constant coefficient
+  definition_zh: "DDA \u6B8B\u5DEE\u5B9A\u7406\u4E2D\u7531\u521D\u59CB\u8BEF\u5DEE\u3001\u6B65\u957F\u3001\
+    \u5149\u6ED1\u6027\u548C\u7F51\u7EDC\u6536\u7F29\u51B3\u5B9A\u7684\u663E\u5F0F\u7CFB\u6570"
+  source_arxiv:
+  - '2211.06914'
+- key: C_2
+  latex: C_2
+  aliases: []
+  category: problem_parameter
+  definition_en: DAGP heterogeneity coefficient
+  definition_zh: "DAGP \u4E2D\u6700\u4F18\u70B9\u5904\u7684\u7EA6\u675F\u4E0E\u76EE\u6807\u5F02\u8D28\u6027\
+    \u91CF"
+  source_arxiv:
+  - '2210.03232'
+- key: bar_zeta
+  latex: \bar\zeta
+  aliases:
+  - \bar{\zeta}
+  category: problem_parameter
+  definition_en: root-mean-square local-gradient heterogeneity at a global optimum, \(\bar\zeta=(N^{-1}\sum_{i=1}^N\|\nabla
+    F_i(x^\star)\|^2)^{1/2}\)
+  definition_zh: "\u5168\u5C40\u6700\u4F18\u70B9\u5904\u5C40\u90E8\u68AF\u5EA6\u7684\u5747\u65B9\u6839\
+    \u5F02\u8D28\u6027"
+  source_arxiv:
+  - '2003.10422'
+- key: zeta_stat2
+  latex: \zeta_{\rm stat}^2
+  aliases:
+  - \zeta_{\mathrm{stat}}^2
+  category: stochastic_parameter
+  definition_en: uniform cross-node gradient-heterogeneity bound satisfying \(N^{-1}\sum_{i=1}^N\|\nabla
+    F_i(x)-\nabla F(x)\|^2\le\zeta_{\rm stat}^2\) for all \(x\)
+  definition_zh: "\u6240\u6709\u70B9\u4E0A\u5C40\u90E8\u68AF\u5EA6\u4E0E\u5168\u5C40\u68AF\u5EA6\u5DEE\
+    \u5F02\u7684\u7EDF\u4E00\u4E0A\u754C"
+  source_arxiv:
+  - '2412.07252'
+- key: p_comm
+  latex: p_{\rm comm}
+  aliases:
+  - p_{\mathrm{comm}}
+  category: algorithm_parameter
+  definition_en: communication probability, \(p_{\rm comm}\in(0,1]\)
+  definition_zh: "MG-Skip \u89E6\u53D1\u901A\u4FE1\u7684\u6982\u7387"
+  source_arxiv:
+  - '2312.11861'
+- key: p
+  latex: p
+  aliases: []
+  category: problem_parameter
+  definition_en: higher-order smoothness degree, an integer \(p\ge2\) such that \(\|\mathcal D^pF_i(X)-\mathcal
+    D^pF_i(Y)\|_*\le L_{p,*}\|X-Y\|\) for some \(L_{p,*}>0\), where \(\mathcal D^p\) is the \(p\)-th derivative
+  definition_zh: "\u9AD8\u9636\u5149\u6ED1\u6027\u7684\u6574\u6570\u9636\u6570"
+  source_arxiv:
+  - '2510.01377'
+- key: Psi0
+  latex: \Psi^0
+  aliases: []
+  category: problem_parameter
+  definition_en: initial MG-Skip Lyapunov value
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u521D\u59CB Lyapunov \u503C"
+  source_arxiv:
+  - '2312.11861'
+- key: x_i
+  latex: x_i
+  aliases:
+  - x_i(t)
+  category: output
+  definition_en: local iterate/output at node \(i\); \(x_i^t\) is its value at iteration \(t\), while
+    the unindexed form is the theorem's returned output
+  definition_zh: "\u8282\u70B9 \\(i\\) \u7684\u8F93\u51FA\u6216\u5C40\u90E8\u53D8\u91CF"
+- key: x_bar
+  latex: \bar x
+  aliases:
+  - \bar{x}
+  - x_{\mathrm{bar}}
+  category: output
+  definition_en: network-average iterate/output, \(\bar x^t=N^{-1}\sum_{i=1}^N x_i^t\); the unindexed
+    \(\bar{x}\) denotes the averaged output specified by the cited theorem
+  definition_zh: "\u8282\u70B9\u5E73\u5747\u8F93\u51FA\uFF0C\\(\\bar x=\\frac1n\\sum_{i=1}^n x_i\\)"
+- key: x_o_i
+  latex: x_{o,i}
+  aliases: []
+  category: output
+  definition_en: output selected by node \(i\) from its internal memory
+  definition_zh: "\u975E\u5149\u6ED1\u65F6\u53D8\u7F51\u7EDC\u4E0B\u754C\u6A21\u578B\u4E2D\u8282\u70B9\
+    \u4ECE\u672C\u5730\u5185\u5B58\u9009\u53D6\u7684\u8F93\u51FA"
+  source_arxiv:
+  - '2405.18031'
+- key: x_o_K
+  latex: x_o^T
+  aliases: []
+  category: output
+  definition_en: network-average output, \(x_o^T=N^{-1}\sum_{i=1}^N x_{a,i}^T\), where \(x_{a,i}^T\) is
+    node \(i\)'s component of the averaged primal vector \(x_a^T\)
+  definition_zh: "\u975E\u5149\u6ED1\u65F6\u53D8\u7F51\u7EDC\u4E0A\u754C\u7B97\u6CD5\u7684\u5168\u5C40\
+    \u5E73\u5747\u8F93\u51FA"
+  source_arxiv:
+  - '2405.18031'
+- key: x_bar_i_K
+  latex: \bar x_{i,T}
+  aliases:
+  - \bar{x}_{i,K}
+  category: output
+  definition_en: time-averaged output at node \(i\), \(\bar x_{i,T}=T^{-1}\sum_{t=0}^{T-1}x_i^t\)
+  definition_zh: "DAGP \u5B9A\u7406\u4E2D\u8282\u70B9\u5728 K \u6B21\u8FED\u4EE3\u540E\u7684\u65F6\u95F4\
+    \u5E73\u5747\u8F93\u51FA"
+  source_arxiv:
+  - '2210.03232'
+- key: y_bar_T
+  latex: \bar y_T
+  aliases:
+  - \bar{y}_T
+  category: output
+  definition_en: averaged primal output after \(T\) iterations
+  definition_zh: "\u53BB\u4E2D\u5FC3\u5316\u590D\u5408\u4F18\u5316\u7B97\u6CD5\u5728 T \u6B21\u8FED\u4EE3\
+    \u540E\u8FD4\u56DE\u7684\u5E73\u5747\u539F\u53D8\u91CF"
+  source_arxiv:
+  - '2312.15845'
+- key: x_hat_i_T
+  latex: \hat x_i(T)
+  aliases:
+  - \hat{x}_i(T)
+  category: output
+  definition_en: time-averaged output at node \(i\), \(\hat x_i(T)=T^{-1}\sum_{t=1}^T x_i^t\)
+  definition_zh: "\u8282\u70B9 i \u7684\u65F6\u95F4\u5E73\u5747\u8F93\u51FA"
+  source_arxiv:
+  - '1005.2012'
+- key: x_tilde_i_T
+  latex: \tilde x_i^T
+  aliases:
+  - \tilde{x}_\ell^T
+  category: output
+  definition_en: time-averaged output at node \(i\), \(\tilde x_i^T=T^{-1}\sum_{t=1}^T x_i^t\)
+  definition_zh: node i equiweighted ergodic output
+  source_arxiv:
+  - '2506.12901'
+- key: x_hat
+  latex: \hat x
+  aliases:
+  - \hat{x}
+  category: output
+  definition_en: the algorithm output used to evaluate the accuracy criterion in the corresponding source;
+    its specific construction follows the theorem cited in that row
+  definition_zh: "\u5BF9\u5E94\u6587\u732E\u4E2D\u7528\u4E8E\u8BC4\u4EF7\u8BE5\u884C\u7CBE\u5EA6\u6307\
+    \u6807\u7684\u7B97\u6CD5\u8F93\u51FA\u70B9\uFF0C\u5176\u5177\u4F53\u53D6\u6CD5\u4EE5\u8BE5\u884C\u5F15\
+    \u7528\u7684\u5B9A\u7406\u4E3A\u51C6\u3002"
+  source_arxiv:
+  - '2210.13931'
+  - '2211.00533'
+  - '2210.07863'
+  - '2408.09775'
+  - '2006.08085'
+  - '1910.04057'
+  - '2402.02490'
+  - '1904.09015'
+  - '2110.01594'
+  - '2406.01484'
+- key: y_hat
+  latex: \hat y
+  aliases:
+  - \hat{y}
+  category: output
+  definition_en: tuple of node-wise time-averaged outputs
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A Err \u76EE\u6807\u4E2D\u7684\u8282\u70B9\u65F6\u95F4\u5E73\u5747\
+    \u8F93\u51FA\u7EC4"
+  source_arxiv:
+  - '1411.4186'
+- key: x_tilde
+  latex: \tilde x
+  aliases:
+  - \tilde{x}
+  category: output
+  definition_en: virtual centralized output after epoch \(S\) in DPSVRG
+  definition_zh: "DPSVRG \u901F\u7387\u9648\u8FF0\u4E2D\u7684\u865A\u62DF\u4E2D\u5FC3\u5316\u5FEB\u7167\
+    \u8F93\u51FA"
+  source_arxiv:
+  - '2112.10389'
+- key: x_tilde_i
+  latex: \tilde x_i
+  aliases:
+  - \tilde{x}_i
+  - \tilde{x}_{i}
+  category: output
+  definition_en: weighted time-averaged output at node \(i\), \(\tilde x_i=A_T^{-1}\sum_{t=1}^T a_t x_i^t\),
+    where \(A_T=\sum_{t=1}^T a_t\) and \(a_t>0\) are theorem-specified averaging weights
+  definition_zh: "\u8282\u70B9 \\(i\\) \u7684\u8BBA\u6587\u7279\u5B9A\u8F85\u52A9\u6216\u5FEB\u7167\u8F93\
+    \u51FA"
+  source_arxiv:
+  - '2106.14075'
+  - '1806.07081'
+- key: x_star
+  latex: x^\star
+  aliases:
+  - x^*
+  - x_*
+  category: output
+  definition_en: optimizer of \(F\), \(x^\star\in\arg\min_x F(x)\)
+  definition_zh: "\\(F\\) \u7684\u6700\u4F18\u89E3"
+- key: X
+  latex: X
+  aliases: []
+  category: output
+  definition_en: stacked local iterate/output, \(X^t=[(x_1^t)^\top,\ldots,(x_N^t)^\top]^\top\); the unindexed
+    form is the returned stacked output
+  definition_zh: "\u8282\u70B9\u53D8\u91CF\u5806\u53E0\u77E9\u9635"
+- key: X_star
+  latex: X^\star
+  aliases:
+  - X^*
+  category: output
+  definition_en: stacked consensus optimizer, \(X^\star=\mathbf 1_N\otimes x^\star\)
+  definition_zh: "\u5806\u53E0\u7684\u6700\u4F18\u89E3\u6216\u4E00\u81F4\u6700\u4F18\u70B9"
+- key: y
+  latex: y
+  aliases: []
+  category: output
+  definition_en: consensus auxiliary primal iterate in DDA, \(y^t=\nabla d^*(-\bar z^t)\), where \(d^*\)
+    is the conjugate of the prox function
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u8F85\u52A9\u539F\u53D8\u91CF\u6216\u5BF9\u5076\u53D8\
+    \u91CF"
+  source_arxiv:
+  - '2211.06914'
+- key: bold_y
+  latex: \mathbf y
+  aliases:
+  - \mathbf{y}
+  category: output
+  definition_en: stacked auxiliary iterate in DDA, \(\mathbf y^t=\mathbf 1_N\otimes y^t\)
+  definition_zh: "DDA \u4E00\u81F4\u6027\u6B8B\u5DEE\u4E2D\u7684\u5806\u53E0\u8F85\u52A9\u539F\u53D8\u91CF"
+  source_arxiv:
+  - '2211.06914'
+- key: z
+  latex: z
+  aliases: []
+  category: output
+  definition_en: node-wise dual accumulator \(z_i^t\) in DDA
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u8F85\u52A9\u539F\u53D8\u91CF\u6216\u5BF9\u5076\u53D8\
+    \u91CF"
+  source_arxiv:
+  - '2211.06914'
+- key: z_bar
+  latex: \bar z
+  aliases:
+  - \bar{z}
+  category: output
+  definition_en: network-average auxiliary iterate, \(\bar z^t=N^{-1}\sum_{i=1}^N z_i^t\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u8F85\u52A9\u53D8\u91CF\u7684\u5E73\u5747\u91CF"
+  source_arxiv:
+  - '2211.06914'
+- key: G
+  latex: G
+  aliases: []
+  category: target
+  definition_en: Bregman distance of the stacked separable objective, \(G(X,X^\star)=\sum_{i=1}^N[F_i(X_i)-F_i(x^\star)-\langle\nabla
+    F_i(x^\star),X_i-x^\star\rangle]\), where \(X_i\) is node \(i\)'s block of \(X\)
+  definition_zh: "\u5806\u53E0\u53EF\u5206\u76EE\u6807\u7684 Bregman \u8DDD\u79BB"
+  source_arxiv:
+  - '1910.10666'
+- key: s_prox
+  latex: \mathbf s
+  aliases:
+  - \mathbf{s}
+  category: target
+  definition_en: proximal-gradient mapping of \(F+h\), \(\mathbf s(x)=\alpha^{-1}[x-\operatorname{prox}_{\alpha
+    h}(x-\alpha\nabla F(x))]\), where \(h\) is the convex regularizer and \(\alpha>0\)
+  definition_zh: "\u590D\u5408\u76EE\u6807 \\(F+h\\) \u7684 proximal-gradient mapping"
+  source_arxiv:
+  - '2110.01594'
+- key: G_a
+  latex: G_a
+  aliases: []
+  category: target
+  definition_en: DDA gradient mapping, \(G_a(x,z)=a^{-1}[\nabla d^*(-z)-\nabla d^*(-z-\nabla f(x))]\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684\u5C40\u90E8 stationarity \u4E0E consensus residual"
+  source_arxiv:
+  - '2211.06914'
+- key: g_bar
+  latex: \bar g
+  aliases: []
+  category: target
+  definition_en: node-averaged local gradient at the stacked iterate, \(\bar g(X)=N^{-1}\sum_{i=1}^N\nabla
+    F_i(X_i)\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A\u7684 stationarity mapping \u6216\u8282\u70B9\u5E73\u5747\u5E7F\
+    \u4E49\u68AF\u5EA6"
+  source_arxiv:
+  - '2510.01377'
+- key: w_t
+  latex: w_t
+  aliases: []
+  category: algorithm_parameter
+  definition_en: positive theorem weights used to average strongly-convex decentralized-SGD objective
+    errors
+  definition_zh: "\u5F3A\u51F8\u53BB\u4E2D\u5FC3\u5316 SGD \u76EE\u6807\u8BEF\u5DEE\u52A0\u6743\u5E73\u5747\
+    \u4E2D\u7684\u6B63\u6743\u91CD"
+  source_arxiv:
+  - '2003.10422'
+- key: W_T
+  latex: W_T
+  aliases: []
+  category: algorithm_parameter
+  definition_en: cumulative weight, \(W_T=\sum_{t=0}^T w_t\)
+  definition_zh: "\u6743\u91CD\u7D2F\u8BA1\u548C"
+  source_arxiv:
+  - '2003.10422'
+- key: gradient
+  latex: \nabla F
+  aliases: []
+  category: target_operator
+  definition_en: gradient of the global objective
+  definition_zh: "\u5168\u5C40\u76EE\u6807\u51FD\u6570\u7684\u68AF\u5EA6"
+- key: norm
+  latex: \|\cdot\|
+  aliases: []
+  category: target_operator
+  definition_en: Euclidean norm of \(v\in\mathbb R^d\), \(\|v\|=(\sum_{r=1}^d v_r^2)^{1/2}\)
+  definition_zh: "\u9ED8\u8BA4\u8868\u793A Euclidean norm\uFF1B\u82E5\u539F\u8BBA\u6587\u53E6\u6709\u8BF4\
+    \u660E\u5219\u91C7\u7528\u5176\u76F8\u5BB9\u8303\u6570"
+- key: norm_delta_G
+  latex: \|\nabla F(\hat x)\|_{\delta_{\rm G}}
+  aliases: []
+  category: target
+  definition_en: Goldstein stationarity measure with radius \(\delta_{\rm G}\)
+  definition_zh: "\u534A\u5F84\u4E3A \\(\\delta_{\\rm G}\\) \u7684 Goldstein stationarity \u5EA6\u91CF"
+- key: norm_star
+  latex: \|\cdot\|_*
+  aliases: []
+  category: target
+  definition_en: nuclear norm of a matrix \(X\), \(\|X\|_* =\sum_r\sigma_r(X)\)
+  definition_zh: "nuclear norm \u6216\u8BBA\u6587\u7279\u5B9A\u5BF9\u5076\u8303\u6570\uFF1B\u5177\u4F53\
+    \u542B\u4E49\u4EE5\u5F15\u7528\u8BBA\u6587\u4E3A\u51C6"
+  source_arxiv:
+  - '2510.01377'
+- key: norm_E
+  latex: \|\cdot\|_{\E}
+  aliases: []
+  category: target
+  definition_en: root-mean-square norm of a random vector \(v\), \(\|v\|_{\mathbb E}=(\mathbb E\|v\|^2)^{1/2}\)
+  definition_zh: "\u8BBA\u6587\u7279\u5B9A energy norm"
+  source_arxiv:
+  - '2211.06914'
+- key: norm_F
+  latex: \|\cdot\|_F
+  aliases: []
+  category: target
+  definition_en: Frobenius norm of \(X\in\mathbb R^{a\times b}\), \(\|X\|_F=(\sum_{r=1}^a\sum_{s=1}^b
+    X_{rs}^2)^{1/2}\)
+  definition_zh: Frobenius norm
+- key: O
+  latex: O(\cdot)
+  aliases: []
+  category: asymptotic
+  definition_en: asymptotic upper bound, \(a=O(b)\) when \(a\le Cb\) for a constant \(C>0\)
+  definition_zh: "\u4E0A\u754C"
+- key: Omega
+  latex: \Omega(\cdot)
+  aliases: []
+  category: asymptotic
+  definition_en: asymptotic lower bound, \(a=\Omega(b)\) when \(a\ge cb\) for a constant \(c>0\)
+  definition_zh: "\u4E0B\u754C"
+- key: O_tilde
+  latex: \widetilde O(\cdot)
+  aliases:
+  - \tilde O
+  category: asymptotic
+  definition_en: asymptotic upper bound hiding poly-logarithmic factors, \(a=\widetilde O(b)\)
+  definition_zh: "\u9690\u85CF poly-logarithmic factors \u7684\u4E0A\u754C"
+- key: C0
+  latex: C_0
+  aliases: []
+  category: problem_parameter
+  definition_en: DAGP initialization coefficient
+- key: s
+  latex: s
+  aliases: []
+  category: index
+  definition_en: candidate iteration index in \(\min_{1\le s\le t}\)
+- key: V_PD
+  latex: V^t
+  aliases: []
+  category: target
+  definition_en: source-defined primal-dual Lyapunov value combining squared primal error, squared dual
+    error, and gradient-estimator variance
+  source_arxiv:
+  - '2004.02635'
+- key: E_obj
+  latex: \mathcal E_{\rm obj}
+  aliases:
+  - Err
+  category: target
+  definition_en: average local-objective error, \(\mathcal E_{\rm obj}(y_1,\ldots,y_N)=N^{-1}\sum_{i=1}^N
+    F_i(y_i)-F^\star\)
+  source_arxiv:
+  - '1411.4186'
+- key: alpha_DAGP
+  latex: \alpha_{\rm DAGP}
+  aliases:
+  - \mu_{\rm alg}
+  category: algorithm_parameter
+  definition_en: DAGP gradient stepsize, \(\alpha_{\rm DAGP}>0\)
+- key: W_pi
+  latex: W_\pi
+  aliases: []
+  category: network_parameter
+  definition_en: primitive column-stochastic mixing matrix satisfying \(\mathbf 1_N^\top W_\pi=\mathbf
+    1_N^\top\)
+  source_arxiv:
+  - '2312.04928'
+- key: pi
+  latex: \pi
+  aliases: []
+  category: network_parameter
+  definition_en: normalized positive right Perron vector of \(W_\pi\), satisfying \(W_\pi\pi=\pi\) and
+    \(\mathbf 1_N^\top\pi=1\)
+  source_arxiv:
+  - '2312.04928'
+- key: pi_A
+  latex: \pi_A
+  aliases: []
+  category: network_parameter
+  definition_en: normalized positive left Perron vector of row-stochastic \(A\), satisfying \(\pi_A^\top
+    A=\pi_A^\top\) and \(\pi_A^\top\mathbf 1_N=1\)
+  source_arxiv:
+  - '2506.04600'
+- key: p_mix
+  latex: p_{\rm mix}
+  aliases: []
+  category: network_parameter
+  definition_en: blockwise expected consensus-contraction amount in the definition of \(\delta_{\rm net}\)
+  source_arxiv:
+  - '2003.10422'
+- key: tau_AC
+  latex: \tau_{\rm AC}
+  aliases: []
+  category: network_parameter
+  definition_en: AC-GT mixing-window coefficient, \(\tau_{\rm AC}=\eta_{\rm AC}\bar\tau d_{\mathcal G}\),
+    where \(\bar\tau\) is the joint-connectivity window, \(d_{\mathcal G}\) is the graph diameter, and
+    \(\eta_{\rm AC}\in\mathbb N\) satisfies the cited block-contraction condition
+  source_arxiv:
+  - '2309.02626'
+- key: delta_ht
+  latex: \delta_{\rm ht}
+  aliases: []
+  category: stochastic_parameter
+  definition_en: failure probability in a high-probability guarantee, \(\delta_{\rm ht}\in(0,1)\)
+  source_arxiv:
+  - '2006.08085'
+- key: z_VR
+  latex: z_{\rm VR}^k
+  aliases: []
+  category: output
+  definition_en: VR-EXTRA/DIGing auxiliary primal iterate returned at iteration \(k\)
+  source_arxiv:
+  - '2009.04373'
+- key: x_bar_u
+  latex: \bar x_u^k
+  aliases: []
+  category: output
+  definition_en: left-Perron-weighted aggregate \(\bar x_u^k=N^{-1}(u^\top\otimes I)X^k\), where \(u^\top
+    R=u^\top\) and \(u^\top\mathbf 1_N=N\)
+  source_arxiv:
+  - '2601.03566'
+- key: x_bar_pi_SAB
+  latex: \bar x_{\pi_{\rm SAB}}^k
+  aliases: []
+  category: output
+  definition_en: S-AB Perron-weighted aggregate \(\bar x_{\pi_{\rm SAB}}^k=(\pi_{\rm SAB}^\top\otimes
+    I)X^k\), where \(\pi_{\rm SAB}\) is the normalized positive left Perron vector of its row-stochastic
+    mixing matrix
+  source_arxiv:
+  - '2109.07981'
+- key: x_bar_pi_A
+  latex: \bar x_{\pi_A}^t
+  aliases: []
+  category: output
+  definition_en: row-stochastic Perron-weighted aggregate \(\bar x_{\pi_A}^t=(\pi_A^\top\otimes I)X^t\)
+  source_arxiv:
+  - '2506.04600'
+normalization_rules:
+- Do not introduce a new symbol if an existing notation entry has the same meaning.
+- Do not reuse an existing symbol for a different meaning. If a paper uses the same letter differently,
+  rename it to an unambiguous shared symbol and record the normalization note.
+- Rewrite global objectives named \(f\), \(\bar f\), or \(p\) as \(F\).
+- Rewrite strong convexity parameters as \(\mu\), smoothness parameters as \(L\), and condition numbers
+  as \(\kappa=L/\mu\).
+- Rewrite node counts to \(n\); reserve \(M\) for nonsmooth Lipschitz/subgradient bounds.
+- Use \(K_{\rm loc}\) only for local finite-sum size, \(T\) for an iteration horizon, and \(T_{\rm out}\)
+  for an outer horizon with batching or multi-gossip.
+- Use \(\rho\) for static gossip spectral gap and \(\delta_{\rm net}\) for generic network gap. Do not
+  use bare \(\delta\) in final table cells.
+- Use \(\delta_{\rm G}\) for Goldstein stationarity radius and \(\delta_{\rm ht}\) for heavy-tail/moment
+  parameters.
+- Keep paper-specific merit functions \(G\), \(Q\), \(G_a\), and \(\Eloc\) only when the target is not
+  an ordinary objective gap, distance, or gradient norm.
+- Every symbol appearing in a Measure/LB/UB cell must have exactly one entry in this file before the table
+  is rendered.
+- Communication rounds, bits, and wall-clock quantities stay out of the main oracle-query rate.
+version: 8

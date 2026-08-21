@@ -1,0 +1,72 @@
+version: 8
+language: en
+sections:
+- heading: Fixed scope
+  latex: Every row concerns vanilla decentralized optimization with peer-to-peer gossip, synchronous communication
+    rounds, and no communication compression. These four fixed attributes are therefore omitted from the
+    row labels; the structured problem tags retain them for taxonomy and audit purposes.
+  markdown: Every row concerns vanilla decentralized optimization with peer-to-peer gossip, synchronous
+    communication rounds, and no communication compression. These four fixed attributes are therefore
+    omitted from the row labels; the structured problem tags retain them for taxonomy and audit purposes.
+- heading: Objective form
+  latex: '
+
+    \tagbox{SUM} denotes a deterministic distributed aggregate \(F(x)=\frac{1}{N}\sum_{i=1}^{N}F_i(x)\),
+    where each local objective \(F_i\) is deterministic. A \tagbox{SUM}+\tagbox{SFO} row is used when
+    the deterministic local objective is accessed by a sampled oracle: either explicit finite-sum component
+    sampling or an unbiased noisy-gradient oracle for \(F_i\); oracle-only stochasticity is disclosed
+    by a Remark marker. \tagbox{STO} denotes an expectation objective \(F(x)=\frac{1}{N}\sum_{i=1}^{N}\E_{\xi_i}[f_i(x;\xi_i)]\),
+    where \(\xi_i\) is a local random sample and the objective is accessed through sampled stochastic
+    first-order information. Thus \tagbox{SUM}/\tagbox{STO} describes the objective model, whereas the
+    oracle tag below describes what one local query returns.'
+  markdown: '`SUM` denotes a deterministic distributed aggregate \(F(x)=\frac{1}{N}\sum_{i=1}^{N}F_i(x)\),
+    where each local objective \(F_i\) is deterministic. A `SUM`+`SFO` row is used when the deterministic
+    local objective is accessed by a sampled oracle: either explicit finite-sum component sampling or
+    an unbiased noisy-gradient oracle for \(F_i\); oracle-only stochasticity is disclosed by a Remark
+    marker. `STO` denotes an expectation objective \(F(x)=\frac{1}{N}\sum_{i=1}^{N}\mathbb{E}_{\xi_i}[f_i(x;\xi_i)]\),
+    where \(\xi_i\) is a local random sample and the objective is accessed through sampled stochastic
+    first-order information. Thus `SUM`/`STO` describes the objective model, whereas the oracle tag below
+    describes what one local query returns.'
+- heading: Geometry and regularity
+  latex: \tagbox{SC} means strong convexity with parameter \(\mu>0\); \tagbox{C} means convexity without
+    an assumed positive strong-convexity parameter; \tagbox{NC} means that convexity is not assumed; and
+    \tagbox{PL} means the classical differentiable Polyak--Lojasiewicz condition \(\frac12\|\nabla F(x)\|^2\geq
+    \mu(F(x)-F^\star)\). The classification follows the level used by the cited statement (global objective,
+    local objectives, or both), with stronger local assumptions retained as caveats. \tagbox{SM} means
+    differentiability with an \(L\)-Lipschitz gradient at the theorem's stated level; \tagbox{NS} means
+    that the total objective is not assumed differentiable with an \(L\)-Lipschitz gradient and the result
+    instead uses nonsmooth first-order, subgradient, or proximal information. \tagbox{COMP} marks a composite
+    objective consisting of a smooth loss and an explicit nonsmooth/proximable regularizer; it supplements
+    rather than replaces \tagbox{NS}.
+  markdown: '`SC` means strong convexity with parameter \(\mu>0\); `C` means convexity without an assumed
+    positive strong-convexity parameter; `NC` means that convexity is not assumed; and `PL` means the
+    classical differentiable Polyak-Lojasiewicz condition \(\frac12\|\nabla F(x)\|^2\geq\mu(F(x)-F^\star)\).
+    The classification follows the level used by the cited statement (global objective, local objectives,
+    or both), with stronger local assumptions retained as caveats. `SM` means differentiability with an
+    \(L\)-Lipschitz gradient at the theorem''s stated level; `NS` means that the total objective is not
+    assumed differentiable with an \(L\)-Lipschitz gradient and the result instead uses nonsmooth first-order,
+    subgradient, or proximal information. `COMP` marks a composite objective consisting of a smooth loss
+    and an explicit nonsmooth/proximable regularizer; it supplements rather than replaces `NS`.'
+- heading: Local oracle
+  latex: \tagbox{FO} is an exact local first-order oracle (the exact gradient in the smooth case, or the
+    exact first-order mapping specified by the paper); \tagbox{SFO} is a sampled stochastic or finite-sum
+    component oracle returning \(g_i(x;\xi_i)\) under the cited theorem's bias, variance, and independence
+    assumptions; and \tagbox{SUBG} is a deterministic local subgradient oracle returning \(g_i(x)\in\partial
+    F_i(x)\). All displayed complexities count per-node local oracle calls, not total calls summed over
+    the network. \tagbox{PROX} means that the algorithm additionally assumes exact evaluation of the regularizer's
+    proximal operator; these side-access calls are not included in the displayed \tagbox{FO}/\tagbox{SFO}
+    counts.
+  markdown: '`FO` is an exact local first-order oracle (the exact gradient in the smooth case, or the
+    exact first-order mapping specified by the paper); `SFO` is a sampled stochastic or finite-sum component
+    oracle returning \(g_i(x;\xi_i)\) under the cited theorem''s bias, variance, and independence assumptions;
+    and `SUBG` is a deterministic local subgradient oracle returning \(g_i(x)\in\partial F_i(x)\). All
+    displayed complexities count per-node local oracle calls, not total calls summed over the network.
+    `PROX` means that the algorithm additionally assumes exact evaluation of the regularizer''s proximal
+    operator; these side-access calls are not included in the displayed `FO`/`SFO` counts.'
+- heading: Network evolution
+  latex: \tagbox{STAT} means that one communication graph and its mixing operator remain fixed over the
+    run. \tagbox{TV} means that the graph or mixing operator may vary by communication round, subject
+    to the connectivity and mixing assumptions stated by the cited theorem.
+  markdown: '`STAT` means that one communication graph and its mixing operator remain fixed over the run.
+    `TV` means that the graph or mixing operator may vary by communication round, subject to the connectivity
+    and mixing assumptions stated by the cited theorem.'

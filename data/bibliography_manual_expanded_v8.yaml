@@ -1,0 +1,125 @@
+papers:
+- paper_id: kovalev2024
+  title: Lower Bounds and Optimal Algorithms for Non-Smooth Convex Decentralized Optimization over Time-Varying
+    Networks
+  authors:
+  - Dmitry Kovalev
+  - Ekaterina Borodich
+  - Alexander Gasnikov
+  - Dmitrii Feoktistov
+  year: 2024
+  venue: arXiv
+  scope: decentralized
+  arxiv: '2405.18031'
+  url: https://arxiv.org/abs/2405.18031
+- paper_id: arxiv_2601_03566_provably_convergent_decentralized_optimization
+  title: Provably Convergent Decentralized Optimization over Directed Graphs under Generalized Smoothness
+  authors:
+  - Yanan Bo
+  - Yongqiang Wang
+  year: 2026
+  venue: arXiv
+  scope: decentralized
+  arxiv: '2601.03566'
+  url: https://arxiv.org/abs/2601.03566
+- paper_id: arxiv_2312_04928_understanding_digraphs
+  title: 'Understanding the Influence of Digraphs on Decentralized Optimization: Effective Metrics, Lower
+    Bound, and Optimal Algorithm'
+  authors:
+  - Liyuan Liang
+  - Xinmeng Huang
+  - Ran Xin
+  - Kun Yuan
+  year: 2023
+  venue: arXiv
+  scope: decentralized
+  arxiv: '2312.04928'
+  url: https://arxiv.org/abs/2312.04928
+- paper_id: arxiv_2009_04373_variance_reduced_extra_and_diging
+  title: Variance Reduced EXTRA and DIGing and Their Optimal Acceleration for Strongly Convex Decentralized
+    Optimization
+  authors:
+  - Huan Li
+  - Zhouchen Lin
+  - Yongchun Fang
+  year: 2020
+  venue: arXiv
+  scope: decentralized
+  arxiv: '2009.04373'
+  url: https://arxiv.org/abs/2009.04373
+- paper_id: arxiv_1912_12110_linear_convergence_primal_dual
+  title: Linear Convergence of First- and Zeroth-Order Primal-Dual Algorithms for Distributed Nonconvex
+    Optimization
+  authors:
+  - Xinlei Yi
+  - Shengjun Zhang
+  - Tao Yang
+  - Tianyou Chai
+  - Karl H. Johansson
+  year: 2020
+  venue: arXiv
+  scope: decentralized
+  arxiv: '1912.12110'
+  url: https://arxiv.org/abs/1912.12110
+- paper_id: arxiv_1905_07996_linearly_convergent_proximal_gradient
+  title: A Linearly Convergent Proximal Gradient Algorithm for Decentralized Optimization
+  authors:
+  - Sulaiman A. Alghunaim
+  - Kun Yuan
+  - Ali H. Sayed
+  year: 2019
+  venue: arXiv
+  scope: decentralized
+  arxiv: '1905.07996'
+  url: https://arxiv.org/abs/1905.07996
+- paper_id: arxiv_2110_01594_stochastic_proximal_gradient_framework
+  title: 'A Stochastic Proximal Gradient Framework for Decentralized Non-Convex Composite Optimization:
+    Topology-Independent Sample Complexity and Communication Efficiency'
+  authors:
+  - Ran Xin
+  - Subhro Das
+  - Usman A. Khan
+  - Soummya Kar
+  year: 2021
+  venue: arXiv
+  scope: decentralized
+  arxiv: '2110.01594'
+  url: https://arxiv.org/abs/2110.01594
+- paper_id: arxiv_2112_10389_decentralized_stochastic_proximal_gradient
+  title: Decentralized Stochastic Proximal Gradient Descent with Variance Reduction over Time-varying
+    Networks
+  authors:
+  - Xuanjie Li
+  - Yuedong Xu
+  - Jessie Hui Wang
+  - Xin Wang
+  - John C. S. Lui
+  year: 2021
+  venue: arXiv
+  scope: decentralized
+  arxiv: '2112.10389'
+  url: https://arxiv.org/abs/2112.10389
+- paper_id: arxiv_2109_07981_s_ab_diminishing_stepsize
+  title: Asymptotic Properties of S-AB Method with Diminishing Stepsize
+  authors:
+  - Shengchao Zhao
+  - Yongchao Liu
+  year: 2021
+  venue: arXiv
+  scope: decentralized
+  arxiv: '2109.07981'
+  url: https://arxiv.org/abs/2109.07981
+- paper_id: yuan2022
+  title: Revisiting Optimal Convergence Rate for Smooth and Non-convex Stochastic Decentralized Optimization
+  authors: Yuan et al.
+  year: 2022
+  venue: NeurIPS
+  arxiv: '2210.07863'
+  url: https://arxiv.org/abs/2210.07863
+- paper_id: huang2022
+  title: Lower and Upper Bounds for Nonconvex Decentralized Optimization over Time-varying Networks
+  authors: Huang et al.
+  year: 2022
+  venue: arXiv
+  arxiv: '2211.00533'
+  url: https://arxiv.org/abs/2211.00533
