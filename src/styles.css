@@ -739,8 +739,27 @@ sup {
   padding: 14px 14px;
   border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
   border-left: 3px solid var(--accent);
-  background: color-mix(in srgb, var(--accent) 11%, var(--surface));
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 16%, transparent);
+  animation: anchor-highlight-pulse 2.2s ease-out both;
+}
+
+@keyframes anchor-highlight-pulse {
+  0% {
+    background: color-mix(in srgb, var(--accent) 25%, var(--surface));
+    border-color: var(--accent-strong);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+
+  24% {
+    background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+
+  100% {
+    background: transparent;
+    border-color: var(--line);
+    box-shadow: none;
+  }
 }
 
 .references-prose > p {
