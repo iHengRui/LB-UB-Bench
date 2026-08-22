@@ -736,9 +736,8 @@ sup {
 
 .remarks-prose > p.anchor-highlight,
 .references-prose > p.anchor-highlight {
-  padding: 14px 14px;
+  padding: 14px 0;
   border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
-  border-left: 3px solid var(--accent);
   animation: anchor-highlight-pulse 2.2s ease-out both;
 }
 
