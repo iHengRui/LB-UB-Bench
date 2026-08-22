@@ -166,7 +166,7 @@ const rows = parsedRows.map((cells, index) => {
     tags: visibleTags,
     status: source.status,
     cells: cells.map((cell) => renderInline(cell)),
-    searchText: [source.cell_id, ...visibleTags, ...cells.map(plainText), ...cells].join(" ").toLowerCase(),
+    searchText: cells.map(plainText).join(" ").toLowerCase(),
   };
 });
 
