@@ -659,6 +659,17 @@ sup {
   font-size: 1em;
 }
 
+.notation-link {
+  cursor: pointer;
+  transition: color 160ms ease, filter 160ms ease;
+}
+
+.notation-link:hover,
+.notation-link:focus-visible {
+  color: var(--accent-strong);
+  filter: brightness(1.2);
+}
+
 .bound-cell .katex,
 .measure-cell .katex {
   white-space: normal;
@@ -734,6 +745,7 @@ sup {
   transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
+.notation-prose > p.anchor-highlight,
 .remarks-prose > p.anchor-highlight,
 .references-prose > p.anchor-highlight {
   padding: 14px 0;
