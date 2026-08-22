@@ -321,6 +321,93 @@ h1 {
   font-size: 12px;
 }
 
+.suite-band {
+  padding: 34px 0 38px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-alt);
+}
+
+.suite-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.suite-heading h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.suite-count {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.suite-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.suite-slot {
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.suite-slot strong {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.suite-slot > span:last-child {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.suite-slot-status {
+  color: var(--faint);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.suite-slot.active {
+  border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
+  box-shadow: inset 0 2px 0 var(--accent);
+}
+
+.suite-slot.active .suite-slot-status {
+  color: var(--accent);
+}
+
+.suite-slot.active:hover {
+  border-color: var(--accent-strong);
+  background: var(--surface-strong);
+}
+
+.suite-slot.reserved {
+  border-style: dashed;
+  background: color-mix(in srgb, var(--surface) 72%, var(--bg-alt));
+}
+
+.suite-slot.reserved strong,
+.suite-slot.reserved > span:last-child {
+  color: var(--faint);
+}
+
 .section-band,
 .summary-band {
   border-bottom: 1px solid var(--line);
@@ -867,6 +954,10 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .suite-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .metric {
     min-height: 78px;
     border-bottom: 1px solid var(--line);
@@ -928,6 +1019,16 @@ footer {
 }
 
 @media (max-width: 520px) {
+  .suite-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .suite-grid {
+    grid-template-columns: 1fr;
+  }
+
   h1 {
     font-size: 30px;
   }
