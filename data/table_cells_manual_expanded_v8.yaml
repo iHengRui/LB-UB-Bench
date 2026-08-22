@@ -1176,7 +1176,7 @@ cells:
     pdf_verified: true
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   status: UB?
@@ -1218,7 +1218,7 @@ cells:
   measure: \E V^t\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1279,7 +1279,7 @@ cells:
   measure: \|x_i - x^\star\|^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1331,7 +1331,7 @@ cells:
   measure: \|x_i-x^\star\|^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1391,7 +1391,7 @@ cells:
   measure: \|X - X^\star\|^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1450,7 +1450,7 @@ cells:
   measure: \|X-X^\star\|^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1505,7 +1505,7 @@ cells:
   measure: \|X^T-X^\star\|_F^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1564,7 +1564,7 @@ cells:
   measure: \|\bar x_k-x^\star\|^2 \leq \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1619,7 +1619,7 @@ cells:
   measure: \E[F(x_i) - F^\star] \le \eps, \forall i
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1689,7 +1689,7 @@ cells:
   measure: \E\|\bar x_k-x^\star\|^2\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1755,7 +1755,7 @@ cells:
   measure: \E\|z_{\rm VR}^k-x^\star\|^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1814,7 +1814,7 @@ cells:
   measure: \|\hat x-x^\star\|^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1874,7 +1874,7 @@ cells:
   measure: \|X^T-X^\star\|^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -1941,7 +1941,7 @@ cells:
   measure: \E[\|X^t-X^\star\|_F^2] \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2021,7 +2021,7 @@ cells:
   measure: \|X^T-X^\star\|^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2088,7 +2088,7 @@ cells:
   measure: \E[\|\tilde{x}_i - x^\star\|^2] \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2160,7 +2160,7 @@ cells:
   measure: F(\hat x)-F^\star \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2215,7 +2215,7 @@ cells:
   measure: \left|\sum_{i=1}^N F_i(\bar x_{i,T})-\sum_{i=1}^N F_i(x^\star)\right|\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2271,7 +2271,7 @@ cells:
   measure: F(\bar x)-F^\star \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2330,7 +2330,7 @@ cells:
   measure: \E[F(x_i)-F^\star] \le \eps,\ \forall i
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2404,7 +2404,7 @@ cells:
   measure: F(\bar y_T)-F^\star\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2478,7 +2478,7 @@ cells:
   measure: \E[F(\hat x_i(T))-F^\star]\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2532,7 +2532,7 @@ cells:
   measure: F(\tilde x_i^T)-F^\star\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2601,7 +2601,7 @@ cells:
   measure: \E[F(\tilde x^S)-F^\star]\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2639,7 +2639,7 @@ cells:
   measure: F(\hat x_i(T))-F^\star\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2691,7 +2691,7 @@ cells:
   measure: F(\hat x_i(T))-F^\star\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2743,7 +2743,7 @@ cells:
   measure: F(\hat x_i(T))-F^\star\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2795,7 +2795,7 @@ cells:
   measure: \mathcal E_{\rm obj}(\hat y)\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2857,7 +2857,7 @@ cells:
   measure: '|F(\tilde x_i(t))-F^\star|\le\eps'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2909,7 +2909,7 @@ cells:
   measure: F(\hat x_j[T])-F^\star \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -2961,7 +2961,7 @@ cells:
   measure: \min_{0\le k<T}\|\nabla F(\bar x_u^k)\|\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3019,7 +3019,7 @@ cells:
   measure: \frac1T\sum_{t=0}^{T-1}\|\nabla F(\bar x^{(t)})\|^2\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3074,7 +3074,7 @@ cells:
   measure: \min_{1\le s\le t}\left(N\|G_a(y^{s-1},\bar z^{s-1})\|_{\E}^2+\|X^{s-1}-\mathbf{y}^{s-1}\|_{\E}^2\right)\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3131,7 +3131,7 @@ cells:
   measure: \frac1T\sum_{t=0}^{T-1}\E\|\bar g(X^{(t)})\|_* \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3200,7 +3200,7 @@ cells:
   measure: \E\|\nabla F(\hat x)\|^2 \le \eps^2
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3238,7 +3238,7 @@ cells:
   measure: \E\|\mathbf s(\hat x)\|^2 \le \eps^2
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3286,7 +3286,7 @@ cells:
   measure: F(\bar x)-F^\star \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3358,7 +3358,7 @@ cells:
   measure: F(\bar x)-F^\star \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3393,7 +3393,7 @@ cells:
   measure: \E\|\bar x_{\pi_{\rm SAB}}^k-x^\star\|^2\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3454,7 +3454,7 @@ cells:
   measure: \sum_{t=0}^T\frac{w_t}{W_T}\E[F(\bar x^{(t)})-F^\star]+\mu\E\|\bar x^{(T+1)}-x^\star\|^2\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3520,7 +3520,7 @@ cells:
   measure: F(\hat x)-F^\star \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3595,7 +3595,7 @@ cells:
   measure: \E[F(\bar x)-F^\star]\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3631,7 +3631,7 @@ cells:
   measure: (1/(T+1)) \sum_{t=0}^T \E[F(\bar x^{(t)})-F^\star] \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3696,7 +3696,7 @@ cells:
   measure: F(\hat x)-F^\star \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3776,7 +3776,7 @@ cells:
   measure: \E[F(\bar x)-F^\star]\le\eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3812,7 +3812,7 @@ cells:
   measure: \frac1T\sum_{t=0}^{T-1}\E\|\nabla F(\bar x^{(t)})\|^2\le3\eps^2+\alpha_{\rm DSP}\eps^3
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3877,7 +3877,7 @@ cells:
   measure: \frac1T\sum_{t=1}^{T}\E\|\nabla F(\bar x_{\pi_A}^t)\|^2 \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3938,7 +3938,7 @@ cells:
   measure: (1/T) \sum_{t=0}^{T-1} \E[\|\nabla F(\bar x^{(t)})\|^2] \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -3999,7 +3999,7 @@ cells:
   measure: \E\|\nabla F(\hat x)\|_{\delta_{\rm G}} \le \eps
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
@@ -4050,15 +4050,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: existing_row_removed_by_manual_reaudit
     taxonomy_diagnosis: correction_required
@@ -4078,15 +4078,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: exact_evidence_found
     taxonomy_diagnosis: standard_searchable
@@ -4107,15 +4107,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: exact_evidence_found
     taxonomy_diagnosis: standard_searchable
@@ -4136,15 +4136,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: taxonomy_issue
     taxonomy_diagnosis: nonsmooth_fo_ambiguous
@@ -4165,15 +4165,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: taxonomy_issue
     taxonomy_diagnosis: nonsmooth_fo_ambiguous
@@ -4194,15 +4194,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: taxonomy_issue
     taxonomy_diagnosis: nonsmooth_fo_ambiguous
@@ -4223,15 +4223,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: adjacent_only
     taxonomy_diagnosis: standard_searchable
@@ -4252,15 +4252,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: adjacent_only
     taxonomy_diagnosis: standard_searchable
@@ -4280,15 +4280,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: adjacent_only
     taxonomy_diagnosis: standard_searchable
@@ -4308,15 +4308,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: adjacent_only
     taxonomy_diagnosis: standard_searchable
@@ -4337,15 +4337,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: adjacent_only
     taxonomy_diagnosis: standard_searchable
@@ -4365,15 +4365,15 @@ cells:
   measure: '-'
   lower_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
   upper_bound:
     claim_id: null
-    display: EMPTY
+    display: Unknown
     source: /
     caveats: []
-  status: EMPTY
+  status: Unknown
   manual_research:
     research_status: adjacent_only
     taxonomy_diagnosis: standard_searchable
@@ -4390,7 +4390,7 @@ presentation:
   center_row_tags: true
   vertical_center_entries: true
   center_unknown_entries: true
-  missing_bound_label: EMPTY
+  missing_bound_label: Unknown
   omit_oracle_count_prefix: true
   categorized_notation: true
   compact_notation: true
@@ -4432,4 +4432,4 @@ presentation:
   - GAP
   - UB?
   - LB?
-  - EMPTY
+  - Unknown
