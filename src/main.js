@@ -152,7 +152,7 @@ app.innerHTML = `
           <p class="section-kicker">Definitions</p>
           <h2>Notation</h2>
         </aside>
-        <article class="prose">${data.sections.notation}</article>
+        <article class="prose notation-prose">${data.sections.notation}</article>
       </div>
     </section>
 
@@ -223,6 +223,25 @@ function renderMath(root = document.body) {
   renderMathInElement(root, mathOptions);
 }
 
+function notationMatch(tex) {
+  return [...data.notationSymbols]
+    .flatMap((symbol) => [symbol.latex, ...(symbol.aliases || [])].filter(Boolean).map((term) => ({ symbol, term })))
+    .filter(({ term }) => tex.includes(term))
+    .sort((a, b) => b.term.length - a.term.length)[0]?.symbol;
+}
+
+function linkNotationMath(root) {
+  root.querySelectorAll(".measure-cell .katex, .bound-cell .katex").forEach((math) => {
+    const tex = math.querySelector("annotation")?.textContent || "";
+    const symbol = notationMatch(tex);
+    if (!symbol) return;
+
+    math.classList.add("notation-link");
+    math.dataset.notationTarget = `notation-${symbol.key}`;
+    math.setAttribute("aria-label", `Notation ${symbol.key}`);
+  });
+}
+
 function matchesMode(row) {
   if (mode === "evidence") return row.status !== "EMPTY";
   if (mode === "empty") return row.status === "EMPTY";
@@ -263,6 +282,7 @@ function renderRows() {
     : `<tr><td colspan="7" class="no-results">No matching rows</td></tr>`;
 
   renderMath(tbody);
+  linkNotationMath(tbody);
 }
 
 Object.values(controls).forEach((control) => control.addEventListener("input", renderRows));
@@ -312,7 +332,7 @@ function clearFragment() {
 function highlightTarget(id) {
   document.querySelectorAll(".anchor-highlight").forEach((item) => item.classList.remove("anchor-highlight"));
 
-  if (!/^(remark|ref)-/.test(id)) return;
+  if (!/^(remark|ref|notation)-/.test(id)) return;
 
   const target = document.getElementById(id);
   const container = target?.closest("p") || target;
@@ -337,6 +357,14 @@ function highlightHashTarget() {
 
 window.addEventListener("hashchange", highlightHashTarget);
 document.addEventListener("click", (event) => {
+  const notation = event.target instanceof Element ? event.target.closest(".notation-link") : null;
+  if (notation) {
+    event.preventDefault();
+    highlightTarget(notation.dataset.notationTarget);
+    clearFragment();
+    return;
+  }
+
   const link = event.target instanceof Element
     ? event.target.closest("a[href^='#remark-'], a[href^='#ref-']")
     : null;
@@ -362,4 +390,5 @@ document.addEventListener("animationend", (event) => {
 
 renderRows();
 renderMath(document.querySelector("main"));
+linkNotationMath(document.querySelector("main"));
 highlightHashTarget();
