@@ -22,6 +22,8 @@ const mathOptions = {
     { left: "\\[", right: "\\]", display: true },
   ],
   throwOnError: false,
+  strict: false,
+  trust: (context) => context.command === "\\htmlClass",
   macros: {
     "\\eps": "\\varepsilon",
     "\\E": "\\mathbb{E}",
@@ -223,22 +225,66 @@ function renderMath(root = document.body) {
   renderMathInElement(root, mathOptions);
 }
 
-function notationMatch(tex) {
-  return [...data.notationSymbols]
-    .flatMap((symbol) => [symbol.latex, ...(symbol.aliases || [])].filter(Boolean).map((term) => ({ symbol, term })))
-    .filter(({ term }) => tex.includes(term))
-    .sort((a, b) => b.term.length - a.term.length)[0]?.symbol;
+const notationTerms = data.notationSymbols
+  .flatMap((symbol) => [symbol.latex, ...(symbol.aliases || [])]
+    .filter(Boolean)
+    .flatMap((term) => {
+      const baseTerm = term.endsWith("(\\cdot)") ? term.slice(0, -7) : null;
+      return [term, baseTerm].filter(Boolean).map((candidate) => ({ symbol, term: candidate }));
+    }))
+  .sort((a, b) => b.term.length - a.term.length);
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+const notationTermPattern = new RegExp(
+  notationTerms
+    .map(({ term }) => {
+      return term.startsWith("\\")
+        ? `${escapeRegExp(term)}(?![A-Za-z])`
+        : `(?<![A-Za-z\\\\])${escapeRegExp(term)}(?![A-Za-z])`;
+    })
+    .join("|"),
+  "g",
+);
+
+function decorateFormula(formula) {
+  return formula.replace(notationTermPattern, (match, offset, source) => {
+    const entry = notationTerms.find(({ term }) => {
+      const pattern = term.startsWith("\\")
+        ? `^${escapeRegExp(term)}(?![A-Za-z])`
+        : `^${escapeRegExp(term)}(?![A-Za-z])`;
+      return new RegExp(pattern).test(source.slice(offset));
+    });
+    if (!entry) return match;
+    return `\\htmlClass{notation-token notation-${entry.symbol.key}}{${match}}`;
+  });
+}
+
+function decorateNotationMath(root) {
+  const cells = root.querySelectorAll(".measure-cell, .bound-cell");
+  cells.forEach((cell) => {
+    const walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((node) => {
+      node.nodeValue = node.nodeValue.replace(/\\\(([\s\S]*?)\\\)|\\\[([\s\S]*?)\\\]/g, (full, inline, block) => {
+        const body = inline ?? block;
+        const decorated = decorateFormula(body);
+        return full[1] === "(" ? `\\(${decorated}\\)` : `\\[${decorated}\\]`;
+      });
+    });
+  });
 }
 
 function linkNotationMath(root) {
-  root.querySelectorAll(".measure-cell .katex, .bound-cell .katex").forEach((math) => {
-    const tex = math.querySelector("annotation")?.textContent || "";
-    const symbol = notationMatch(tex);
-    if (!symbol) return;
-
-    math.classList.add("notation-link");
-    math.dataset.notationTarget = `notation-${symbol.key}`;
-    math.setAttribute("aria-label", `Notation ${symbol.key}`);
+  root.querySelectorAll(".measure-cell .notation-token, .bound-cell .notation-token").forEach((token) => {
+    const key = [...token.classList].find((className) => className.startsWith("notation-") && className !== "notation-token")?.slice("notation-".length);
+    if (!key) return;
+    token.classList.add("notation-link");
+    token.dataset.notationTarget = `notation-${key}`;
+    token.setAttribute("aria-label", `Notation ${key}`);
   });
 }
 
@@ -281,6 +327,7 @@ function renderRows() {
         .join("")
     : `<tr><td colspan="7" class="no-results">No matching rows</td></tr>`;
 
+  decorateNotationMath(tbody);
   renderMath(tbody);
   linkNotationMath(tbody);
 }
@@ -390,5 +437,4 @@ document.addEventListener("animationend", (event) => {
 
 renderRows();
 renderMath(document.querySelector("main"));
-linkNotationMath(document.querySelector("main"));
 highlightHashTarget();
