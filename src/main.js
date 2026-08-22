@@ -432,16 +432,6 @@ function matchesMode(row) {
 
 function matchesSearchQuery(row, query) {
   if (!query) return true;
-
-  const rowNumber = query.match(/^(?:row:|#)?(\d+)$/i);
-  if (rowNumber) return row.number === Number(rowNumber[1]);
-
-  const referenceNumber = query.match(/^(?:ref:|reference:|\[)(\d+)\]?$/i);
-  if (referenceNumber) {
-    const marker = `[${referenceNumber[1]}]`;
-    return row.cells.slice(6, 8).some((cell) => cell.includes(marker));
-  }
-
   return query.split(/\s+/).every((term) => row.searchText.includes(term));
 }
 
