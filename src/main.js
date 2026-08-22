@@ -15,6 +15,36 @@ import "./styles.css";
 
 const app = document.querySelector("#app");
 const statusOrder = ["EXACT", "COND", "LOG", "GAP", "UB?", "LB?", "EMPTY"];
+const suites = [
+  {
+    id: "decentralized",
+    label: "Vanilla decentralized optimization",
+    shortLabel: "Vanilla decentralized",
+    status: "Active",
+    description: "Lower and upper bounds for the current decentralized optimization benchmark.",
+  },
+  {
+    id: "federated",
+    label: "Vanilla federated optimization",
+    shortLabel: "Vanilla federated",
+    status: "Reserved",
+    description: "A dedicated table for federated optimization lower and upper bounds.",
+  },
+  {
+    id: "compression",
+    label: "Decentralized optimization with compression",
+    shortLabel: "Decentralized + compression",
+    status: "Reserved",
+    description: "A dedicated table for communication-compressed decentralized methods.",
+  },
+  {
+    id: "asynchrony",
+    label: "Decentralized optimization with asynchrony",
+    shortLabel: "Decentralized + asynchrony",
+    status: "Reserved",
+    description: "A dedicated table for asynchronous decentralized methods.",
+  },
+];
 const tableHeaders = [...data.header.slice(0, 6), "References (LB / UB)"];
 const mathOptions = {
   delimiters: [
@@ -56,17 +86,17 @@ app.innerHTML = `
           <i data-lucide="moon" class="theme-icon-dark"></i>
         </button>
       </div>
-    </div>
-  </header>
+      </div>
+    </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero directory-hero" id="directory">
       <div class="content-width hero-inner">
-        <p class="eyebrow">Vanilla decentralized optimization</p>
-        <h1>Decentralized Optimization<br />Lower/Upper Bound Table</h1>
-        <p class="lede">A paper-backed map of per-node oracle-query complexity across objective, geometry, oracle, and network settings.</p>
+        <p class="eyebrow">Research benchmark directory</p>
+        <h1>LB / UB Bench</h1>
+        <p class="lede">A paper-backed directory of lower and upper bounds for distributed optimization. Choose a benchmark suite below to open its table.</p>
         <div class="hero-actions">
-          <a class="command-button primary" href="#table">Explore table</a>
+          <a class="command-button primary" href="#suite-tabs">Browse benchmark suites</a>
           <a class="command-button secondary" href="${import.meta.env.BASE_URL}decentralized-lb-ub-table-v8.pdf" download>
             <i data-lucide="download"></i><span>PDF</span>
           </a>
@@ -74,6 +104,37 @@ app.innerHTML = `
       </div>
     </section>
 
+    <section class="suite-band" id="benchmarks" aria-labelledby="benchmarks-heading">
+      <div class="content-width">
+        <div class="suite-heading">
+          <div>
+            <p class="section-kicker">Directory</p>
+            <h2 id="benchmarks-heading">Benchmark suites</h2>
+          </div>
+          <span class="suite-count">1 table available / 3 reserved</span>
+        </div>
+        <div class="suite-tabs" id="suite-tabs" role="tablist" aria-label="Benchmark suites">
+          ${suites.map((suite) => `
+            <button class="suite-tab${suite.id === "decentralized" ? " active" : ""}" type="button" role="tab" data-suite="${suite.id}" aria-selected="${suite.id === "decentralized"}">
+              <span class="suite-tab-status">${suite.status}</span>
+              <strong>${suite.label}</strong>
+              <span>${suite.description}</span>
+            </button>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+
+    <section class="suite-empty" id="suite-empty" hidden aria-live="polite">
+      <div class="content-width suite-empty-inner">
+        <p class="section-kicker">Reserved benchmark suite</p>
+        <h2 id="suite-empty-title">Coming soon</h2>
+        <p id="suite-empty-description">This table is reserved for a future benchmark suite.</p>
+        <button class="command-button secondary" type="button" id="return-to-directory">Return to directory</button>
+      </div>
+    </section>
+
+    <div id="suite-content" class="suite-content">
     <section class="metrics-band" aria-label="Table summary">
       <div class="content-width metrics-grid">
         <div class="metric"><strong>${data.meta.counts.rows}</strong><span>Rows</span></div>
@@ -84,46 +145,12 @@ app.innerHTML = `
       </div>
     </section>
 
-    <section class="suite-band" id="benchmarks" aria-labelledby="benchmarks-heading">
-      <div class="content-width">
-        <div class="suite-heading">
-          <div>
-            <p class="section-kicker">Benchmark suites</p>
-            <h2 id="benchmarks-heading">Optimization settings</h2>
-          </div>
-          <span class="suite-count">1 active / 3 reserved</span>
-        </div>
-        <div class="suite-grid">
-          <a class="suite-slot active" href="#table" aria-current="page">
-            <span class="suite-slot-status">Active</span>
-            <strong>Vanilla decentralized optimization</strong>
-            <span>Current LB / UB table</span>
-          </a>
-          <div class="suite-slot reserved" aria-disabled="true">
-            <span class="suite-slot-status">Reserved</span>
-            <strong>Vanilla federated optimization</strong>
-            <span>Table slot ready</span>
-          </div>
-          <div class="suite-slot reserved" aria-disabled="true">
-            <span class="suite-slot-status">Reserved</span>
-            <strong>Decentralized optimization with compression</strong>
-            <span>Table slot ready</span>
-          </div>
-          <div class="suite-slot reserved" aria-disabled="true">
-            <span class="suite-slot-status">Reserved</span>
-            <strong>Decentralized optimization with asynchrony</strong>
-            <span>Table slot ready</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section-band table-band" id="table">
       <div class="wide-content">
         <div class="section-heading table-heading">
           <div>
             <p class="section-kicker">Results</p>
-            <h2>Complexity bounds</h2>
+            <h2 id="current-suite-name">Vanilla decentralized optimization</h2>
           </div>
           <span class="result-count" id="result-count" aria-live="polite"></span>
         </div>
@@ -232,6 +259,7 @@ app.innerHTML = `
         <article class="prose references-prose">${data.sections.references}</article>
       </div>
     </section>
+    </div>
   </main>
 
   <footer>
@@ -254,7 +282,69 @@ const controls = {
 };
 const tbody = document.querySelector("#results-body");
 const resultCount = document.querySelector("#result-count");
+const suiteContent = document.querySelector("#suite-content");
+const suiteEmpty = document.querySelector("#suite-empty");
+const suiteEmptyTitle = document.querySelector("#suite-empty-title");
+const suiteEmptyDescription = document.querySelector("#suite-empty-description");
+const currentSuiteName = document.querySelector("#current-suite-name");
+const suiteTabs = [...document.querySelectorAll(".suite-tab")];
+const suiteParam = new URLSearchParams(window.location.search).get("suite");
+let currentSuiteId = suites.some((suite) => suite.id === suiteParam) ? suiteParam : "decentralized";
 let mode = "all";
+
+function renderSuiteView({ updateUrl = false, scroll = false } = {}) {
+  const suite = suites.find((item) => item.id === currentSuiteId) || suites[0];
+  currentSuiteId = suite.id;
+  const isActive = suite.id === "decentralized";
+
+  suiteTabs.forEach((tab) => {
+    const selected = tab.dataset.suite === suite.id;
+    tab.classList.toggle("active", selected);
+    tab.setAttribute("aria-selected", String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+  });
+
+  suiteContent.hidden = !isActive;
+  suiteEmpty.hidden = isActive;
+  suiteEmptyTitle.textContent = suite.label;
+  suiteEmptyDescription.textContent = suite.description;
+  currentSuiteName.textContent = suite.label;
+  document.title = `${suite.label} | LB / UB Bench`;
+
+  if (updateUrl) {
+    const nextUrl = suite.id === "decentralized"
+      ? window.location.pathname
+      : `${window.location.pathname}?suite=${encodeURIComponent(suite.id)}`;
+    window.history.pushState({ suite: suite.id }, "", nextUrl);
+  }
+
+  if (scroll) {
+    document.querySelector("#suite-tabs")?.scrollIntoView({ block: "start", behavior: "smooth" });
+  }
+}
+
+suiteTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    currentSuiteId = tab.dataset.suite;
+    renderSuiteView({ updateUrl: true });
+    if (currentSuiteId === "decentralized") {
+      document.querySelector("#table")?.scrollIntoView({ block: "start", behavior: "smooth" });
+    } else {
+      suiteEmpty?.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  });
+});
+
+document.querySelector("#return-to-directory")?.addEventListener("click", () => {
+  currentSuiteId = "decentralized";
+  renderSuiteView({ updateUrl: true, scroll: true });
+});
+
+window.addEventListener("popstate", () => {
+  const nextSuite = new URLSearchParams(window.location.search).get("suite");
+  currentSuiteId = suites.some((suite) => suite.id === nextSuite) ? nextSuite : "decentralized";
+  renderSuiteView();
+});
 
 function renderMath(root = document.body) {
   renderMathInElement(root, mathOptions);
@@ -481,6 +571,7 @@ document.addEventListener("animationend", (event) => {
   }
 });
 
+renderSuiteView();
 renderRows();
 renderMath(document.querySelector("main"));
 highlightHashTarget();
