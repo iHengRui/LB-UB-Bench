@@ -329,6 +329,12 @@ document.addEventListener("click", (event) => {
   }
 });
 
+document.addEventListener("animationend", (event) => {
+  if (event.animationName === "anchor-highlight-pulse") {
+    event.target.classList.remove("anchor-highlight");
+  }
+});
+
 renderRows();
 renderMath(document.querySelector("main"));
 highlightHashTarget();
