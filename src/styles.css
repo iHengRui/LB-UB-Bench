@@ -450,7 +450,7 @@ a:focus-visible,
 
 table {
   width: 100%;
-  min-width: 1840px;
+  min-width: 1380px;
   border-collapse: separate;
   border-spacing: 0;
   font-size: 12px;
@@ -500,26 +500,26 @@ td:nth-child(1) {
 
 th:nth-child(2),
 td:nth-child(2) {
-  width: 200px;
-  min-width: 200px;
+  width: 180px;
+  min-width: 180px;
 }
 
 th:nth-child(3),
 td:nth-child(3) {
-  width: 280px;
-  min-width: 280px;
+  width: 240px;
+  min-width: 240px;
 }
 
 th:nth-child(4),
 td:nth-child(4) {
-  width: 260px;
-  min-width: 260px;
+  width: 230px;
+  min-width: 230px;
 }
 
 th:nth-child(5),
 td:nth-child(5) {
-  width: 320px;
-  min-width: 320px;
+  width: 270px;
+  min-width: 270px;
 }
 
 th:nth-child(6),
@@ -531,14 +531,8 @@ td:nth-child(6) {
 
 th:nth-child(7),
 td:nth-child(7) {
-  width: 270px;
-  min-width: 270px;
-}
-
-th:nth-child(8),
-td:nth-child(8) {
-  width: 290px;
-  min-width: 290px;
+  width: 316px;
+  min-width: 316px;
 }
 
 th:nth-child(1) {
@@ -629,6 +623,30 @@ td:nth-child(2) {
 .reference-cell a,
 sup a {
   color: var(--cyan);
+}
+
+.reference-pair {
+  display: grid;
+  gap: 7px;
+}
+
+.reference-line {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 7px;
+  align-items: baseline;
+}
+
+.reference-line + .reference-line {
+  padding-top: 7px;
+  border-top: 1px solid var(--line);
+}
+
+.reference-kind {
+  color: var(--faint);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 760;
 }
 
 sup {
