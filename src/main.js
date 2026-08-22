@@ -41,6 +41,7 @@ app.innerHTML = `
         <span class="brand-name">Bench</span>
       </a>
       <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#benchmarks">Benchmarks</a>
         <a href="#table">Table</a>
         <a href="#notation">Notation</a>
         <a href="#remarks">Remarks</a>
@@ -80,6 +81,40 @@ app.innerHTML = `
         <div class="metric"><strong>${data.meta.claimSides}</strong><span>Claim sides</span></div>
         <div class="metric"><strong>${data.meta.references}</strong><span>References</span></div>
         <div class="metric"><strong>${data.meta.counts.explicit_empty_settings}</strong><span>Explicit empty</span></div>
+      </div>
+    </section>
+
+    <section class="suite-band" id="benchmarks" aria-labelledby="benchmarks-heading">
+      <div class="content-width">
+        <div class="suite-heading">
+          <div>
+            <p class="section-kicker">Benchmark suites</p>
+            <h2 id="benchmarks-heading">Optimization settings</h2>
+          </div>
+          <span class="suite-count">1 active / 3 reserved</span>
+        </div>
+        <div class="suite-grid">
+          <a class="suite-slot active" href="#table" aria-current="page">
+            <span class="suite-slot-status">Active</span>
+            <strong>Vanilla decentralized optimization</strong>
+            <span>Current LB / UB table</span>
+          </a>
+          <div class="suite-slot reserved" aria-disabled="true">
+            <span class="suite-slot-status">Reserved</span>
+            <strong>Vanilla federated optimization</strong>
+            <span>Table slot ready</span>
+          </div>
+          <div class="suite-slot reserved" aria-disabled="true">
+            <span class="suite-slot-status">Reserved</span>
+            <strong>Decentralized optimization with compression</strong>
+            <span>Table slot ready</span>
+          </div>
+          <div class="suite-slot reserved" aria-disabled="true">
+            <span class="suite-slot-status">Reserved</span>
+            <strong>Decentralized optimization with asynchrony</strong>
+            <span>Table slot ready</span>
+          </div>
+        </div>
       </div>
     </section>
 
