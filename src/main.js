@@ -430,45 +430,62 @@ function matchesMode(row) {
   return true;
 }
 
-function renderRows() {
-  const query = controls.search.value.trim().toLowerCase();
-  const requiredTags = [controls.objective.value, controls.geometry.value, controls.oracle.value].filter(Boolean);
-  const filtered = data.rows.filter((row) => {
-    if (!matchesMode(row)) return false;
-    if (controls.status.value && row.status !== controls.status.value) return false;
-    if (requiredTags.some((tag) => !row.tags.includes(tag))) return false;
-    return !query || row.searchText.includes(query);
-  });
+let rowEntries = [];
+const noResultsRow = document.createElement("tr");
+noResultsRow.innerHTML = `<td colspan="7" class="no-results">No matching rows</td>`;
 
-  resultCount.textContent = `${filtered.length} of ${data.rows.length} rows`;
-  tbody.innerHTML = filtered.length
-    ? filtered
-        .map(
-          (row) => `
-            <tr data-status="${row.status}">
-              <td class="row-number">${row.cells[0]}</td>
-              <td class="problem-type">${row.cells[1]}</td>
-              <td class="measure-cell">${row.cells[2]}</td>
-              <td class="bound-cell">${row.cells[3]}</td>
-              <td class="bound-cell">${row.cells[4]}</td>
-              <td><span class="status-badge status-${row.status.replace("?", "q").toLowerCase()}">${row.status}</span></td>
-              <td class="reference-cell">
-                <div class="reference-pair">
-                  <div class="reference-line"><span class="reference-kind">LB</span><span>${row.cells[6]}</span></div>
-                  <div class="reference-line"><span class="reference-kind">UB</span><span>${row.cells[7]}</span></div>
-                </div>
-              </td>
-            </tr>`,
-        )
-        .join("")
-    : `<tr><td colspan="7" class="no-results">No matching rows</td></tr>`;
+function buildRows() {
+  tbody.innerHTML = data.rows
+    .map(
+      (row, index) => `
+        <tr data-row-index="${index}" data-status="${row.status}">
+          <td class="row-number">${row.cells[0]}</td>
+          <td class="problem-type">${row.cells[1]}</td>
+          <td class="measure-cell">${row.cells[2]}</td>
+          <td class="bound-cell">${row.cells[3]}</td>
+          <td class="bound-cell">${row.cells[4]}</td>
+          <td><span class="status-badge status-${row.status.replace("?", "q").toLowerCase()}">${row.status}</span></td>
+          <td class="reference-cell">
+            <div class="reference-pair">
+              <div class="reference-line"><span class="reference-kind">LB</span><span>${row.cells[6]}</span></div>
+              <div class="reference-line"><span class="reference-kind">UB</span><span>${row.cells[7]}</span></div>
+            </div>
+          </td>
+        </tr>`,
+    )
+    .join("");
 
   decorateNotationMath(tbody);
   renderMath(tbody);
   linkNotationMath(tbody);
+  rowEntries = [...tbody.querySelectorAll("tr[data-row-index]")].map((element) => ({
+    element,
+    row: data.rows[Number(element.dataset.rowIndex)],
+  }));
 }
 
-Object.values(controls).forEach((control) => control.addEventListener("input", renderRows));
+function filterRows() {
+  const query = controls.search.value.trim().toLowerCase();
+  const requiredTags = [controls.objective.value, controls.geometry.value, controls.oracle.value].filter(Boolean);
+  let visibleCount = 0;
+
+  rowEntries.forEach(({ element, row }) => {
+    const visible = matchesMode(row)
+      && (!controls.status.value || row.status === controls.status.value)
+      && !requiredTags.some((tag) => !row.tags.includes(tag))
+      && (!query || row.searchText.includes(query));
+    element.hidden = !visible;
+    if (visible) visibleCount += 1;
+  });
+
+  noResultsRow.remove();
+  if (visibleCount === 0) tbody.append(noResultsRow);
+  resultCount.textContent = `${visibleCount} of ${data.rows.length} rows`;
+}
+
+controls.search.addEventListener("input", filterRows);
+[controls.status, controls.objective, controls.geometry, controls.oracle]
+  .forEach((control) => control.addEventListener("change", filterRows));
 
 document.querySelectorAll("[data-mode]").forEach((button) => {
   button.addEventListener("click", () => {
@@ -476,7 +493,7 @@ document.querySelectorAll("[data-mode]").forEach((button) => {
     document.querySelectorAll("[data-mode]").forEach((item) => {
       item.setAttribute("aria-pressed", String(item === button));
     });
-    renderRows();
+    filterRows();
   });
 });
 
@@ -488,7 +505,7 @@ document.querySelector("#clear-filters").addEventListener("click", () => {
   document.querySelectorAll("[data-mode]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.mode === "all"));
   });
-  renderRows();
+  filterRows();
 });
 
 document.querySelector("#theme-toggle").addEventListener("click", () => {
@@ -572,6 +589,7 @@ document.addEventListener("animationend", (event) => {
 });
 
 renderSuiteView();
-renderRows();
+buildRows();
+filterRows();
 renderMath(document.querySelector("main"));
 highlightHashTarget();
