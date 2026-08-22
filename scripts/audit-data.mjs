@@ -9,7 +9,7 @@ const table = YAML.parse(
   await readFile(path.join(root, "data/table_cells_manual_expanded_v8.yaml"), "utf8"),
 );
 
-const expectedStatuses = { EXACT: 2, COND: 7, LOG: 1, GAP: 3, "UB?": 1, "LB?": 48, EMPTY: 12 };
+const expectedStatuses = { EXACT: 2, COND: 7, LOG: 1, GAP: 3, "UB?": 1, "LB?": 48, Unknown: 12 };
 const errors = [];
 
 function check(condition, message) {
