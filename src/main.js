@@ -230,7 +230,20 @@ const notationTerms = data.notationSymbols
     .filter(Boolean)
     .flatMap((term) => {
       const baseTerm = term.endsWith("(\\cdot)") ? term.slice(0, -7) : null;
-      return [term, baseTerm].filter(Boolean).map((candidate) => ({ symbol, term: candidate }));
+      const candidates = [term, baseTerm].filter(Boolean);
+      const accentPrefixes = [
+        "\\widehat", "\\hat", "\\bar", "\\tilde", "\\vec", "\\overline", "\\underline",
+        "\\mathbf", "\\mathbb", "\\mathrm", "\\mathcal", "\\mathsf", "\\mathit", "\\rm",
+        "\\text", "\\operatorname",
+      ];
+      const functionPrefixes = ["\\frac1"];
+      const scriptPrefixes = ["^", "_"];
+      return candidates.flatMap((candidate) => [
+        { symbol, term: candidate },
+        ...accentPrefixes.map((prefix) => ({ symbol, term: `${prefix} ${candidate}` })),
+        ...functionPrefixes.map((prefix) => ({ symbol, term: `${prefix}${candidate}` })),
+        ...scriptPrefixes.map((prefix) => ({ symbol, term: `${prefix}${candidate}` })),
+      ]);
     }))
   .sort((a, b) => b.term.length - a.term.length);
 
@@ -241,7 +254,7 @@ function escapeRegExp(value) {
 const notationTermPattern = new RegExp(
   notationTerms
     .map(({ term }) => {
-      return term.startsWith("\\")
+      return /^[\\^_]/.test(term)
         ? `${escapeRegExp(term)}(?![A-Za-z])`
         : `(?<![A-Za-z\\\\])${escapeRegExp(term)}(?![A-Za-z])`;
     })
@@ -252,9 +265,7 @@ const notationTermPattern = new RegExp(
 function decorateFormula(formula) {
   return formula.replace(notationTermPattern, (match, offset, source) => {
     const entry = notationTerms.find(({ term }) => {
-      const pattern = term.startsWith("\\")
-        ? `^${escapeRegExp(term)}(?![A-Za-z])`
-        : `^${escapeRegExp(term)}(?![A-Za-z])`;
+      const pattern = `^${escapeRegExp(term)}(?![A-Za-z])`;
       return new RegExp(pattern).test(source.slice(offset));
     });
     if (!entry) return match;
