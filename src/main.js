@@ -303,5 +303,32 @@ document.querySelectorAll("a[href^='http']").forEach((link) => {
   link.rel = "noreferrer";
 });
 
+function highlightHashTarget() {
+  document.querySelectorAll(".anchor-highlight").forEach((item) => item.classList.remove("anchor-highlight"));
+
+  let id = window.location.hash.slice(1);
+  try {
+    id = decodeURIComponent(id);
+  } catch {
+    return;
+  }
+  if (!/^(remark|ref)-/.test(id)) return;
+
+  const target = document.getElementById(id);
+  const container = target?.closest("p") || target;
+  if (!container) return;
+
+  container.classList.add("anchor-highlight");
+  requestAnimationFrame(() => container.scrollIntoView({ block: "start", behavior: "smooth" }));
+}
+
+window.addEventListener("hashchange", highlightHashTarget);
+document.addEventListener("click", (event) => {
+  if (event.target.closest("a[href^='#remark-'], a[href^='#ref-']")) {
+    requestAnimationFrame(highlightHashTarget);
+  }
+});
+
 renderRows();
 renderMath(document.querySelector("main"));
+highlightHashTarget();
