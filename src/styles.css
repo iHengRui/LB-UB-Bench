@@ -745,12 +745,22 @@ sup {
   transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
-.notation-prose > p.anchor-highlight,
+.notation-definition {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.notation-definition.anchor-highlight,
+.remarks-prose > p.anchor-highlight,
+.references-prose > p.anchor-highlight {
+  animation: anchor-highlight-pulse 3.8s ease-out both;
+}
+
 .remarks-prose > p.anchor-highlight,
 .references-prose > p.anchor-highlight {
   padding: 14px 0;
   border-color: color-mix(in srgb, var(--accent) 82%, var(--line));
-  animation: anchor-highlight-pulse 3.8s ease-out both;
 }
 
 @keyframes anchor-highlight-pulse {
