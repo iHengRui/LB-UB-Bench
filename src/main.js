@@ -335,7 +335,7 @@ function highlightTarget(id) {
   if (!/^(remark|ref|notation)-/.test(id)) return;
 
   const target = document.getElementById(id);
-  const container = target?.closest("p") || target;
+  const container = target?.closest(".notation-definition") || target?.closest("p") || target;
   if (!container) return;
 
   container.classList.add("anchor-highlight");
