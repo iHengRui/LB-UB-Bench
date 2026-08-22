@@ -303,15 +303,15 @@ document.querySelectorAll("a[href^='http']").forEach((link) => {
   link.rel = "noreferrer";
 });
 
-function highlightHashTarget() {
+function clearFragment() {
+  if (window.location.hash) {
+    window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+  }
+}
+
+function highlightTarget(id) {
   document.querySelectorAll(".anchor-highlight").forEach((item) => item.classList.remove("anchor-highlight"));
 
-  let id = window.location.hash.slice(1);
-  try {
-    id = decodeURIComponent(id);
-  } catch {
-    return;
-  }
   if (!/^(remark|ref)-/.test(id)) return;
 
   const target = document.getElementById(id);
@@ -322,11 +322,36 @@ function highlightHashTarget() {
   requestAnimationFrame(() => container.scrollIntoView({ block: "start", behavior: "smooth" }));
 }
 
+function highlightHashTarget() {
+  let id = window.location.hash.slice(1);
+  try {
+    id = decodeURIComponent(id);
+  } catch {
+    return;
+  }
+  if (!id) return;
+
+  highlightTarget(id);
+  clearFragment();
+}
+
 window.addEventListener("hashchange", highlightHashTarget);
 document.addEventListener("click", (event) => {
-  if (event.target.closest("a[href^='#remark-'], a[href^='#ref-']")) {
-    requestAnimationFrame(highlightHashTarget);
+  const link = event.target instanceof Element
+    ? event.target.closest("a[href^='#remark-'], a[href^='#ref-']")
+    : null;
+  if (!link) return;
+
+  event.preventDefault();
+  let id = link.getAttribute("href").slice(1);
+  try {
+    id = decodeURIComponent(id);
+  } catch {
+    return;
   }
+
+  highlightTarget(id);
+  clearFragment();
 });
 
 document.addEventListener("animationend", (event) => {
