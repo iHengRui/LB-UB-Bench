@@ -10,6 +10,32 @@ const dataDir = path.join(root, "data");
 const md = new MarkdownIt({ html: true, linkify: true, typographer: false });
 md.disable("escape");
 
+const mathPattern = /\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)/g;
+
+function protectMath(source) {
+  const formulas = [];
+  const protectedSource = source.replace(mathPattern, (formula) => {
+    const token = `MATHTOKEN${formulas.length}Z`;
+    formulas.push([token, formula]);
+    return token;
+  });
+  return { protectedSource, formulas };
+}
+
+function restoreMath(rendered, formulas) {
+  return formulas.reduce((output, [token, formula]) => output.replaceAll(token, formula), rendered);
+}
+
+function renderInline(source) {
+  const { protectedSource, formulas } = protectMath(source);
+  return restoreMath(md.renderInline(protectedSource), formulas);
+}
+
+function renderBlock(source) {
+  const { protectedSource, formulas } = protectMath(source);
+  return restoreMath(md.render(protectedSource), formulas);
+}
+
 const files = {
   table: "table_cells_manual_expanded_v8.yaml",
   notation: "notation_manual_expanded_v8.yaml",
@@ -71,8 +97,7 @@ function cleanCell(value) {
 }
 
 function plainText(value) {
-  return md
-    .renderInline(value)
+  return renderInline(value)
     .replace(/<[^>]+>/g, " ")
     .replace(/\\[()[\]]/g, " ")
     .replace(/\s+/g, " ")
@@ -121,7 +146,7 @@ const rows = parsedRows.map((cells, index) => {
     cellId: source.cell_id,
     tags: visibleTags,
     status: source.status,
-    cells: cells.map((cell) => md.renderInline(cell)),
+    cells: cells.map((cell) => renderInline(cell)),
     searchText: cells.map(plainText).join(" ").toLowerCase(),
   };
 });
@@ -161,11 +186,11 @@ const output = {
   referenceIds: referenceMatches.map((match) => match[1]),
   remarkIds: remarks.notes.map((note) => note.id),
   sections: {
-    notation: md.render(notationMarkdown),
-    tags: md.render(tagsMarkdown),
-    remarks: md.render(remarksMarkdown),
-    summary: md.render(summaryMarkdown),
-    references: md.render(referencesMarkdown),
+    notation: renderBlock(notationMarkdown),
+    tags: renderBlock(tagsMarkdown),
+    remarks: renderBlock(remarksMarkdown),
+    summary: renderBlock(summaryMarkdown),
+    references: renderBlock(referencesMarkdown),
   },
 };
 
