@@ -15,6 +15,7 @@ import "./styles.css";
 
 const app = document.querySelector("#app");
 const statusOrder = ["EXACT", "COND", "LOG", "GAP", "UB?", "LB?", "EMPTY"];
+const tableHeaders = [...data.header.slice(0, 6), "References (LB / UB)"];
 const mathOptions = {
   delimiters: [
     { left: "\\(", right: "\\)", display: false },
@@ -136,7 +137,7 @@ app.innerHTML = `
           <div class="table-scroll" tabindex="0">
             <table>
               <thead>
-                <tr>${data.header.map((heading) => `<th scope="col">${heading}</th>`).join("")}</tr>
+                <tr>${tableHeaders.map((heading) => `<th scope="col">${heading}</th>`).join("")}</tr>
               </thead>
               <tbody id="results-body"></tbody>
             </table>
@@ -250,12 +251,16 @@ function renderRows() {
               <td class="bound-cell">${row.cells[3]}</td>
               <td class="bound-cell">${row.cells[4]}</td>
               <td><span class="status-badge status-${row.status.replace("?", "q").toLowerCase()}">${row.status}</span></td>
-              <td class="reference-cell">${row.cells[6]}</td>
-              <td class="reference-cell">${row.cells[7]}</td>
+              <td class="reference-cell">
+                <div class="reference-pair">
+                  <div class="reference-line"><span class="reference-kind">LB</span><span>${row.cells[6]}</span></div>
+                  <div class="reference-line"><span class="reference-kind">UB</span><span>${row.cells[7]}</span></div>
+                </div>
+              </td>
             </tr>`,
         )
         .join("")
-    : `<tr><td colspan="8" class="no-results">No matching rows</td></tr>`;
+    : `<tr><td colspan="7" class="no-results">No matching rows</td></tr>`;
 
   renderMath(tbody);
 }
