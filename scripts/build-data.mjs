@@ -40,10 +40,18 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function addNotationAnchors(source, symbols) {
+function addNotationDefinitions(source, symbols) {
   return symbols.reduce((output, symbol) => {
-    const pattern = new RegExp(`\\\\\\(${escapeRegExp(symbol.latex)}\\\\\\)(?=\\s+denotes)`);
-    return output.replace(pattern, `<a id="notation-${symbol.key}"></a>$&`);
+    const startPattern = `\\\\\\(${escapeRegExp(symbol.latex)}\\\\\\)(?=\\s+denotes)`;
+    const start = new RegExp(startPattern).exec(output);
+    if (!start) return output;
+
+    const nextNotation = new RegExp(`\\\\\\([^\\n]+?\\\\\\)(?=\\s+denotes)`, "g");
+    nextNotation.lastIndex = start.index + start[0].length;
+    const next = nextNotation.exec(output);
+    const end = next ? next.index : output.length;
+    const definition = output.slice(start.index, end);
+    return `${output.slice(0, start.index)}<span id="notation-${symbol.key}" class="notation-definition">${definition}</span>${output.slice(end)}`;
   }, source);
 }
 
@@ -162,7 +170,7 @@ const rows = parsedRows.map((cells, index) => {
   };
 });
 
-const notationMarkdown = addNotationAnchors(
+const notationMarkdown = addNotationDefinitions(
   between(raw.delivery, "## Notation", "## Tags"),
   notation.symbols,
 );
