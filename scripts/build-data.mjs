@@ -36,6 +36,17 @@ function renderBlock(source) {
   return restoreMath(md.render(protectedSource), formulas);
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function addNotationAnchors(source, symbols) {
+  return symbols.reduce((output, symbol) => {
+    const pattern = new RegExp(`\\\\\\(${escapeRegExp(symbol.latex)}\\\\\\)(?=\\s+denotes)`);
+    return output.replace(pattern, `<a id="notation-${symbol.key}"></a>$&`);
+  }, source);
+}
+
 const files = {
   table: "table_cells_manual_expanded_v8.yaml",
   notation: "notation_manual_expanded_v8.yaml",
@@ -151,7 +162,10 @@ const rows = parsedRows.map((cells, index) => {
   };
 });
 
-const notationMarkdown = between(raw.delivery, "## Notation", "## Tags");
+const notationMarkdown = addNotationAnchors(
+  between(raw.delivery, "## Notation", "## Tags"),
+  notation.symbols,
+);
 const tagsStart = raw.delivery.indexOf("## Tags");
 const tagsMarkdown = raw.delivery.slice(tagsStart + "## Tags".length, tableStart).trim();
 const remarksMarkdown = between(raw.delivery, "## Remark Notes", "## Summary");
@@ -182,6 +196,7 @@ const output = {
     sourceHashes,
   },
   header,
+  notationSymbols: notation.symbols.map(({ key, latex, aliases }) => ({ key, latex, aliases })),
   rows,
   referenceIds: referenceMatches.map((match) => match[1]),
   remarkIds: remarks.notes.map((note) => note.id),
