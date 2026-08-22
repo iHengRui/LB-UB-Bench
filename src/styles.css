@@ -737,21 +737,27 @@ sup {
 .remarks-prose > p.anchor-highlight,
 .references-prose > p.anchor-highlight {
   padding: 14px 0;
-  border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
-  animation: anchor-highlight-pulse 2.2s ease-out both;
+  border-color: color-mix(in srgb, var(--accent) 82%, var(--line));
+  animation: anchor-highlight-pulse 3.8s ease-out both;
 }
 
 @keyframes anchor-highlight-pulse {
   0% {
-    background: color-mix(in srgb, var(--accent) 25%, var(--surface));
+    background: color-mix(in srgb, var(--accent) 38%, var(--surface));
     border-color: var(--accent-strong);
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 38%, transparent);
   }
 
   24% {
-    background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+    background: color-mix(in srgb, var(--accent) 25%, var(--surface));
     border-color: var(--accent);
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+
+  58% {
+    background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+    border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 15%, transparent);
   }
 
   100% {
