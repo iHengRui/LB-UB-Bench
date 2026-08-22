@@ -430,6 +430,21 @@ function matchesMode(row) {
   return true;
 }
 
+function matchesSearchQuery(row, query) {
+  if (!query) return true;
+
+  const rowNumber = query.match(/^(?:row:|#)?(\d+)$/i);
+  if (rowNumber) return row.number === Number(rowNumber[1]);
+
+  const referenceNumber = query.match(/^(?:ref:|reference:|\[)(\d+)\]?$/i);
+  if (referenceNumber) {
+    const marker = `[${referenceNumber[1]}]`;
+    return row.cells.slice(6, 8).some((cell) => cell.includes(marker));
+  }
+
+  return query.split(/\s+/).every((term) => row.searchText.includes(term));
+}
+
 let rowEntries = [];
 const noResultsRow = document.createElement("tr");
 noResultsRow.innerHTML = `<td colspan="7" class="no-results">No matching rows</td>`;
@@ -473,7 +488,7 @@ function filterRows() {
     const visible = matchesMode(row)
       && (!controls.status.value || row.status === controls.status.value)
       && !requiredTags.some((tag) => !row.tags.includes(tag))
-      && (!query || row.searchText.includes(query));
+      && matchesSearchQuery(row, query);
     element.hidden = !visible;
     if (visible) visibleCount += 1;
   });
