@@ -14,7 +14,7 @@ import data from "./generated-data.json";
 import "./styles.css";
 
 const app = document.querySelector("#app");
-const statusOrder = ["EXACT", "COND", "LOG", "GAP", "UB?", "LB?", "EMPTY"];
+const statusOrder = ["EXACT", "COND", "LOG", "GAP", "UB?", "LB?", "Unknown"];
 const suites = [
   {
     id: "decentralized",
@@ -74,7 +74,9 @@ app.innerHTML = `
         <a href="#benchmarks">Benchmarks</a>
         <a href="#table">Table</a>
         <a href="#notation">Notation</a>
+        <a href="#tags">Tags</a>
         <a href="#remarks">Remarks</a>
+        <a href="#summary">Summary</a>
         <a href="#references">References</a>
       </nav>
       <div class="topbar-actions">
@@ -141,7 +143,7 @@ app.innerHTML = `
         <div class="metric"><strong>${data.meta.counts.represented_settings}</strong><span>Settings shown</span></div>
         <div class="metric"><strong>${data.meta.claimSides}</strong><span>Claim sides</span></div>
         <div class="metric"><strong>${data.meta.references}</strong><span>References</span></div>
-        <div class="metric"><strong>${data.meta.counts.explicit_empty_settings}</strong><span>Explicit empty</span></div>
+        <div class="metric"><strong>${data.meta.counts.explicit_empty_settings}</strong><span>Explicit unknown</span></div>
       </div>
     </section>
 
@@ -190,7 +192,7 @@ app.innerHTML = `
           <div class="segmented-control" aria-label="Evidence mode">
             <button type="button" data-mode="all" aria-pressed="true">All</button>
             <button type="button" data-mode="evidence" aria-pressed="false">Evidence</button>
-            <button type="button" data-mode="empty" aria-pressed="false">Empty</button>
+            <button type="button" data-mode="unknown" aria-pressed="false">Unknown</button>
           </div>
           <button class="icon-button clear-button" id="clear-filters" type="button" aria-label="Clear filters" title="Clear filters">
             <i data-lucide="rotate-ccw"></i>
@@ -240,7 +242,7 @@ app.innerHTML = `
       </div>
     </section>
 
-    <section class="summary-band">
+    <section class="summary-band" id="summary">
       <div class="content-width section-layout">
         <aside class="section-index">
           <p class="section-kicker">Coverage</p>
@@ -425,9 +427,16 @@ function linkNotationMath(root) {
 }
 
 function matchesMode(row) {
-  if (mode === "evidence") return row.status !== "EMPTY";
-  if (mode === "empty") return row.status === "EMPTY";
+  if (mode === "evidence") return row.status !== "Unknown";
+  if (mode === "unknown") return row.status === "Unknown";
   return true;
+}
+
+function normalizeSearchText(value) {
+  return value
+    .toLowerCase()
+    .replace(/\\(?:varepsilon|epsilon|eps)\b/g, "\\eps")
+    .replaceAll("ε", "\\eps");
 }
 
 function matchesSearchQuery(row, query) {
@@ -470,7 +479,7 @@ function buildRows() {
 }
 
 function filterRows() {
-  const query = controls.search.value.trim().toLowerCase();
+  const query = normalizeSearchText(controls.search.value.trim());
   const requiredTags = [controls.objective.value, controls.geometry.value, controls.oracle.value].filter(Boolean);
   let visibleCount = 0;
 
