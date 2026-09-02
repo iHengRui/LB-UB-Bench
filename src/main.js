@@ -73,7 +73,7 @@ app.innerHTML = `
         <a href="#references">References</a>
       </nav>
       <div class="topbar-actions">
-        <a class="icon-button" href="https://github.com/ihengrui/LB-UB-Bench" target="_blank" rel="noreferrer" aria-label="Open GitHub repository" title="GitHub repository">
+        <a class="icon-button" href="https://github.com/iHengRui/OptBound" target="_blank" rel="noreferrer" aria-label="Open GitHub repository" title="GitHub repository">
           <i data-lucide="github"></i>
         </a>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
