@@ -14,35 +14,29 @@ import data from "./generated-data.json";
 import "./styles.css";
 
 const app = document.querySelector("#app");
+const formalTitle = "OptBound: A Unified Benchmark of Lower and Upper Complexity Bounds in Optimization";
 const statusOrder = ["EXACT", "COND", "LOG", "GAP", "UB?", "LB?", "Unknown"];
 const suites = [
+  {
+    id: "centralized",
+    label: "Vanilla centralized optimization",
+    shortLabel: "Vanilla centralized",
+    status: "Planned",
+    description: "Reserved for a future benchmark of lower and upper complexity bounds in vanilla centralized optimization.",
+  },
   {
     id: "decentralized",
     label: "Vanilla decentralized optimization",
     shortLabel: "Vanilla decentralized",
-    status: "Active",
-    description: "Lower and upper bounds for the current decentralized optimization benchmark.",
+    status: "Current release",
+    description: "Current coverage: paper-backed lower and upper complexity bounds for vanilla decentralized optimization.",
   },
   {
-    id: "federated",
-    label: "Vanilla federated optimization",
-    shortLabel: "Vanilla federated",
-    status: "Reserved",
-    description: "A dedicated table for federated optimization lower and upper bounds.",
-  },
-  {
-    id: "compression",
-    label: "Decentralized optimization with compression",
-    shortLabel: "Decentralized + compression",
-    status: "Reserved",
-    description: "A dedicated table for communication-compressed decentralized methods.",
-  },
-  {
-    id: "asynchrony",
-    label: "Decentralized optimization with asynchrony",
-    shortLabel: "Decentralized + asynchrony",
-    status: "Reserved",
-    description: "A dedicated table for asynchronous decentralized methods.",
+    id: "constrained",
+    label: "Constrained optimization",
+    shortLabel: "Constrained",
+    status: "Planned",
+    description: "Reserved for a future benchmark of lower and upper complexity bounds in constrained optimization.",
   },
 ];
 const tableHeaders = [...data.header.slice(0, 6), "References (LB / UB)"];
@@ -66,9 +60,8 @@ const mathOptions = {
 app.innerHTML = `
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="#top" aria-label="LB UB Bench home">
-        <span class="brand-mark">LB</span><span class="brand-divider">/</span><span class="brand-mark">UB</span>
-        <span class="brand-name">Bench</span>
+      <a class="brand" href="#top" aria-label="OptBound home">
+        <span class="brand-mark">Opt</span><span class="brand-name">Bound</span>
       </a>
       <nav class="main-nav" aria-label="Primary navigation">
         <a href="#benchmarks">Benchmarks</a>
@@ -94,9 +87,10 @@ app.innerHTML = `
   <main id="top">
     <section class="hero directory-hero" id="directory">
       <div class="content-width hero-inner">
-        <p class="eyebrow">Research benchmark directory</p>
-        <h1>LB / UB Bench</h1>
-        <p class="lede">A paper-backed directory of lower and upper bounds for distributed optimization. Choose a benchmark suite below to open its table.</p>
+        <p class="eyebrow">Optimization complexity benchmark</p>
+        <h1>OptBound</h1>
+        <p class="hero-subtitle">A Unified Benchmark of Lower and Upper Complexity Bounds in Optimization</p>
+        <p class="lede">The current release covers vanilla decentralized optimization. Vanilla centralized and constrained optimization are planned as the benchmark expands.</p>
         <div class="hero-actions">
           <a class="command-button primary" href="#suite-tabs">Browse benchmark suites</a>
           <a class="command-button secondary" href="${import.meta.env.BASE_URL}decentralized-lb-ub-table-v8.pdf" download>
@@ -113,7 +107,7 @@ app.innerHTML = `
             <p class="section-kicker">Directory</p>
             <h2 id="benchmarks-heading">Benchmark suites</h2>
           </div>
-          <span class="suite-count">1 table available / 3 reserved</span>
+          <span class="suite-count">1 current release / 2 planned</span>
         </div>
         <div class="suite-tabs" id="suite-tabs" role="tablist" aria-label="Benchmark suites">
           ${suites.map((suite) => `
@@ -129,9 +123,9 @@ app.innerHTML = `
 
     <section class="suite-empty" id="suite-empty" hidden aria-live="polite">
       <div class="content-width suite-empty-inner">
-        <p class="section-kicker">Reserved benchmark suite</p>
+        <p class="section-kicker">Planned benchmark suite</p>
         <h2 id="suite-empty-title">Coming soon</h2>
-        <p id="suite-empty-description">This table is reserved for a future benchmark suite.</p>
+        <p id="suite-empty-description">This table is planned for a future OptBound release.</p>
         <button class="command-button secondary" type="button" id="return-to-directory">Return to directory</button>
       </div>
     </section>
@@ -266,8 +260,8 @@ app.innerHTML = `
 
   <footer>
     <div class="content-width footer-inner">
-      <span>LB / UB Bench</span>
-      <span>v${data.meta.version} source snapshot</span>
+      <span>OptBound</span>
+      <span>Current release: vanilla decentralized optimization · v${data.meta.version}</span>
       <a class="icon-button" href="#top" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up"></i></a>
     </div>
   </footer>
@@ -311,7 +305,7 @@ function renderSuiteView({ updateUrl = false, scroll = false } = {}) {
   suiteEmptyTitle.textContent = suite.label;
   suiteEmptyDescription.textContent = suite.description;
   currentSuiteName.textContent = suite.label;
-  document.title = `${suite.label} | LB / UB Bench`;
+  document.title = isActive ? formalTitle : `${suite.label} (planned) | OptBound`;
 
   if (updateUrl) {
     const nextUrl = suite.id === "decentralized"

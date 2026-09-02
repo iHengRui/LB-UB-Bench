@@ -141,9 +141,9 @@ a:hover {
 }
 
 .brand-name {
-  margin-left: 8px;
+  margin-left: 0;
   color: var(--text);
-  font-weight: 560;
+  font-weight: 760;
 }
 
 .main-nav {
@@ -235,9 +235,19 @@ h3 {
 
 h1 {
   max-width: 920px;
-  margin-bottom: 22px;
-  font-size: 46px;
+  margin-bottom: 10px;
+  font-size: 52px;
   font-weight: 760;
+}
+
+.hero-subtitle {
+  max-width: 940px;
+  margin: 0 0 18px;
+  color: var(--text);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 620;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
 }
 
 .lede {
@@ -348,7 +358,7 @@ h1 {
 
 .suite-tabs {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -980,7 +990,11 @@ footer {
   }
 
   h1 {
-    font-size: 34px;
+    font-size: 38px;
+  }
+
+  .hero-subtitle {
+    font-size: 24px;
   }
 
   .lede {
@@ -1068,6 +1082,10 @@ footer {
 
   h1 {
     font-size: 30px;
+  }
+
+  .hero-subtitle {
+    font-size: 21px;
   }
 
   .hero-actions {
