@@ -1,0 +1,107 @@
+schema_version: 1
+table_version: 8
+
+contributors:
+  - name: Hengrui Zhang
+    affiliation: SMS, Peking University
+  - name: Zhaojin Gong
+    affiliation: SMS, Fudan University
+  - name: Benqi Liu
+    affiliation: BICMR, Peking University
+  - name: Kun Yuan
+    affiliation: CMLR, Peking University
+
+# Reviewer assignments originate from the paper-level review plan. Stable
+# reference IDs are used here because displayed reference numbers can change.
+reviewers:
+  - id: reviewer-01
+    name: Yutong He
+    reference_ids:
+      - ref-arxiv-2312-04928
+      - ref-arxiv-1810-07393
+      - ref-arxiv-2312-15845
+      - ref-arxiv-2506-12901
+      - ref-arxiv-2003-10422
+
+  - id: reviewer-02
+    name: Boao Kong
+    reference_ids:
+      - ref-arxiv-1910-10666
+      - ref-arxiv-2112-10389
+      - ref-arxiv-2601-03566
+      - ref-arxiv-2210-03810
+      - ref-arxiv-2508-09029
+
+  - id: reviewer-03
+    name: Jiahao Wang
+    reference_ids:
+      - ref-arxiv-1702-08704
+      - ref-arxiv-2312-11861
+      - ref-arxiv-1904-09015
+      - ref-arxiv-1806-07081
+      - ref-arxiv-2211-06914
+
+  - id: reviewer-04
+    name: Hengrui Zhang
+    reference_ids:
+      - ref-arxiv-2405-18031
+      - ref-arxiv-2004-02635
+      - ref-arxiv-2110-01594
+      - ref-arxiv-1912-12110
+      - ref-arxiv-1911-12665
+
+  - id: reviewer-05
+    name: Shuchen Zhu
+    reference_ids:
+      - ref-arxiv-2211-00533
+      - ref-arxiv-2308-08164
+      - ref-arxiv-1611-00990
+      - ref-arxiv-1911-08527
+      - ref-arxiv-2402-02490
+
+  - id: reviewer-06
+    name: Ming Sun
+    reference_ids:
+      - ref-arxiv-1806-00291
+      - ref-arxiv-1803-09169
+      - ref-arxiv-2009-04373
+      - ref-arxiv-1005-2012
+      - ref-arxiv-2512-24483
+
+  - id: reviewer-07
+    name: Mingyu Mo
+    reference_ids:
+      - ref-arxiv-2210-07863
+      - ref-arxiv-2408-09775
+      - ref-arxiv-2309-02626
+      - ref-arxiv-1910-04057
+      - ref-arxiv-2506-04600
+
+  - id: reviewer-08
+    name: Wenxuan Wu
+    reference_ids:
+      - ref-arxiv-2606-04757
+      - ref-arxiv-2005-07785
+      - ref-arxiv-2510-01377
+      - ref-arxiv-2109-07981
+      - ref-arxiv-2412-07252
+
+  - id: reviewer-09
+    name: Feiyue Ye
+    reference_ids:
+      - ref-arxiv-2106-04469
+      - ref-arxiv-2006-08085
+      - ref-arxiv-2104-02596
+      - ref-arxiv-1411-4186
+      - ref-arxiv-2406-01484
+
+  - id: reviewer-10
+    name: Feiming Wang
+    reference_ids:
+      - ref-arxiv-2210-13931
+      - ref-arxiv-1905-07996
+      - ref-arxiv-2106-14075
+      - ref-arxiv-2210-03232
+      - ref-arxiv-1606-08904
+
+unassigned_coverage_label: Coverage review pending

@@ -258,6 +258,51 @@ h1 {
   line-height: 1.65;
 }
 
+.hero-contributors {
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: start;
+  gap: 6px 16px;
+  margin: 18px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.hero-contributors-label {
+  color: var(--faint);
+  font-size: 10px;
+  font-weight: 760;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero-contributors-list {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hero-contributors-list li {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.hero-contributors-list strong {
+  color: var(--text);
+  font-weight: 620;
+}
+
+.hero-contributors-list span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
 .hero-actions {
   display: flex;
   gap: 10px;
@@ -555,6 +600,59 @@ a:focus-visible,
   height: 40px;
   border-color: var(--line);
   background: var(--surface);
+}
+
+.review-scope {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+}
+
+.review-scope[hidden] {
+  display: none;
+}
+
+.review-scope p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.review-scope strong {
+  color: var(--text);
+}
+
+.review-scope-label {
+  margin-right: 8px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 760;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.review-scope button {
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.review-scope button:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
 }
 
 .table-shell {
@@ -926,6 +1024,282 @@ sup {
   font-size: 17px;
 }
 
+.people-band {
+  padding: 72px 0 80px;
+  scroll-margin-top: var(--header-height);
+}
+
+.people-heading {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 70px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+
+.people-heading h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.people-heading > p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.contributors-panel {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 70px;
+  align-items: center;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.contributors-panel h3 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 680;
+}
+
+.contributors-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contributors-list li {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+
+.contributor-order {
+  color: var(--faint);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.contributor-details {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.contributors-list strong {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 620;
+}
+
+.contributor-affiliation {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+.review-coverage-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 18px;
+  margin: 28px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.review-coverage-note > div {
+  display: grid;
+  gap: 3px;
+}
+
+.review-coverage-note strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.review-coverage-note div > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.review-coverage-note code {
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.95em;
+}
+
+.reviewer-count {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 680;
+  white-space: nowrap;
+}
+
+.reviewer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.reviewer-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.reviewer-card.active {
+  border-color: var(--accent);
+  box-shadow: inset 0 2px 0 var(--accent);
+}
+
+.reviewer-card-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.reviewer-role {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 760;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.reviewer-card h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 20px;
+}
+
+.reviewer-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 2px 10px;
+  margin: 2px 0 0;
+  color: var(--faint);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.reviewer-stats span:not(:last-child)::after {
+  content: "·";
+  margin-left: 10px;
+}
+
+.review-paper-list,
+.review-occurrence-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.review-paper-list {
+  margin-bottom: 18px;
+}
+
+.review-paper {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.review-paper-title {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 4px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 620;
+  line-height: 1.4;
+}
+
+.review-paper-title:hover {
+  color: var(--accent-strong);
+}
+
+.review-paper-number {
+  color: var(--cyan);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 720;
+  font-variant-numeric: tabular-nums;
+}
+
+.review-occurrence-list {
+  display: grid;
+  gap: 5px;
+  margin: 8px 0 0 38px;
+}
+
+.review-occurrence-list li {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 52px 54px minmax(0, 1fr);
+  gap: 7px;
+  align-items: baseline;
+}
+
+.review-side,
+.review-row {
+  color: var(--faint);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 720;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.review-side {
+  color: var(--accent);
+}
+
+.review-occurrence-list code {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.reviewer-row-button {
+  min-height: 44px;
+  align-self: flex-start;
+  margin-top: auto;
+  background: transparent;
+  cursor: pointer;
+}
+
+.reviewer-row-button[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
 footer {
   background: var(--bg-alt);
 }
@@ -1059,6 +1433,30 @@ footer {
     gap: 34px;
   }
 
+  .people-band {
+    padding: 52px 0;
+  }
+
+  .people-heading,
+  .contributors-panel {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contributors-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-coverage-note {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .reviewer-grid {
+    grid-template-columns: 1fr;
+  }
+
   .section-index {
     position: static;
   }
@@ -1114,6 +1512,47 @@ footer {
 
   .clear-button {
     justify-self: end;
+  }
+
+  .review-scope {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-contributors {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-contributors-list,
+  .contributors-list {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewer-card {
+    padding: 16px;
+  }
+
+  .reviewer-card-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .reviewer-stats {
+    justify-content: flex-start;
+  }
+
+  .review-occurrence-list {
+    margin-left: 0;
+  }
+
+  .review-occurrence-list li {
+    grid-template-columns: 52px minmax(0, 1fr);
+  }
+
+  .review-occurrence-list code {
+    grid-column: 1 / -1;
   }
 
   .footer-inner {

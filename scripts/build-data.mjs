@@ -63,6 +63,7 @@ const files = {
   locations: "statement_locations_manual_expanded_v8.yaml",
   bibliography: "bibliography_manual_expanded_v8.yaml",
   delivery: "decentralized_lb_ub_table_manual_expanded_v8.md",
+  reviewAttribution: "review_attribution_manual_expanded_v8.yaml",
 };
 
 async function load(name) {
@@ -131,6 +132,26 @@ const notation = YAML.parse(raw.notation);
 const remarks = YAML.parse(raw.remarks);
 const tags = YAML.parse(raw.tags);
 const locations = YAML.parse(raw.locations);
+const reviewAttribution = YAML.parse(raw.reviewAttribution);
+const reviewers = reviewAttribution.reviewers || [];
+const reviewerIdByReference = new Map();
+
+for (const reviewer of reviewers) {
+  for (const referenceId of reviewer.reference_ids || []) {
+    if (reviewerIdByReference.has(referenceId)) {
+      throw new Error(`Reference ${referenceId} has more than one reviewer`);
+    }
+    reviewerIdByReference.set(referenceId, reviewer.id);
+  }
+}
+
+function unique(values) {
+  return [...new Set(values)];
+}
+
+function referenceIdsFromCell(value) {
+  return [...value.matchAll(/href="#(ref-[^"]+)"/g)].map((match) => match[1]);
+}
 
 const tableStart = raw.delivery.indexOf("| No. | Problem Type |");
 const remarksStart = raw.delivery.indexOf("## Remark Notes");
@@ -151,6 +172,17 @@ const rows = parsedRows.map((cells, index) => {
   const number = Number(cleanCell(cells[0]));
   const renderedTags = cleanCell(cells[1]);
   const renderedStatus = cleanCell(cells[5]);
+  const renderedCells = cells.map((cell) => renderInline(cell));
+  const lbReviewerIds = unique(
+    referenceIdsFromCell(renderedCells[6]).map((referenceId) => reviewerIdByReference.get(referenceId)).filter(Boolean),
+  );
+  const ubReviewerIds = unique(
+    referenceIdsFromCell(renderedCells[7]).map((referenceId) => reviewerIdByReference.get(referenceId)).filter(Boolean),
+  );
+  const reviewerIds = unique([...lbReviewerIds, ...ubReviewerIds]);
+  const reviewState = reviewerIds.length
+    ? "assigned"
+    : source.status === "Unknown" ? "coverage-pending" : "unassigned";
 
   if (number !== index + 1) throw new Error(`Non-sequential row number at ${index + 1}`);
   if (renderedTags !== visibleTags.join(" ")) {
@@ -165,7 +197,13 @@ const rows = parsedRows.map((cells, index) => {
     cellId: source.cell_id,
     tags: visibleTags,
     status: source.status,
-    cells: cells.map((cell) => renderInline(cell)),
+    cells: renderedCells,
+    review: {
+      state: reviewState,
+      reviewerIds,
+      lbReviewerIds,
+      ubReviewerIds,
+    },
     searchText: cells.map(plainText).join(" ").toLowerCase(),
   };
 });
@@ -180,7 +218,58 @@ const remarksMarkdown = between(raw.delivery, "## Remark Notes", "## Summary");
 const summaryMarkdown = between(raw.delivery, "## Summary", "## References");
 const referencesMarkdown = raw.delivery.slice(raw.delivery.indexOf("## References") + "## References".length).trim();
 
-const referenceMatches = [...raw.delivery.matchAll(/<a id="(ref-[^"]+)"><\/a>\s*\n\[(\d+)\]/g)];
+const referenceMatches = [...raw.delivery.matchAll(
+  /<a id="(ref-[^"]+)"><\/a>\s*\n\[(\d+)\]\s+\[([^\]]+)\]\(([^)]+)\)/g,
+)];
+const referenceById = new Map(referenceMatches.map((match) => [
+  match[1],
+  {
+    referenceId: match[1],
+    number: Number(match[2]),
+    title: match[3],
+    url: match[4],
+  },
+]));
+const reviewerProfiles = reviewers.map((reviewer) => {
+  const papers = (reviewer.reference_ids || []).map((referenceId) => {
+    const reference = referenceById.get(referenceId);
+    if (!reference) throw new Error(`Reviewer ${reviewer.id} points to missing reference ${referenceId}`);
+
+    const occurrences = rows.flatMap((row) => {
+      const appearsInLb = referenceIdsFromCell(row.cells[6]).includes(referenceId);
+      const appearsInUb = referenceIdsFromCell(row.cells[7]).includes(referenceId);
+      if (!appearsInLb && !appearsInUb) return [];
+      return [{
+        cellId: row.cellId,
+        rowNumber: row.number,
+        side: appearsInLb && appearsInUb ? "LB + UB" : appearsInLb ? "LB" : "UB",
+        setting: row.tags.join(" "),
+      }];
+    });
+    const settingRows = new Map();
+    for (const occurrence of occurrences) {
+      const label = occurrence.setting;
+      if (!settingRows.has(label)) settingRows.set(label, []);
+      settingRows.get(label).push(occurrence.rowNumber);
+    }
+
+    return {
+      ...reference,
+      occurrences,
+      rowNumbers: occurrences.map((occurrence) => occurrence.rowNumber),
+      settings: [...settingRows].map(([label, rowNumbers]) => ({ label, rowNumbers })),
+    };
+  });
+  const rowNumbers = unique(papers.flatMap((paper) => paper.rowNumbers)).sort((a, b) => a - b);
+
+  return {
+    id: reviewer.id,
+    name: reviewer.name,
+    papers,
+    rowNumbers,
+    settingCount: unique(papers.flatMap((paper) => paper.settings.map((setting) => setting.label))).length,
+  };
+});
 const sourceHashes = Object.fromEntries(
   Object.entries(raw).map(([key, value]) => [key, createHash("sha256").update(value).digest("hex")]),
 );
@@ -204,6 +293,13 @@ const output = {
     sourceHashes,
   },
   header,
+  contributors: reviewAttribution.contributors,
+  reviewers: reviewerProfiles,
+  reviewMeta: {
+    unassignedCoverageLabel: reviewAttribution.unassigned_coverage_label,
+    attributedRows: rows.filter((row) => row.review.reviewerIds.length > 0).length,
+    pendingCoverageRows: rows.filter((row) => row.review.state === "coverage-pending").length,
+  },
   notationSymbols: notation.symbols.map(({ key, latex, aliases }) => ({ key, latex, aliases })),
   rows,
   referenceIds: referenceMatches.map((match) => match[1]),

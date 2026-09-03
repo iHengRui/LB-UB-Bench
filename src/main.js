@@ -57,6 +57,54 @@ const mathOptions = {
   },
 };
 
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function renderReviewerCard(reviewer) {
+  return `
+    <article class="reviewer-card" data-reviewer-card="${escapeHtml(reviewer.id)}">
+      <header class="reviewer-card-header">
+        <div>
+          <p class="reviewer-role">Contribution · Review &amp; Validation</p>
+          <h3>${escapeHtml(reviewer.name)}</h3>
+        </div>
+        <p class="reviewer-stats">
+          <span>${reviewer.papers.length} papers</span>
+          <span>${reviewer.rowNumbers.length} rows</span>
+          <span>${reviewer.settingCount} settings</span>
+        </p>
+      </header>
+      <ul class="review-paper-list">
+        ${reviewer.papers.map((paper) => `
+          <li class="review-paper">
+            <a class="review-paper-title" href="#${escapeHtml(paper.referenceId)}">
+              <span class="review-paper-number">[${paper.number}]</span>
+              <span>${escapeHtml(paper.title)}</span>
+            </a>
+            <ul class="review-occurrence-list" aria-label="Settings and rows for reference ${paper.number}">
+              ${paper.occurrences.map((occurrence) => `
+                <li>
+                  <span class="review-side">${escapeHtml(occurrence.side)}</span>
+                  <span class="review-row">Row ${occurrence.rowNumber}</span>
+                  <code>${escapeHtml(occurrence.setting)}</code>
+                </li>
+              `).join("")}
+            </ul>
+          </li>
+        `).join("")}
+      </ul>
+      <button class="command-button secondary reviewer-row-button" type="button" data-view-reviewer="${escapeHtml(reviewer.id)}" aria-controls="results-body" aria-label="View rows reviewed by ${escapeHtml(reviewer.name)}" aria-pressed="false">
+        View reviewed rows
+      </button>
+    </article>`;
+}
+
 app.innerHTML = `
   <header class="topbar">
     <div class="topbar-inner">
@@ -70,6 +118,7 @@ app.innerHTML = `
         <a href="#tags">Tags</a>
         <a href="#remarks">Remarks</a>
         <a href="#summary">Summary</a>
+        <a href="#people" data-scroll-target="people">People</a>
         <a href="#references">References</a>
       </nav>
       <div class="topbar-actions">
@@ -91,6 +140,17 @@ app.innerHTML = `
         <h1>OptBound</h1>
         <p class="hero-subtitle">A Unified Benchmark of Lower and Upper Complexity Bounds in Optimization</p>
         <p class="lede">The current release covers vanilla decentralized optimization. Vanilla centralized and constrained optimization are planned as the benchmark expands.</p>
+        <div class="hero-contributors">
+          <span class="hero-contributors-label">Authors</span>
+          <ul class="hero-contributors-list" aria-label="Authors">
+            ${data.contributors.map((contributor) => `
+              <li>
+                <strong>${escapeHtml(contributor.name)}</strong>
+                <span>${escapeHtml(contributor.affiliation)}</span>
+              </li>
+            `).join("")}
+          </ul>
+        </div>
         <div class="hero-actions">
           <a class="command-button primary" href="#suite-tabs">Browse benchmark suites</a>
           <a class="command-button secondary" href="${import.meta.env.BASE_URL}decentralized-lb-ub-table-v8.pdf" download>
@@ -193,8 +253,17 @@ app.innerHTML = `
           </button>
         </div>
 
+        <div class="review-scope" id="review-scope" hidden aria-live="polite">
+          <p>
+            <span class="review-scope-label">Reviewed by</span>
+            <strong id="review-scope-name"></strong>
+            <span id="review-scope-detail"></span>
+          </p>
+          <button type="button" id="clear-review-scope">Show all rows</button>
+        </div>
+
         <div class="table-shell">
-          <div class="table-scroll" tabindex="0">
+          <div class="table-scroll" tabindex="0" aria-labelledby="current-suite-name">
             <table>
               <thead>
                 <tr>${tableHeaders.map((heading) => `<th scope="col">${heading}</th>`).join("")}</tr>
@@ -246,6 +315,45 @@ app.innerHTML = `
       </div>
     </section>
 
+    <section class="section-band people-band" id="people" aria-labelledby="people-heading">
+      <div class="content-width">
+        <div class="people-heading">
+          <div>
+            <p class="section-kicker">Attribution</p>
+            <h2 id="people-heading">Authors &amp; Contributors</h2>
+          </div>
+          <p>Authors maintain OptBound. The contributors below review and validate assigned papers; each contribution is linked to the exact bound side, visible setting, and current table row.</p>
+        </div>
+
+        <section class="contributors-panel" aria-labelledby="authors-heading">
+          <h3 id="authors-heading">Authors</h3>
+          <ol class="contributors-list">
+            ${data.contributors.map((contributor, index) => `
+              <li>
+                <span class="contributor-order">${String(index + 1).padStart(2, "0")}</span>
+                <div class="contributor-details">
+                  <strong>${escapeHtml(contributor.name)}</strong>
+                  <span class="contributor-affiliation">${escapeHtml(contributor.affiliation)}</span>
+                </div>
+              </li>
+            `).join("")}
+          </ol>
+        </section>
+
+        <div class="review-coverage-note">
+          <div>
+            <strong>${data.reviewMeta.attributedRows} of ${data.rows.length} rows have named review attribution.</strong>
+            <span>The remaining ${data.reviewMeta.pendingCoverageRows} <code>Unknown</code> rows cite no paper and remain ${escapeHtml(data.reviewMeta.unassignedCoverageLabel)}.</span>
+          </div>
+          <span class="reviewer-count">${data.reviewers.length} contributors · ${data.meta.references} papers</span>
+        </div>
+
+        <div class="reviewer-grid" aria-label="Contributors: Review and validation">
+          ${data.reviewers.map(renderReviewerCard).join("")}
+        </div>
+      </div>
+    </section>
+
     <section class="section-band prose-band alternate" id="references">
       <div class="content-width section-layout">
         <aside class="section-index">
@@ -283,10 +391,14 @@ const suiteEmpty = document.querySelector("#suite-empty");
 const suiteEmptyTitle = document.querySelector("#suite-empty-title");
 const suiteEmptyDescription = document.querySelector("#suite-empty-description");
 const currentSuiteName = document.querySelector("#current-suite-name");
+const reviewScope = document.querySelector("#review-scope");
+const reviewScopeName = document.querySelector("#review-scope-name");
+const reviewScopeDetail = document.querySelector("#review-scope-detail");
 const suiteTabs = [...document.querySelectorAll(".suite-tab")];
 const suiteParam = new URLSearchParams(window.location.search).get("suite");
 let currentSuiteId = suites.some((suite) => suite.id === suiteParam) ? suiteParam : "decentralized";
 let mode = "all";
+let activeReviewerId = null;
 
 function renderSuiteView({ updateUrl = false, scroll = false } = {}) {
   const suite = suites.find((item) => item.id === currentSuiteId) || suites[0];
@@ -438,6 +550,10 @@ function matchesSearchQuery(row, query) {
   return query.split(/\s+/).every((term) => row.searchText.includes(term));
 }
 
+function matchesActiveReviewer(row) {
+  return !activeReviewerId || row.review.reviewerIds.includes(activeReviewerId);
+}
+
 let rowEntries = [];
 const noResultsRow = document.createElement("tr");
 noResultsRow.innerHTML = `<td colspan="7" class="no-results">No matching rows</td>`;
@@ -481,6 +597,7 @@ function filterRows() {
     const visible = matchesMode(row)
       && (!controls.status.value || row.status === controls.status.value)
       && !requiredTags.some((tag) => !row.tags.includes(tag))
+      && matchesActiveReviewer(row)
       && matchesSearchQuery(row, query);
     element.hidden = !visible;
     if (visible) visibleCount += 1;
@@ -495,25 +612,66 @@ controls.search.addEventListener("input", filterRows);
 [controls.status, controls.objective, controls.geometry, controls.oracle]
   .forEach((control) => control.addEventListener("change", filterRows));
 
+function setMode(nextMode) {
+  mode = nextMode;
+  document.querySelectorAll("[data-mode]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.mode === nextMode));
+  });
+}
+
+function updateReviewScope() {
+  const reviewer = data.reviewers.find((item) => item.id === activeReviewerId);
+  reviewScope.hidden = !reviewer;
+  reviewScopeName.textContent = reviewer?.name || "";
+  reviewScopeDetail.textContent = reviewer ? ` · ${reviewer.rowNumbers.length} reviewed rows` : "";
+
+  document.querySelectorAll("[data-view-reviewer]").forEach((button) => {
+    const selected = button.dataset.viewReviewer === activeReviewerId;
+    button.setAttribute("aria-pressed", String(selected));
+    button.closest(".reviewer-card")?.classList.toggle("active", selected);
+  });
+}
+
+function resetAllTableFilters() {
+  Object.values(controls).forEach((control) => {
+    control.value = "";
+  });
+  activeReviewerId = null;
+  setMode("all");
+  updateReviewScope();
+}
+
 document.querySelectorAll("[data-mode]").forEach((button) => {
   button.addEventListener("click", () => {
-    mode = button.dataset.mode;
-    document.querySelectorAll("[data-mode]").forEach((item) => {
-      item.setAttribute("aria-pressed", String(item === button));
-    });
+    setMode(button.dataset.mode);
     filterRows();
   });
 });
 
 document.querySelector("#clear-filters").addEventListener("click", () => {
-  Object.values(controls).forEach((control) => {
-    control.value = "";
-  });
-  mode = "all";
-  document.querySelectorAll("[data-mode]").forEach((button) => {
-    button.setAttribute("aria-pressed", String(button.dataset.mode === "all"));
-  });
+  resetAllTableFilters();
   filterRows();
+});
+
+document.querySelector("#clear-review-scope").addEventListener("click", () => {
+  resetAllTableFilters();
+  filterRows();
+});
+
+document.querySelectorAll("[data-view-reviewer]").forEach((button) => {
+  button.addEventListener("click", () => {
+    resetAllTableFilters();
+    activeReviewerId = button.dataset.viewReviewer;
+    updateReviewScope();
+    filterRows();
+    clearFragment();
+    requestAnimationFrame(() => {
+      document.querySelector("#table")?.scrollIntoView({
+        block: "start",
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
+    });
+  });
 });
 
 document.querySelector("#theme-toggle").addEventListener("click", () => {
@@ -565,6 +723,17 @@ function highlightHashTarget() {
 
 window.addEventListener("hashchange", highlightHashTarget);
 document.addEventListener("click", (event) => {
+  const scrollLink = event.target instanceof Element ? event.target.closest("[data-scroll-target]") : null;
+  if (scrollLink) {
+    event.preventDefault();
+    document.getElementById(scrollLink.dataset.scrollTarget)?.scrollIntoView({
+      block: "start",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+    clearFragment();
+    return;
+  }
+
   const notation = event.target instanceof Element ? event.target.closest(".notation-link") : null;
   if (notation) {
     event.preventDefault();
