@@ -34,7 +34,7 @@
 
 ### Fixed scope
 
-Every row concerns vanilla decentralized optimization with peer-to-peer gossip, synchronous communication rounds, and no communication compression. These four fixed attributes are therefore omitted from the row labels; the structured problem tags retain them for taxonomy and audit purposes.
+Every row in the current Decentralized Optimization release assumes peer-to-peer gossip, synchronous communication rounds, and no communication compression. These fixed attributes are omitted from the row labels; the structured problem tags retain them for taxonomy and audit purposes.
 
 ### Objective form
 
@@ -408,7 +408,7 @@ These notes explain how iteration, batch, and sample counts in cited results are
 
 ## Summary
 
-Across 74 rows, this table presents 47 of the 96 vanilla settings and omits the remaining 49 unknown settings. Evidence covers 35 of the 47 presented settings (35 of 96 in the full grid), while 12 presented settings are explicitly `Unknown`. The table retains 14 lower-bound and 61 upper-bound claim sides (75 total), citing 50 distinct arXiv papers; 11 papers contribute a retained lower bound and 50 contribute a retained upper bound, with overlap between the two paper sets. Row statuses are `EXACT` 2; `COND` 7; `LOG` 1; `GAP` 3; `UB?` 1; `LB?` 48; `Unknown` 12; status totals count rows and paper totals are deduplicated by arXiv ID.
+Across 74 rows, the current Decentralized Optimization table presents 47 of 96 settings and omits the remaining 49 unknown settings. Evidence covers 35 of the 47 presented settings (35 of 96 in the full grid), while 12 presented settings are explicitly `Unknown`. The table retains 14 lower-bound and 61 upper-bound claim sides (75 total), citing 50 distinct arXiv papers; 11 papers contribute a retained lower bound and 50 contribute a retained upper bound, with overlap between the two paper sets. Row statuses are `EXACT` 2; `COND` 7; `LOG` 1; `GAP` 3; `UB?` 1; `LB?` 48; `Unknown` 12; status totals count rows and paper totals are deduplicated by arXiv ID.
 
 ## References
 

@@ -228,7 +228,8 @@ a:hover {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin-top: 0;
   line-height: 1.14;
 }
@@ -258,18 +259,16 @@ h1 {
   line-height: 1.65;
 }
 
-.hero-contributors {
-  max-width: 900px;
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  align-items: start;
-  gap: 6px 16px;
+.hero-attribution {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
   margin: 18px 0 0;
   font-size: 13px;
   line-height: 1.5;
 }
 
-.hero-contributors-label {
+.hero-attribution-label {
   color: var(--faint);
   font-size: 10px;
   font-weight: 760;
@@ -277,30 +276,13 @@ h1 {
   text-transform: uppercase;
 }
 
-.hero-contributors-list {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 6px 24px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.hero-contributors-list li {
-  min-width: 0;
-  display: grid;
-  gap: 1px;
-}
-
-.hero-contributors-list strong {
+.hero-attribution a {
   color: var(--text);
   font-weight: 620;
 }
 
-.hero-contributors-list span {
-  color: var(--muted);
-  font-size: 11px;
+.hero-attribution a:hover {
+  color: var(--accent-strong);
 }
 
 .hero-actions {
@@ -401,9 +383,48 @@ h1 {
   font-variant-numeric: tabular-nums;
 }
 
+.suite-groups {
+  display: grid;
+  gap: 24px;
+}
+
+.suite-group {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.34fr) minmax(0, 1fr);
+  gap: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.suite-group-heading {
+  min-width: 0;
+}
+
+.suite-group-index {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 720;
+  font-variant-numeric: tabular-nums;
+}
+
+.suite-group-heading h3 {
+  margin: 0 0 7px;
+  font-size: 17px;
+}
+
+.suite-group-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .suite-tabs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--suite-columns), minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -1049,21 +1070,37 @@ sup {
   font-size: 15px;
 }
 
-.contributors-panel {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 70px;
-  align-items: center;
-  padding: 18px 0;
+.people-part {
+  padding: 28px 0 36px;
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
 }
 
-.contributors-panel h3 {
+.people-part + .people-part {
+  margin-top: 18px;
+}
+
+.people-part-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.people-part-heading h3 {
   margin: 0;
-  color: var(--muted);
-  font-size: 13px;
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 720;
+}
+
+.people-part-meta {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
   font-weight: 680;
+  white-space: nowrap;
 }
 
 .contributors-list {
@@ -1114,7 +1151,7 @@ sup {
   justify-content: space-between;
   gap: 24px;
   padding: 16px 18px;
-  margin: 28px 0 14px;
+  margin: 12px 0 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--bg-alt);
@@ -1139,15 +1176,6 @@ sup {
   color: var(--text);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.95em;
-}
-
-.reviewer-count {
-  flex: 0 0 auto;
-  color: var(--accent);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
-  font-weight: 680;
-  white-space: nowrap;
 }
 
 .reviewer-grid {
@@ -1190,7 +1218,7 @@ sup {
   text-transform: uppercase;
 }
 
-.reviewer-card h3 {
+.reviewer-card h4 {
   margin: 0;
   color: var(--text);
   font-size: 20px;
@@ -1383,6 +1411,11 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .suite-group {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
   .metric {
     min-height: 78px;
     border-bottom: 1px solid var(--line);
@@ -1437,8 +1470,7 @@ footer {
     padding: 52px 0;
   }
 
-  .people-heading,
-  .contributors-panel {
+  .people-heading {
     grid-template-columns: 1fr;
     gap: 12px;
   }
@@ -1520,13 +1552,14 @@ footer {
     gap: 8px;
   }
 
-  .hero-contributors {
+  .contributors-list {
     grid-template-columns: 1fr;
   }
 
-  .hero-contributors-list,
-  .contributors-list {
-    grid-template-columns: 1fr;
+  .people-part-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
   }
 
   .reviewer-card {

@@ -16,29 +16,55 @@ import "./styles.css";
 const app = document.querySelector("#app");
 const formalTitle = "OptBound: A Unified Benchmark of Lower and Upper Complexity Bounds in Optimization";
 const statusOrder = ["EXACT", "COND", "LOG", "GAP", "UB?", "LB?", "Unknown"];
-const suites = [
+const suiteGroups = [
   {
-    id: "centralized",
-    label: "Vanilla centralized optimization",
-    shortLabel: "Vanilla centralized",
-    status: "Planned",
-    description: "Reserved for a future benchmark of lower and upper complexity bounds in vanilla centralized optimization.",
+    id: "stochastic",
+    label: "Stochastic Optimization",
+    description: "Complexity bounds organized by stochastic problem structure.",
+    suites: [
+      {
+        id: "stochastic-minimization",
+        label: "Minimization",
+        status: "Planned",
+        description: "Lower and upper complexity bounds for stochastic minimization.",
+      },
+      {
+        id: "stochastic-minimax",
+        label: "Minimax",
+        status: "Planned",
+        description: "Lower and upper complexity bounds for stochastic minimax optimization.",
+      },
+      {
+        id: "stochastic-bilevel",
+        label: "Bilevel",
+        status: "Planned",
+        description: "Lower and upper complexity bounds for stochastic bilevel optimization.",
+      },
+    ],
   },
   {
-    id: "decentralized",
-    label: "Vanilla decentralized optimization",
-    shortLabel: "Vanilla decentralized",
-    status: "Current release",
-    description: "Current coverage: paper-backed lower and upper complexity bounds for vanilla decentralized optimization.",
-  },
-  {
-    id: "constrained",
-    label: "Constrained optimization",
-    shortLabel: "Constrained",
-    status: "Planned",
-    description: "Reserved for a future benchmark of lower and upper complexity bounds in constrained optimization.",
+    id: "distributed",
+    label: "Distributed Optimization",
+    description: "Complexity bounds organized by how computation and coordination are distributed.",
+    suites: [
+      {
+        id: "decentralized",
+        label: "Decentralized Optimization",
+        status: "Current release",
+        description: "Paper-backed lower and upper complexity bounds for decentralized optimization.",
+      },
+      {
+        id: "centralized",
+        label: "Centralized Optimization",
+        status: "Planned",
+        description: "Lower and upper complexity bounds for centralized distributed optimization.",
+      },
+    ],
   },
 ];
+const suites = suiteGroups.flatMap((group) => group.suites);
+const currentSuiteCount = suites.filter((suite) => suite.status === "Current release").length;
+const plannedSuiteCount = suites.length - currentSuiteCount;
 const tableHeaders = [...data.header.slice(0, 6), "References (LB / UB)"];
 const mathOptions = {
   delimiters: [
@@ -71,8 +97,8 @@ function renderReviewerCard(reviewer) {
     <article class="reviewer-card" data-reviewer-card="${escapeHtml(reviewer.id)}">
       <header class="reviewer-card-header">
         <div>
-          <p class="reviewer-role">Contribution · Review &amp; Validation</p>
-          <h3>${escapeHtml(reviewer.name)}</h3>
+          <p class="reviewer-role">Review Contributor · Validation</p>
+          <h4>${escapeHtml(reviewer.name)}</h4>
         </div>
         <p class="reviewer-stats">
           <span>${reviewer.papers.length} papers</span>
@@ -108,18 +134,18 @@ function renderReviewerCard(reviewer) {
 app.innerHTML = `
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="#top" aria-label="OptBound home">
+      <a class="brand" href="#top" data-scroll-target="top" aria-label="OptBound home">
         <span class="brand-mark">Opt</span><span class="brand-name">Bound</span>
       </a>
       <nav class="main-nav" aria-label="Primary navigation">
-        <a href="#benchmarks">Benchmarks</a>
-        <a href="#table">Table</a>
-        <a href="#notation">Notation</a>
-        <a href="#tags">Tags</a>
-        <a href="#remarks">Remarks</a>
-        <a href="#summary">Summary</a>
+        <a href="#benchmarks" data-scroll-target="benchmarks">Benchmarks</a>
+        <a href="#table" data-scroll-target="table">Table</a>
+        <a href="#notation" data-scroll-target="notation">Notation</a>
+        <a href="#tags" data-scroll-target="tags">Tags</a>
+        <a href="#remarks" data-scroll-target="remarks">Remarks</a>
+        <a href="#summary" data-scroll-target="summary">Summary</a>
+        <a href="#references" data-scroll-target="references">References</a>
         <a href="#people" data-scroll-target="people">People</a>
-        <a href="#references">References</a>
       </nav>
       <div class="topbar-actions">
         <a class="icon-button" href="https://github.com/iHengRui/OptBound" target="_blank" rel="noreferrer" aria-label="Open GitHub repository" title="GitHub repository">
@@ -139,20 +165,13 @@ app.innerHTML = `
         <p class="eyebrow">Optimization complexity benchmark</p>
         <h1>OptBound</h1>
         <p class="hero-subtitle">A Unified Benchmark of Lower and Upper Complexity Bounds in Optimization</p>
-        <p class="lede">The current release covers vanilla decentralized optimization. Vanilla centralized and constrained optimization are planned as the benchmark expands.</p>
-        <div class="hero-contributors">
-          <span class="hero-contributors-label">Authors</span>
-          <ul class="hero-contributors-list" aria-label="Authors">
-            ${data.contributors.map((contributor) => `
-              <li>
-                <strong>${escapeHtml(contributor.name)}</strong>
-                <span>${escapeHtml(contributor.affiliation)}</span>
-              </li>
-            `).join("")}
-          </ul>
+        <p class="lede">Paper-backed lower and upper complexity bounds across Distributed Optimization and Stochastic Optimization.</p>
+        <div class="hero-attribution">
+          <span class="hero-attribution-label">Author</span>
+          <a href="https://reaslab.io/home" target="_blank" rel="noreferrer">ReasLab Team</a>
         </div>
         <div class="hero-actions">
-          <a class="command-button primary" href="#suite-tabs">Browse benchmark suites</a>
+          <a class="command-button primary" href="#suite-tabs" data-scroll-target="suite-tabs">Browse benchmark suites</a>
           <a class="command-button secondary" href="${import.meta.env.BASE_URL}decentralized-lb-ub-table-v8.pdf" download>
             <i data-lucide="download"></i><span>PDF</span>
           </a>
@@ -167,15 +186,26 @@ app.innerHTML = `
             <p class="section-kicker">Directory</p>
             <h2 id="benchmarks-heading">Benchmark suites</h2>
           </div>
-          <span class="suite-count">1 current release / 2 planned</span>
+          <span class="suite-count">${currentSuiteCount} current release / ${plannedSuiteCount} planned</span>
         </div>
-        <div class="suite-tabs" id="suite-tabs" role="tablist" aria-label="Benchmark suites">
-          ${suites.map((suite) => `
-            <button class="suite-tab${suite.id === "decentralized" ? " active" : ""}" type="button" role="tab" data-suite="${suite.id}" aria-selected="${suite.id === "decentralized"}">
-              <span class="suite-tab-status">${suite.status}</span>
-              <strong>${suite.label}</strong>
-              <span>${suite.description}</span>
-            </button>
+        <div class="suite-groups" id="suite-tabs">
+          ${suiteGroups.map((group, groupIndex) => `
+            <section class="suite-group" aria-labelledby="suite-group-${escapeHtml(group.id)}">
+              <div class="suite-group-heading">
+                <span class="suite-group-index">${String(groupIndex + 1).padStart(2, "0")}</span>
+                <h3 id="suite-group-${escapeHtml(group.id)}">${escapeHtml(group.label)}</h3>
+                <p>${escapeHtml(group.description)}</p>
+              </div>
+              <div class="suite-tabs" role="tablist" aria-label="${escapeHtml(group.label)} benchmark suites" style="--suite-columns: ${group.suites.length}">
+                ${group.suites.map((suite) => `
+                  <button class="suite-tab${suite.id === "decentralized" ? " active" : ""}" type="button" role="tab" data-suite="${escapeHtml(suite.id)}" aria-selected="${suite.id === "decentralized"}">
+                    <span class="suite-tab-status">${escapeHtml(suite.status)}</span>
+                    <strong>${escapeHtml(suite.label)}</strong>
+                    <span>${escapeHtml(suite.description)}</span>
+                  </button>
+                `).join("")}
+              </div>
+            </section>
           `).join("")}
         </div>
       </div>
@@ -206,7 +236,7 @@ app.innerHTML = `
         <div class="section-heading table-heading">
           <div>
             <p class="section-kicker">Results</p>
-            <h2 id="current-suite-name">Vanilla decentralized optimization</h2>
+            <h2 id="current-suite-name">Decentralized Optimization</h2>
           </div>
           <span class="result-count" id="result-count" aria-live="polite"></span>
         </div>
@@ -315,18 +345,32 @@ app.innerHTML = `
       </div>
     </section>
 
+    <section class="section-band prose-band alternate" id="references">
+      <div class="content-width section-layout">
+        <aside class="section-index">
+          <p class="section-kicker">Bibliography</p>
+          <h2>References</h2>
+        </aside>
+        <article class="prose references-prose">${data.sections.references}</article>
+      </div>
+    </section>
+    </div>
+
     <section class="section-band people-band" id="people" aria-labelledby="people-heading">
       <div class="content-width">
         <div class="people-heading">
           <div>
             <p class="section-kicker">Attribution</p>
-            <h2 id="people-heading">Authors &amp; Contributors</h2>
+            <h2 id="people-heading">People</h2>
           </div>
-          <p>Authors maintain OptBound. The contributors below review and validate assigned papers; each contribution is linked to the exact bound side, visible setting, and current table row.</p>
+          <p>OptBound is authored by the ReasLab Team. Leading Contributors develop and maintain the benchmark; Review Contributors validate assigned papers and link each contribution to its bound side, setting, and table row.</p>
         </div>
 
-        <section class="contributors-panel" aria-labelledby="authors-heading">
-          <h3 id="authors-heading">Authors</h3>
+        <section class="people-part leading-contributors-panel" aria-labelledby="leading-contributors-heading">
+          <div class="people-part-heading">
+            <h3 id="leading-contributors-heading">Leading Contributors</h3>
+            <span class="people-part-meta">${data.contributors.length} leading contributors</span>
+          </div>
           <ol class="contributors-list">
             ${data.contributors.map((contributor, index) => `
               <li>
@@ -340,37 +384,31 @@ app.innerHTML = `
           </ol>
         </section>
 
-        <div class="review-coverage-note">
-          <div>
-            <strong>${data.reviewMeta.attributedRows} of ${data.rows.length} rows have named review attribution.</strong>
-            <span>The remaining ${data.reviewMeta.pendingCoverageRows} <code>Unknown</code> rows cite no paper and remain ${escapeHtml(data.reviewMeta.unassignedCoverageLabel)}.</span>
+        <section class="people-part review-contributors-panel" aria-labelledby="review-contributors-heading">
+          <div class="people-part-heading">
+            <h3 id="review-contributors-heading">Review Contributors</h3>
+            <span class="people-part-meta">${data.reviewers.length} review contributors · ${data.meta.references} papers</span>
           </div>
-          <span class="reviewer-count">${data.reviewers.length} contributors · ${data.meta.references} papers</span>
-        </div>
+          <div class="review-coverage-note">
+            <div>
+              <strong>${data.reviewMeta.attributedRows} of ${data.rows.length} rows have named review attribution.</strong>
+              <span>The remaining ${data.reviewMeta.pendingCoverageRows} <code>Unknown</code> rows cite no paper and remain ${escapeHtml(data.reviewMeta.unassignedCoverageLabel)}.</span>
+            </div>
+          </div>
 
-        <div class="reviewer-grid" aria-label="Contributors: Review and validation">
-          ${data.reviewers.map(renderReviewerCard).join("")}
-        </div>
+          <div class="reviewer-grid" aria-labelledby="review-contributors-heading">
+            ${data.reviewers.map(renderReviewerCard).join("")}
+          </div>
+        </section>
       </div>
     </section>
-
-    <section class="section-band prose-band alternate" id="references">
-      <div class="content-width section-layout">
-        <aside class="section-index">
-          <p class="section-kicker">Bibliography</p>
-          <h2>References</h2>
-        </aside>
-        <article class="prose references-prose">${data.sections.references}</article>
-      </div>
-    </section>
-    </div>
   </main>
 
   <footer>
     <div class="content-width footer-inner">
       <span>OptBound</span>
-      <span>Current release: vanilla decentralized optimization · v${data.meta.version}</span>
-      <a class="icon-button" href="#top" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up"></i></a>
+      <span>Current release: Decentralized Optimization · v${data.meta.version}</span>
+      <a class="icon-button" href="#top" data-scroll-target="top" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up"></i></a>
     </div>
   </footer>
 `;
@@ -396,9 +434,14 @@ const reviewScopeName = document.querySelector("#review-scope-name");
 const reviewScopeDetail = document.querySelector("#review-scope-detail");
 const suiteTabs = [...document.querySelectorAll(".suite-tab")];
 const suiteParam = new URLSearchParams(window.location.search).get("suite");
-let currentSuiteId = suites.some((suite) => suite.id === suiteParam) ? suiteParam : "decentralized";
+const hasValidSuiteParam = suites.some((suite) => suite.id === suiteParam);
+let currentSuiteId = hasValidSuiteParam ? suiteParam : "decentralized";
 let mode = "all";
 let activeReviewerId = null;
+
+if (suiteParam && !hasValidSuiteParam) {
+  window.history.replaceState({ suite: "decentralized" }, "", window.location.pathname);
+}
 
 function renderSuiteView({ updateUrl = false, scroll = false } = {}) {
   const suite = suites.find((item) => item.id === currentSuiteId) || suites[0];
@@ -660,6 +703,10 @@ document.querySelector("#clear-review-scope").addEventListener("click", () => {
 
 document.querySelectorAll("[data-view-reviewer]").forEach((button) => {
   button.addEventListener("click", () => {
+    if (currentSuiteId !== "decentralized") {
+      currentSuiteId = "decentralized";
+      renderSuiteView({ updateUrl: true });
+    }
     resetAllTableFilters();
     activeReviewerId = button.dataset.viewReviewer;
     updateReviewScope();
@@ -670,6 +717,7 @@ document.querySelectorAll("[data-view-reviewer]").forEach((button) => {
         block: "start",
         behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       });
+      document.querySelector(".table-scroll")?.focus({ preventScroll: true });
     });
   });
 });
@@ -726,9 +774,16 @@ document.addEventListener("click", (event) => {
   const scrollLink = event.target instanceof Element ? event.target.closest("[data-scroll-target]") : null;
   if (scrollLink) {
     event.preventDefault();
-    document.getElementById(scrollLink.dataset.scrollTarget)?.scrollIntoView({
-      block: "start",
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    const target = document.getElementById(scrollLink.dataset.scrollTarget);
+    if (target && currentSuiteId !== "decentralized" && suiteContent.contains(target)) {
+      currentSuiteId = "decentralized";
+      renderSuiteView({ updateUrl: true });
+    }
+    requestAnimationFrame(() => {
+      target?.scrollIntoView({
+        block: "start",
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
     });
     clearFragment();
     return;
@@ -755,8 +810,17 @@ document.addEventListener("click", (event) => {
     return;
   }
 
-  highlightTarget(id);
-  clearFragment();
+  if (currentSuiteId !== "decentralized") {
+    currentSuiteId = "decentralized";
+    renderSuiteView({ updateUrl: true });
+    requestAnimationFrame(() => {
+      highlightTarget(id);
+      clearFragment();
+    });
+  } else {
+    highlightTarget(id);
+    clearFragment();
+  }
 });
 
 document.addEventListener("animationend", (event) => {

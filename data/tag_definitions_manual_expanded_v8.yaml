@@ -2,12 +2,12 @@ version: 8
 language: en
 sections:
 - heading: Fixed scope
-  latex: Every row concerns vanilla decentralized optimization with peer-to-peer gossip, synchronous communication
-    rounds, and no communication compression. These four fixed attributes are therefore omitted from the
-    row labels; the structured problem tags retain them for taxonomy and audit purposes.
-  markdown: Every row concerns vanilla decentralized optimization with peer-to-peer gossip, synchronous
-    communication rounds, and no communication compression. These four fixed attributes are therefore
-    omitted from the row labels; the structured problem tags retain them for taxonomy and audit purposes.
+  latex: Every row in the current Decentralized Optimization release assumes peer-to-peer gossip, synchronous
+    communication rounds, and no communication compression. These fixed attributes are omitted from the row
+    labels; the structured problem tags retain them for taxonomy and audit purposes.
+  markdown: Every row in the current Decentralized Optimization release assumes peer-to-peer gossip, synchronous
+    communication rounds, and no communication compression. These fixed attributes are omitted from the row
+    labels; the structured problem tags retain them for taxonomy and audit purposes.
 - heading: Objective form
   latex: '
 
